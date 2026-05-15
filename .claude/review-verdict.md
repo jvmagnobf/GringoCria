@@ -1,95 +1,65 @@
 # Veredicto de Revisão
-Data: 2026-05-13
+Data: 2026-05-15
 Documento avaliado: .claude/dev-commands.md
-Revisão: 4 de 3 (ciclo extra — verificação pontual de IMP-006 após correções)
+Revisão: 1 de 3
 
 ## Veredicto: APPROVE
 
-Escopo desta revisão: IMP-006 exclusivamente. As correções aplicadas pelo redator-dev resolvem os dois bloqueantes identificados no ciclo anterior. Nenhum novo problema bloqueante foi introduzido.
+Os comandos estão claros, acionáveis e alinhados ao contexto fechado: a IA premium já existe com Apple Foundation Models on-device; o escopo é discoverability/navegação premium dentro da `TabView` autenticada, com renomeação de `Home` para `Scenarios`. Nenhum hard reject foi encontrado.
 
 ---
 
-## Avaliação das Duas Correções Aplicadas
-
-### Correção 1 — `isTerminal` verificado dentro do loop
-
-**Status: RESOLVIDA.**
-
-Mudança B (bloco `auto`): a sequência é `revealedSteps.append(step)` → `currentIndex += 1` → `if step.isTerminal { isCompleted = true; onCompleted?(); return }`. O `return` ocorre antes de qualquer nova iteração. Quando o step 9 (`isTerminal: true`, índice 8) é processado, o loop retorna sem alcançar o índice 9 (step 6a). O bug original — step 6a sendo exibido no path linear e `isCompleted` nunca sendo setado — está corrigido.
-
-Mudança A (bloco `vendorVariation`): a verificação interna usa `ephemeral.isTerminal`, que é `false` hardcoded na construção do objeto. A verificação é morta por construção para o script atual, mas funciona como código defensivo correto.
-
-Mudança E (fallback pós-loop): prescrita como `if currentIndex >= steps.count { isCompleted = true; onCompleted?() }` — safety net para esgotamento de array, sem assumir responsabilidade de término por `isTerminal`. A restrição na linha 618 proíbe explicitamente mover `isTerminal` para fora do loop como mecanismo principal. Alinhamento entre ação e restrição: confirmado.
-
-### Correção 2 — init memberwise de `ScriptStep` em `selectChoice`
-
-**Status: RESOLVIDA.**
-
-Mudança D: `choiceRevealed` inclui `vendorVariations: nil`, `vendorVariationsEN: nil`, `isTerminal: false` com bloco Swift literal completo e justificativa inline. O critério de aceite na linha 621 confirma o requisito de compilação. Alinhamento entre ação e critério: confirmado.
-
----
-
-## Verificações Pontuais Solicitadas
-
-### 1. Fluxo `vendorVariation` silencioso (string vazia) também verifica `isTerminal`?
-
-**Resposta: não verifica — e isso é aceitável.**
-
-Quando `picked == ""`, o bloco `if !picked.isEmpty` é saltado inteiro, incluindo a verificação `if ephemeral.isTerminal`. O loop faz `currentIndex += 1; continue` sem nenhuma checagem de terminal. A especificação do "Comportamento esperado" diz "imediatamente após appendar cada step em `revealedSteps`" — como nada é appendado no path silencioso, a ausência de verificação respeita o contrato. No script atual, o step 3 tem `isTerminal: false`, portanto sem impacto funcional. Limitação documentável, não bloqueante.
-
-### 2. O step silencioso (`""`) não é adicionado a `revealedSteps`?
-
-**Confirmado: correto.**
-
-O `revealedSteps.append(...)` está exclusivamente dentro do bloco `if !picked.isEmpty`. No path silencioso nenhum append ocorre. Nenhum balão vazio é gerado.
-
-### 3. Navegação por `nextStepId` — UUID inexistente tem fallback prescrito?
-
-**Confirmado: fallback presente e correto.**
-
-Mudança C prescreve `currentIndex += 1` com `print("[ScenarioViewModel] nextStepId \(nextId) não encontrado — avançando linearmente.")` quando `steps.firstIndex(where: { $0.id == nextId })` retorna `nil`. Sem crash, com log auditável. O critério de aceite na linha 632 cobre explicitamente este caso.
-
-### 4. Critério de aceite negativo cobre "Step 6a não aparece quando usuário vai pelo caminho direto"?
-
-**Confirmado: presente.**
-
-Linha 629 do documento: `[ ] Step 6a (A100006A-0000-0000-0000-00000000006A) nunca aparece em revealedSteps quando o usuário seleciona "Quero o de 12" ou "Quero o de 15" diretamente no step 6.` Mensurável e testável. Item adicionado corretamente como Required change do ciclo anterior.
-
----
-
-## Pontuação do IMP-006 — Revisão Atual
-
-| Critério | Score anterior | Score atual | Movimento |
-|----------|---------------|-------------|-----------|
-| Título | 10/10 | 10/10 | = |
-| Contexto | 10/10 | 10/10 | = |
-| Ação | 5/10 | 9/10 | +4 |
-| Critério de aceite | 8/10 | 10/10 | +2 |
-| Restrições | 10/10 | 10/10 | = |
-| **Score IMP-006** | **6/10** | **9.8/10** | **+3.8** |
-
-**Justificativa do 9.8 em vez de 10:**
-
-Ponto de desconto (non-blocking): a verificação de `isTerminal` no bloco `vendorVariation` é morta por construção — `ephemeral.isTerminal` é sempre `false`. O código compila e funciona, mas um dev lendo o bloco pode se confundir ao ver uma verificação que nunca dispara. Uma linha de comentário — `// ephemeral sempre tem isTerminal: false; verificação defensiva para futuras extensões` — eliminaria a ambiguidade sem custo.
-
----
-
-## Pontuação Geral do Documento (todos os comandos)
+## Pontuação Geral
 
 | Critério | Score | Justificativa |
 |----------|-------|---------------|
-| Títulos | 10/10 | Todos com verbo imperativo, específicos e delimitados por componente. |
-| Contextos | 10/10 | Arquivos, linhas reais e comportamentos atuais identificados em todos os comandos. |
-| Ações | 9/10 | IMP-004 e IMP-005+IMP-007 intactos (10/10 cada). IMP-006 passou de 5 para 9 com as correções. Desconto residual apenas pela verificação morta no `vendorVariation`. |
-| Critérios de aceite | 10/10 | IMP-006 ganhou o item negativo do step 6a. Todos os critérios são mensuráveis e testáveis. |
-| Restrições | 10/10 | IMP-006 adicionou restrição explícita proibindo `isTerminal` fora do loop como mecanismo principal (linha 618). |
-| Completude (bugs) | N/A | Nenhum comando de bug. |
-| **Média** | **9.8/10** | |
+| Títulos | 10/10 | Todos começam com verbo imperativo (`Implemente`, `Refatore`, `Renomeie`) e descrevem o componente afetado. Não há bugs, então prioridade em título não se aplica. |
+| Contextos | 9/10 | Os comandos citam arquivos reais, comportamento atual, comportamento esperado e dependências do AI Chat premium já implementado. O único desconto é que `PremiumView` poderia explicitar melhor a origem dos dados/loading state. |
+| Ações | 8/10 | As ações são executáveis e bem delimitadas. O desconto vem da formulação de IMP-001 sobre "closures para abrir `ScenarioView` ou `AIChatEntryView`", que pode ser interpretada de mais de uma forma em SwiftUI. |
+| Critérios de aceite | 9/10 | Os critérios são mensuráveis e cobrem ordem das abas, filtro premium, sheet, regressão de Profile e compilação. Poderiam incluir explicitamente estados de loading/erro da aba Premium. |
+| Restrições | 10/10 | Restrições fortes impedem troca de provider de IA, backend, paywall, duplicação integral da Home e mudanças fora de escopo. |
+| Completude (bugs) | N/A | O documento declara que não há bugs classificados; os comandos são feature/improvements. |
+| **Média** | **9.2/10** | |
+
+---
+
+## Avaliação por Comando
+
+### FEAT-001: Implemente a aba Premium na TabView autenticada existente
+- **Score**: 9/10
+- **Strength**: O comando delimita corretamente a superfície nova: `PremiumView` dentro de `AuthenticatedTabView`, entre `Scenarios` e `Profile`, sem criar rota paralela, backend, paywall ou nova arquitetura de IA.
+- **Risk**: A ação presume que IMP-001 já definiu a composição compartilhada, mas não explicita se `PremiumView` deve instanciar seu próprio `HomeViewModel` e replicar loading/error handling da Home. Um dev pode implementar a lista feliz e esquecer estados de carregamento/erro.
+- **Required change**: Nenhuma.
+- **Suggestion (non-blocking)**: Adicionar um item de aceite dizendo que `PremiumView` reutiliza o carregamento de cenários via `HomeViewModel` ou outro mecanismo existente, preservando estados de loading, erro e vazio sem duplicar lógica pesada.
+
+### IMP-001: Refatore a composição da Home para reutilizar a listagem com filtro premium
+- **Score**: 8/10
+- **Strength**: É o comando mais importante do pacote e identifica corretamente a causa estrutural: `ScenarioSection` e `SubscenarioCard` estão `private`, então duplicar a Home seria o caminho errado.
+- **Risk**: A frase "closures para abrir `ScenarioView` ou `AIChatEntryView`" deixa margem técnica. Em SwiftUI, a navegação atual para `ScenarioView` usa `NavigationLink(value:)` com `.navigationDestination(for:)`, enquanto o chat premium usa estado local + `.sheet(item:)`. Se o dev tentar encapsular tudo em closures genéricas dentro de `ScenarioListView`, pode criar acoplamento ou quebrar a navegação por valor.
+- **Required change**: Nenhuma.
+- **Suggestion (non-blocking)**: Especificar a assinatura esperada em termos de responsabilidade, por exemplo: `ScenarioListView` renderiza seções/cards e recebe `onPremiumTap(Subscenario)`, enquanto a navegação gratuita continua por `NavigationLink(value:)` e o estado do sheet permanece em `HomeView`/`PremiumView`.
+- **Suggestion (non-blocking)**: Declarar que os componentes extraídos devem deixar de ser `private` apenas no nível necessário para reutilização no módulo, sem expor API pública desnecessária.
+
+### IMP-002: Renomeie a aba Home para Scenarios na TabBar
+- **Score**: 10/10
+- **Strength**: Comando cirúrgico, sem ambiguidade: muda somente o label visível da primeira aba, preservando `HomeView`, `NavigationStack`, título de navegação e aba `Profile`.
+- **Risk**: Baixo. A única dependência é a ordem de execução, porque FEAT-001 espera a primeira aba já nomeada como `Scenarios`.
+- **Required change**: Nenhuma.
+- **Suggestion (non-blocking)**: Nenhuma.
+
+---
+
+## Riscos de Regressão e Ambiguidades de Escopo
+
+- A maior regressão possível é quebrar a navegação gratuita ao extrair `ScenarioSection`/`SubscenarioCard`; os critérios de aceite cobrem isso, mas IMP-001 deveria ser implementado com atenção ao padrão atual de `NavigationLink(value:)`.
+- A aba Premium deve filtrar exatamente `isLocked == true && scriptName.isEmpty`. Qualquer tentativa de inferir premium por título, ícone, persona existente ou serviço de assinatura violaria o escopo.
+- O documento acerta ao bloquear mudanças em `AIChatView`, `AIChatEntryView`, serviços de IA, `PersonaRepository`, provider e backend. Esse limite é essencial para não transformar discoverability em refatoração de IA.
+- A ordem `IMP-002 -> IMP-001 -> FEAT-001` é aceitável. A dependência real é `FEAT-001` após `IMP-001`; `IMP-002` é independente, mas executá-lo primeiro reduz conflito sem risco.
 
 ---
 
 ## Sugestões gerais (non-blocking)
 
-- A sugestão do ciclo anterior sobre documentar a dependência de sequência 6a→6b no IMP-005+IMP-007 ("6b deve imediatamente seguir 6a no array; a transição entre eles é por incremento, não por UUID") permanece válida e aberta, mas não impede aprovação.
-- O comentário sobre a verificação morta de `ephemeral.isTerminal` na Mudança A é a única sugestão nova desta rodada.
-- O padrão de incluir blocos Swift literais completos nos comandos foi mantido e é o ponto mais forte do documento — nenhum campo de interpretação aberto para o dev.
+- Incluir um critério explícito para `PremiumView` preservar estados de loading/erro/vazio ao carregar cenários.
+- Tornar mais concreta a responsabilidade de `ScenarioListView`: renderização compartilhada e callback para premium, sem assumir controle total da navegação da árvore.
+- Manter previews das novas views com os mesmos environments usados por `AuthenticatedTabView`/`HomeView`, para capturar cedo falhas de dependência.

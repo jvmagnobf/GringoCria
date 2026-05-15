@@ -1,157 +1,73 @@
 # Feedback Classificado
-Data: 2026-05-13
-Total de feedbacks recebidos: 1 (requisito técnico com 4 superfícies afetadas)
-Itens gerados: 4
+Data: 2026-05-15
+Total de feedbacks recebidos: 1 (pedido de navegação premium com 3 requisitos explícitos)
+Itens gerados: 3
 
 ---
 
 ## Bugs (0 itens)
 
-Nenhum bug identificado. O requisito descreve expansão deliberada de comportamento e substituição de conteúdo, não falha no funcionamento atual.
+Nenhum bug identificado. O pedido descreve reorganização de navegação e descoberta de conteúdo premium já existente, não falha funcional no app atual.
 
 ---
 
-## Feature Requests (0 itens)
+## Feature Requests (1 item)
 
-Nenhum.
+### FEAT-001: Adicionar aba `Premium` na TabBar autenticada
 
----
-
-## Improvements (4 itens)
-
-### IMP-004: Adicionar `vendorVariation`, `auto` e campo `vendorVariations` ao modelo `ScriptStep`
-
-- **Componente/Tela**: `GringoCria/Models/ScriptStep.swift`
-- **Estado atual**: `StepType` tem apenas dois cases — `message` e `choice`. `ScriptStep` não tem campo para variações de texto do vendedor. `ChoiceOption` não tem `nextStepId` para ramificação condicional.
-- **Melhoria sugerida**:
-
-  **1. Novo case `vendorVariation` em `StepType`**
-  Representa um turno do vendedor em que o app sorteia uma das variações antes de exibir. É semanticamente distinto de `message` (texto fixo) e precisa de case próprio para que o ViewModel possa tratá-lo diferentemente.
-
-  **2. Novo case `auto` em `StepType`**
-  O contexto do prompt diz que `auto` já existe — mas o arquivo atual (linha 15–18) mostra apenas `message` e `choice`. O case precisa ser adicionado. Representa um turno do cliente que avança sem interação do usuário (ação física narrada).
-
-  **3. Novo campo `vendorVariations: [String]?` em `ScriptStep`**
-  Armazena as variações candidatas ao sorteio. Manter separado de `choices` é correto: `choices` é sempre uma lista de opções para o cliente interagir; `vendorVariations` é uma lista de candidatos internos do vendedor. Misturar os dois no mesmo campo quebraria a semântica e dificultaria a leitura do JSON.
-
-  **4. Novo campo `nextStepId: UUID?` em `ChoiceOption`**
-  Necessário para que o step 6 aponte para destinos diferentes dependendo da escolha. Quando `nil`, o comportamento padrão (próximo step na sequência) é mantido — compatível com todos os steps existentes e futuros que sejam lineares.
-
-- **Decisão de produto já tomada**: campo `vendorVariations` separado de `choices`, conforme enunciado. Não questionar.
+- **Componente/Tela**: `GringoCria/Views/AuthenticatedTabView.swift`; nova tela provável em `GringoCria/Views/Premium/PremiumView.swift` ou reaproveitamento parametrizado de `HomeView`.
+- **O que o usuário quer**: Uma terceira aba na `TabView` autenticada, ao lado de `Scenarios` e `Profile`, dedicada exclusivamente às conversas premium.
+- **Valor para o usuário**: Dá uma superfície própria para conteúdo premium e evita que conversas de AI Chat fiquem enterradas junto dos cenários scriptados gratuitos.
+- **Estado atual observado**: `AuthenticatedTabView` contém apenas duas abas: `HomeView()` com label `"Home"` e `ProfileView()` com label `"Profile"`. O AI Chat premium existe, mas aparece como subscenario bloqueado dentro da Home.
+- **Filtro esperado**: Mostrar somente subscenarios premium/conversas premium. No estado atual, o identificador técnico mais seguro é `Subscenario.isLocked == true && Subscenario.scriptName.isEmpty`, porque essa é a convenção documentada para cards de AI Chat. Para maior precisão, a tela também pode validar se `PersonaRepository.persona(for:)` retorna uma persona antes de exibir o item como conversa premium disponível.
+- **Decisão fechada**: A implementação do AI Chat premium com Apple Foundation Models on-device não deve ser reavaliada nem substituída. Este item é só de navegação e apresentação.
 - **Info faltante**:
-  - `isCorrect` em `ChoiceOption`: o modelo atual tem o campo mas o novo script não define respostas certas/erradas. Dev decide se todas as novas choices recebem `isCorrect: true`, `false` ou `null`. Isso afeta qualquer lógica de penalidade futura referenciada no TODO na linha 41 do ViewModel.
-  - Tratamento de `vendorVariations` vazio ou nulo em tempo de decodificação: o campo é opcional, mas o ViewModel precisa saber o que fazer se um step do tipo `vendorVariation` vier sem o campo preenchido (fallback para string vazia, log de aviso, ou `preconditionFailure` em debug).
+  - Ícone da nova aba `Premium` na TabBar. Sugestão técnica coerente com o estado atual: `wand.and.sparkles` ou `sparkles`.
+  - Se a aba Premium deve listar conversas premium "em breve" sem persona ou apenas conversas já disponíveis via `PersonaRepository`.
+  - Se o título de navegação da nova tela deve ser exatamente `"Premium"` ou seguir algum padrão bilíngue do app.
+- **Feedback original**: "Adicionar mais uma tela na TabBar, no mesmo estilo da tela inicial/Home, mas dedicada somente às conversas premium."
 
 ---
 
-### IMP-005: Reescrever `matte.json` com os 9–11 steps, UUIDs fixos, `vendorVariations`, `nextStepId` e traduções EN
+## Improvements (2 itens)
 
-- **Componente/Tela**: `GringoCria/Resources/scripts/matte.json`
-- **Estado atual**: Script de 6 steps lineares, sem variação do vendedor, sem ramificação, sem perguntas de sabor, sem steps de ação física. A segunda choice do step 2 ("Ou do Matte!!") já existe no novo script — manter UUID ou gerar novo.
-- **Melhoria sugerida**: Substituição completa do arquivo com a seguinte estrutura:
+### IMP-001: Reaproveitar a estrutura visual/navegação da Home com filtro premium
 
-  | # | Speaker | Tipo | Conteúdo PT |
-  |---|---------|------|-------------|
-  | 1 | vendor | `message` | "Olha o Matte!!! Olha o Matte!!!" |
-  | 2 | customer | `choice` | 2 choices: ação física + frase |
-  | 3 | vendor | `vendorVariation` | 3 variações: "Fala chefe" / "Fala tu" / "" (silêncio) |
-  | 4 | customer | `choice` | 3 choices: formas de perguntar preço |
-  | 5 | vendor | `message` | "Tem de 12 e tem o 15" |
-  | 6 | customer | `choice` com `nextStepId` | 4 choices com destinos diferentes |
-  | 6a | vendor | `message` condicional | "Sim" |
-  | 6b | customer | `choice` condicional | 2 choices: preço |
-  | 7 | vendor | `message` | "Aceito pix, dinheiro ou cartão" |
-  | 8 | customer | `auto` | "*Paga o matte*" |
-  | 9 | customer | `auto` | "*Estica o copo...*" |
-
-  **Choices com traduções EN completas:**
-
-  Step 2:
-  - PT: "*Faz sinal para chamar o vendedor*" / EN: "Waves to get the vendor's attention"
-  - PT: "Ou do Matte!!" / EN: "Hey, Mate!!"
-
-  Step 4:
-  - PT: "Coé ta quanto aí?" / EN: "Hey, how much is it?"
-  - PT: "E aí paizão ta quanto o matte?" / EN: "Hey man, how much is the mate?"
-  - PT: "Fala paizão vê um matte" / EN: "What's up man, hook me up with a mate"
-
-  Step 6 (com `nextStepId`):
-  - PT: "Tem maracujá e limão?" / EN: "Do you have passion fruit and lime?" → `nextStepId`: UUID do step 6a
-  - PT: "Tem sem açúcar?" / EN: "Do you have it without sugar?" → `nextStepId`: UUID do step 6a
-  - PT: "Quero o de 12" / EN: "I'll take the R$12 one" → `nextStepId`: UUID do step 7
-  - PT: "Quero o de 15" / EN: "I'll take the R$15 one" → `nextStepId`: UUID do step 7
-
-  Step 6b:
-  - PT: "Quero o de 12" / EN: "I'll take the R$12 one"
-  - PT: "Quero o de 15" / EN: "I'll take the R$15 one"
-
-  Step 8: PT: "*Paga o matte*" / EN: "Pays for the mate"
-  Step 9: PT: "*Estica o copo para botar o matte e escolhe se quer limão ou maracujá ou sem açúcar*" / EN: "Extends the cup to receive the mate and picks lime, passion fruit, or no sugar"
-
+- **Componente/Tela**: `GringoCria/Views/Home/HomeView.swift`; `GringoCria/ViewModels/HomeViewModel.swift`; possível extração de componentes privados `ScenarioSection` e `SubscenarioCard`.
+- **Estado atual**: `HomeView` carrega todos os cenários de `scenarios.json` via `HomeViewModel`, renderiza seções por scenario, navega para `ScenarioView` em subscenarios gratuitos e abre `AIChatEntryView` em sheet para subscenarios bloqueados. `ScenarioSection` e `SubscenarioCard` são `private` dentro de `HomeView.swift`, então uma tela Premium separada não consegue reutilizá-los diretamente sem duplicar código ou extrair componentes.
+- **Melhoria sugerida**: Criar uma estrutura reutilizável para listar cenários/subscenarios com configuração de filtro e título. A tela atual deve continuar exibindo os cenários normais; a nova tela Premium deve usar a mesma estrutura visual e o mesmo fluxo de sheet para `AIChatEntryView`, mas recebendo um filtro que mantém apenas conversas premium.
+- **Critério de filtro sugerido**:
+  - Premium AI disponível: `subscenario.isLocked == true && subscenario.scriptName.isEmpty && PersonaRepository().persona(for: subscenario) != nil`
+  - Premium AI em desenvolvimento: `subscenario.isLocked == true && subscenario.scriptName.isEmpty && PersonaRepository().persona(for: subscenario) == nil`, se produto quiser mostrar "Coming Soon".
+- **Causa provável da mudança**: A Home foi criada como superfície única para todos os subscenarios. Com AI Chat premium implementado, a arquitetura de UI precisa separar descoberta de cenários scriptados e descoberta de conversas premium sem duplicar renderização.
 - **Info faltante**:
-  - UUIDs definitivos: gerar com `uuidgen` antes de commitar. Nunca reutilizar os UUIDs do script atual — os steps têm estrutura completamente diferente e reutilizar causaria risco de colisão em futuras features de analytics ou histórico.
-  - O silêncio do vendedor no step 3 é representado como `""` (string vazia) dentro de `vendorVariations`. Confirmar com autor se o array fica `["Fala chefe", "Fala tu", ""]` ou se o step silencioso usa outro mecanismo (ex.: `null` no array).
-  - Steps 6a e 6b são condicionais — existem no JSON mas o ViewModel precisa saber ignorá-los no fluxo linear (só chegam a eles via `nextStepId`). Confirmar como o JSON organiza esses steps: inline na sequência numerada (e o ViewModel pula por ID) ou em uma seção separada de steps auxiliares.
+  - Se a Home/Scenarios deve continuar exibindo também os cards premium ou se os premium devem migrar exclusivamente para a aba Premium. O texto pede "somente" para a nova tela, mas não diz para remover da tela inicial.
+  - Se a nova tela deve preservar agrupamento por `Scenario` ("Beach" contendo "AI Mate Chat") ou achatar a lista de conversas premium.
+  - Estado vazio da tela Premium quando não houver conversas premium disponíveis.
+- **Feedback original**: "Essa nova tela deve ser igual à tela inicial em estrutura visual/navegação, mudando o nome para Premium e filtrando para mostrar apenas os conteúdos premium/conversas premium."
 
 ---
 
-### IMP-006: Atualizar `ScenarioViewModel` para suportar variação aleatória, step silencioso, ramificação por `nextStepId` e auto-avanço
+### IMP-002: Renomear aba `Home` para `Scenarios`
 
-- **Componente/Tela**: `GringoCria/ViewModels/ScenarioViewModel.swift`
-- **Estado atual**: Avanço estritamente linear por `currentIndex`. `revealNextVendorMessage()` usa loop `while` que quebra em qualquer step que não seja `message` do vendor. `selectChoice(_:)` faz `currentIndex += 1` sem verificar `nextStepId`. `currentChoices` filtra por `step.type == .choice`.
-- **Melhoria sugerida**: Quatro mudanças independentes, listadas por ordem de impacto:
-
-  **a) Sorteio de `vendorVariation` (dentro de `revealNextVendorMessage`)**
-  Detectar `step.type == .vendorVariation`, sortear índice aleatório em `step.vendorVariations`, construir `ScriptStep` efêmero com UUID novo (padrão já estabelecido na linha 51 para evitar `Duplicate ID` em `ForEach`), appender em `revealedSteps`, incrementar `currentIndex`, continuar o loop.
-
-  **b) Step silencioso (extensão do caso acima)**
-  Se a variação sorteada for `""`, não appender nenhum `ScriptStep` em `revealedSteps` — apenas incrementar `currentIndex` e continuar o loop. A View não exibe balão algum.
-
-  **c) Auto-avanço do cliente (`auto`)**
-  Dentro do mesmo `while`, detectar `step.type == .auto`, appender o step diretamente em `revealedSteps` (sem sortear, sem botão), aplicar `Task.sleep` de 1.2s (mesmo delay já usado para mensagens do vendor na linha 96), incrementar `currentIndex`, continuar o loop.
-
-  **d) Navegação por `nextStepId` em `selectChoice(_:)`**
-  Após exibir a choice selecionada, verificar se `choice.nextStepId != nil`. Se sim, encontrar o índice do step com esse ID em `steps` e atribuir a `currentIndex`. Se não, manter o comportamento atual (`currentIndex += 1`). A busca é `steps.firstIndex(where: { $0.id == nextStepId })` — O(n) sobre um array pequeno, aceitável.
-
-  **`currentChoices`**: nenhuma alteração necessária. Já filtra `step.type == .choice` — não exibe botões para `vendorVariation` nem `auto`.
-
-- **Risco arquitetural — troca de navegacao linear por ID:**
-
-  A mudança em `selectChoice(_:)` é cirúrgica quando `nextStepId` está presente — apenas a resolução do índice muda, não a estrutura do loop nem o contrato do ViewModel. Porém há três pontos de atenção que o dev deve verificar antes de implementar:
-
-  1. **`isCompleted` usa `currentIndex >= steps.count` (linha 103).** Com navegação por ID, um `nextStepId` apontando para um step fora da sequência linear nunca incrementará `currentIndex` além do último elemento de forma previsível. O dev deve auditar se `isCompleted` continua sendo acionado corretamente após a última choice ramificada. Uma alternativa mais robusta é marcar um step como `isTerminal: Bool` no modelo e usar isso como condição de conclusão.
-
-  2. **Steps condicionais (6a, 6b) devem ser alcançáveis apenas por `nextStepId`, nunca por incremento sequencial.** Se esses steps ficarem inline no array `steps`, o loop `while` de `revealNextVendorMessage` pode alcançá-los acidentalmente após o step 6 caso o dev esqueça de ajustar o fluxo. Mitigação: garantir que o JSON posicione os steps condicionais após o step 7 no array (fora do caminho linear), ou marcar o step 6 com `type: "choice"` para que o loop quebre antes de avançar.
-
-  3. **`revealNextVendorMessage` usa `currentIndex` para iterar.** Após `selectChoice` definir `currentIndex` via ID lookup, o loop recomeça do índice correto — isso é seguro. Mas se dois paths diferentes convergirem no mesmo step 7 (como o script define), o índice resolvido para o step 7 deve ser idêntico nos dois casos, o que é garantido porque o UUID é fixo no JSON. Não há risco aqui desde que os UUIDs não sejam gerados em runtime.
-
+- **Componente/Tela**: `GringoCria/Views/AuthenticatedTabView.swift`; possível ajuste futuro de nomes internos se o time quiser alinhar semântica.
+- **Estado atual**: A primeira aba usa `Label("Home", systemImage: "house.fill")`, mas a tela renderiza uma lista de cenários e subcenários, não uma home genérica.
+- **Melhoria sugerida**: Trocar apenas o texto visível da TabBar de `"Home"` para `"Scenarios"`. Não é necessário renomear `HomeView`, arquivo ou navigation title para cumprir o pedido; fazer isso agora seria refatoração extra sem necessidade.
+- **Causa provável da mudança**: Com a chegada de uma aba `Premium`, o rótulo `Home` fica impreciso. `Scenarios` descreve melhor a função da primeira aba e reduz ambiguidade entre conteúdo comum e conteúdo premium.
 - **Info faltante**:
-  - Delay dos steps `auto`: o enunciado sugere 1.2s (mesmo delay do vendor). Confirmar se é o mesmo valor ou se produto quer delay diferente para ações físicas do cliente.
-  - Estilo visual dos steps `auto` na View: em itálico? Com cor diferente? O ViewModel já expõe o tipo via `revealedSteps` — a View pode ler `step.type` diretamente. Mas se houver estilo especial, a View precisa saber tratar `auto` antes de o ViewModel ser entregue.
-  - Tratamento de `nextStepId` que não encontra match no array: log silencioso e fallback para `currentIndex += 1`, ou crash em debug via `preconditionFailure`?
-
----
-
-### IMP-007: Adicionar traduções EN para todas as falas e choices do novo script do Matte
-
-- **Componente/Tela**: `GringoCria/Resources/scripts/matte.json` (campo `translationEN` nos steps e `translationEN` nas choices)
-- **Estado atual**: O script atual tem `translationEN` em todos os steps e choices, mas o conteúdo está desatualizado — as falas do novo script são diferentes e as choices adicionadas (sabores, ramificação) não existem.
-- **Melhoria sugerida**: Garantir que todos os 9–11 steps e todas as choices do novo script tenham `translationEN` preenchido antes do commit. Os textos EN sugeridos estão listados no IMP-005. Atenção especial para:
-  - Steps `auto` de cliente: a tradução deve preservar o tom de narração de ação física (ex.: "Pays for the mate", não "Pay for the mate").
-  - Choices em gíria carioca: as traduções devem ser naturais em inglês, não literais. "Coé ta quanto aí?" não é "What is it worth there?" — é "Hey, how much is it?". Revisar com falante nativo ou autor do conteúdo antes de publicar.
-  - Variações do vendedor no step 3: `vendorVariations` é um array de strings — definir se as traduções ficam em um campo paralelo `vendorVariationsEN: [String]?` ou se cada variação é um objeto `{ textPT, translationEN }`. Essa decisão afeta o modelo (IMP-004) e o JSON (IMP-005).
-
-- **Info faltante**:
-  - Estrutura das traduções para `vendorVariations`: strings paralelas ou objetos? Bloqueia IMP-004 e IMP-005.
-  - Revisão humana das traduções de gíria — não é bloqueante para desenvolvimento mas é bloqueante para QA de conteúdo.
+  - Se o ícone deve continuar `house.fill` ou mudar para algo semanticamente mais próximo de cenários, como `list.bullet.rectangle` ou `map`.
+  - Se o `navigationTitle("GringoCria")` dentro de `HomeView` deve permanecer como marca do app ou também mudar para `"Scenarios"`. O pedido só exige mudança na TabBar.
+- **Feedback original**: "Trocar o nome na TabBar da tela inicial para Scenarios."
 
 ---
 
 ## Duplicatas
 
-IMP-004, IMP-005, IMP-006 e IMP-007 são a mesma iniciativa de produto vista por quatro superfícies técnicas distintas. Não são duplicatas entre si — cada item descreve um arquivo diferente com mudanças independentes. Um dev pode implementar IMP-004 sem tocar IMP-006, por exemplo.
+Nenhuma duplicata técnica identificada.
 
-IMP-004 a IMP-007 não têm sobreposição com IMP-001, IMP-002 (idioma da interface, sessão anterior) nem com IMP-003 (classificação anterior que tratava uma versão menos detalhada do mesmo requisito e agora é substituída por estes quatro itens).
+FEAT-001 e IMP-001 se sobrepõem na mesma iniciativa, mas não são duplicatas: FEAT-001 trata da nova superfície de navegação na `TabView`; IMP-001 trata da reutilização/filtro da lista de cenários para que a nova superfície não duplique `HomeView` de forma frágil.
+
+IMP-002 é independente: pode ser implementado sozinho com uma alteração pequena em `AuthenticatedTabView`.
 
 ---
 
@@ -163,7 +79,7 @@ Nenhum.
 
 ## Ordem de implementação sugerida
 
-1. **IMP-004 primeiro** — a decisão sobre `vendorVariationsEN` (strings paralelas vs. objetos) desbloqueia IMP-005 e IMP-007. A decisão sobre `nextStepId` desbloqueia IMP-006.
-2. **IMP-005 em paralelo com IMP-006** — uma vez que o modelo está definido, JSON e ViewModel podem ser desenvolvidos simultaneamente.
-3. **IMP-007 junto com IMP-005** — as traduções são parte do JSON, não um passo separado.
-4. Testar fluxo completo: path linear (step 6 → step 7 direto), path com ramificação (step 6 → 6a → 6b → 7), variação do vendedor no step 3, step silencioso, e auto-avanço dos steps 8 e 9.
+1. **IMP-002 primeiro** — troca simples e isolada do label `"Home"` para `"Scenarios"` em `AuthenticatedTabView`.
+2. **IMP-001 depois** — extrair ou parametrizar a estrutura de listagem da Home antes de criar a tela Premium. Duplicar `HomeView` inteira seria dívida técnica barata de criar e chata de manter.
+3. **FEAT-001 por último** — adicionar a aba `Premium` na `TabView` apontando para a estrutura filtrada já pronta.
+4. **QA obrigatório** — validar que a aba `Scenarios` continua abrindo `ScenarioView` para conteúdo gratuito, que a aba `Premium` só mostra conversas premium, que o sheet `AIChatEntryView` abre corretamente e que `Profile` continua preservado como terceira/última aba conforme decisão visual do time.

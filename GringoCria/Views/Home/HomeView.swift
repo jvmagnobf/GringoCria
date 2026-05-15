@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+@available(iOS 26, *)
 struct HomeView: View {
     @State private var viewModel = HomeViewModel()
+    @State private var selectedLockedSubscenario: Subscenario?
 
     var body: some View {
         Group {
@@ -31,7 +33,12 @@ struct HomeView: View {
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 24) {
                         ForEach(viewModel.scenarios) { scenario in
-                            ScenarioSection(scenario: scenario)
+                            ScenarioSection(
+                                scenario: scenario,
+                                onLockedTap: { subscenario in
+                                    selectedLockedSubscenario = subscenario
+                                }
+                            )
                         }
                     }
                     .padding(.horizontal, 16)
@@ -44,6 +51,9 @@ struct HomeView: View {
         .navigationDestination(for: Subscenario.self) { subscenario in
             ScenarioView(subscenario: subscenario)
         }
+        .sheet(item: $selectedLockedSubscenario) { subscenario in
+            AIChatEntryView(subscenario: subscenario)
+        }
         .task {
             await viewModel.load()
         }
@@ -54,6 +64,7 @@ struct HomeView: View {
 
 private struct ScenarioSection: View {
     let scenario: Scenario
+    let onLockedTap: (Subscenario) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -74,7 +85,12 @@ private struct ScenarioSection: View {
 
             ForEach(scenario.subscenarios) { subscenario in
                 if subscenario.isLocked {
-                    SubscenarioCard(subscenario: subscenario)
+                    Button {
+                        onLockedTap(subscenario)
+                    } label: {
+                        SubscenarioCard(subscenario: subscenario)
+                    }
+                    .buttonStyle(.plain)
                 } else {
                     NavigationLink(value: subscenario) {
                         SubscenarioCard(subscenario: subscenario)
@@ -109,8 +125,10 @@ private struct SubscenarioCard: View {
             Spacer()
 
             if subscenario.isLocked {
-                Image(systemName: "lock.fill")
-                    .foregroundStyle(.secondary)
+                // Subscenario bloqueado com script vazio → acesso via AI premium
+                let isAIEnabled = subscenario.scriptName.isEmpty
+                Image(systemName: isAIEnabled ? "wand.and.sparkles" : "lock.fill")
+                    .foregroundStyle(isAIEnabled ? .blue : .secondary)
                     .font(.title3)
             } else if isCompleted {
                 Image(systemName: "checkmark.circle.fill")
@@ -125,9 +143,14 @@ private struct SubscenarioCard: View {
 }
 
 #Preview {
-    NavigationStack {
-        HomeView()
+    if #available(iOS 26, *) {
+        NavigationStack {
+            HomeView()
+        }
+        .environment(AppState())
+        .environment(ProgressService())
+        .environment(AIAvailabilityService())
+        .environment(AIPersonaService())
+        .environment(PremiumService())
     }
-    .environment(AppState())
-    .environment(ProgressService())
 }

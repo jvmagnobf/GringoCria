@@ -9,6 +9,7 @@ import SwiftUI
 
 // MARK: - AppRouter
 
+@available(iOS 26, *)
 struct AppRouter: View {
     @Environment(AppState.self) private var appState
 

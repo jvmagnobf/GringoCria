@@ -9,6 +9,7 @@ import SwiftUI
 
 // MARK: - AuthenticatedTabView
 
+@available(iOS 26, *)
 struct AuthenticatedTabView: View {
     var body: some View {
         TabView {
@@ -30,8 +31,13 @@ struct AuthenticatedTabView: View {
 }
 
 #Preview {
-    AuthenticatedTabView()
-        .environment(AppState())
-        .environment(SpeechService())
-        .environment(ProgressService())
+    if #available(iOS 26, *) {
+        AuthenticatedTabView()
+            .environment(AppState())
+            .environment(SpeechService())
+            .environment(ProgressService())
+            .environment(AIAvailabilityService())
+            .environment(AIPersonaService())
+            .environment(PremiumService())
+    }
 }

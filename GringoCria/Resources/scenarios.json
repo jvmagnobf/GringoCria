@@ -11,6 +11,13 @@
         "titleEN": "Mate drink",
         "scriptName": "matte",
         "isLocked": false
+      },
+      {
+        "id": "A2000001-0000-0000-0000-000000000001",
+        "titlePT": "Matte com IA",
+        "titleEN": "AI Mate Chat",
+        "scriptName": "",
+        "isLocked": true
       }
     ]
   }
