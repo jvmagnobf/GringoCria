@@ -1,0 +1,73 @@
+[
+  {
+    "id": "C3D4E5F6-A7B8-9012-CDEF-123456789012",
+    "speaker": "vendor",
+    "textPT": "Olha o Matte Olha o Matte",
+    "translationEN": "Check out the Mate, Check out the Mate",
+    "type": "message",
+    "choices": null
+  },
+  {
+    "id": "D4E5F6A7-B8C9-0123-DEF0-234567890123",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "11F93C1E-63D6-4C39-9858-A6C3EF43D6A1",
+        "textPT": "Faz sinal para chamar o vendedor",
+        "translationEN": "Waves to get the vendor's attention"
+      }
+    ]
+  },
+  {
+    "id": "E5F6A7B8-C9D0-1234-EF01-345678901234",
+    "speaker": "vendor",
+    "textPT": "Opa o Matte tá geladinho",
+    "translationEN": "Hey, the Mate is nice and cold",
+    "type": "message",
+    "choices": null
+  },
+  {
+    "id": "F6A7B8C9-D0E1-2345-F012-456789012345",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "467BA4E3-9F11-4480-9EC1-1DB0C7A86544",
+        "textPT": "Quanto tá?",
+        "translationEN": "How much is it?"
+      }
+    ]
+  },
+  {
+    "id": "A7B8C9D0-E1F2-3456-0123-567890123456",
+    "speaker": "vendor",
+    "textPT": "Tá R$5, aceito pix, cartão, dinheiro",
+    "translationEN": "It's R$5, I accept Pix, card, or cash",
+    "type": "message",
+    "choices": null
+  },
+  {
+    "id": "B8C9D0E1-F2A3-4567-1234-678901234567",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "871EF74F-FBC8-4F8E-BCCB-8D177BD79890",
+        "textPT": "Aceita!",
+        "translationEN": "Deal!"
+      },
+      {
+        "id": "82EAF838-49D7-49C1-A6F1-71B69D8D3633",
+        "textPT": "Tá caro, valeu!",
+        "translationEN": "Too expensive, thanks anyway!"
+      }
+    ]
+  }
+]
