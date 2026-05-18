@@ -1,0 +1,30 @@
+{
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/ViewModels/ProfileSetupViewModel.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileSetupViewModel.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileSetupViewModel.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileSetupViewModel.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileSetupViewModel.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileSetupViewModel.swiftdeps"
+  },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/ViewModels/ProfileViewModel.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileViewModel.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileViewModel.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileViewModel.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileViewModel.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ProfileViewModel.swiftdeps"
+  },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/ViewModels/ScenarioViewModel.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ScenarioViewModel.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ScenarioViewModel.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ScenarioViewModel.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ScenarioViewModel.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/ScenarioViewModel.swiftdeps"
+  },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/AIChatEntryView.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/AIChatEntryView.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/AIChatEntryView.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/AIChatEntryView.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/AIChatEntryView.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/x86_64/AIChatEntryView.swiftdeps"
+  }
+}

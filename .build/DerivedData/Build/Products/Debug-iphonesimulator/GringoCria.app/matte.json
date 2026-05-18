@@ -1,0 +1,215 @@
+[
+  {
+    "id": "A1000001-0000-0000-0000-000000000001",
+    "speaker": "vendor",
+    "textPT": "Olha o Matte!!! Olha o Matte!!!",
+    "translationEN": "Mate drink! Mate drink!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000002-0000-0000-0000-000000000002",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000001-0000-0000-0000-000000000001",
+        "textPT": "*Faz sinal para chamar o vendedor*",
+        "translationEN": "*Waves to call the vendor*",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000001-0000-0000-0000-000000000002",
+        "textPT": "Ou do Matte!!",
+        "translationEN": "Hey, Mate!!",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000003-0000-0000-0000-000000000003",
+    "speaker": "vendor",
+    "textPT": "",
+    "translationEN": "",
+    "type": "vendorVariation",
+    "choices": null,
+    "vendorVariations": ["Fala chefe", "Fala tu", ""],
+    "vendorVariationsEN": ["What's up chief", "What's up", ""],
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000004-0000-0000-0000-000000000004",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000004-0000-0000-0000-000000000001",
+        "textPT": "Coé ta quanto aí?",
+        "translationEN": "Yo how much is it?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000004-0000-0000-0000-000000000002",
+        "textPT": "E aí paizão ta quanto o matte?",
+        "translationEN": "Hey man how much is the mate?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000004-0000-0000-0000-000000000003",
+        "textPT": "Fala paizão vê um matte",
+        "translationEN": "Hey man give me a mate",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000005-0000-0000-0000-000000000005",
+    "speaker": "vendor",
+    "textPT": "Tem de 12 e tem o 15",
+    "translationEN": "Got the R$12 and the R$15",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000006-0000-0000-0000-000000000006",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000006-0000-0000-0000-000000000001",
+        "textPT": "Tem maracujá e limão?",
+        "translationEN": "Got passion fruit and lemon?",
+        "isCorrect": null,
+        "nextStepId": "A100006A-0000-0000-0000-00000000006A"
+      },
+      {
+        "id": "B2000006-0000-0000-0000-000000000002",
+        "textPT": "Tem sem açúcar?",
+        "translationEN": "Got sugar-free?",
+        "isCorrect": null,
+        "nextStepId": "A100006A-0000-0000-0000-00000000006A"
+      },
+      {
+        "id": "B2000006-0000-0000-0000-000000000003",
+        "textPT": "Quero o de 12",
+        "translationEN": "I'll take the R$12",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007"
+      },
+      {
+        "id": "B2000006-0000-0000-0000-000000000004",
+        "textPT": "Quero o de 15",
+        "translationEN": "I'll take the R$15",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007"
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000007-0000-0000-0000-000000000007",
+    "speaker": "vendor",
+    "textPT": "Aceito pix, dinheiro ou cartão",
+    "translationEN": "I take pix, cash or card",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000008-0000-0000-0000-000000000008",
+    "speaker": "customer",
+    "textPT": "*Paga o matte*",
+    "translationEN": "*Pays for the mate*",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A1000009-0000-0000-0000-000000000009",
+    "speaker": "customer",
+    "textPT": "*Estica o copo para botar o matte e escolhe se quer limão ou maracujá ou sem açúcar*",
+    "translationEN": "*Holds out the cup for the mate and picks lemon, passion fruit or no sugar*",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  },
+  {
+    "id": "A100006A-0000-0000-0000-00000000006A",
+    "speaker": "vendor",
+    "textPT": "Sim",
+    "translationEN": "Yes",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": "A100006B-0000-0000-0000-00000000006B"
+  },
+  {
+    "id": "A100006B-0000-0000-0000-00000000006B",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B200006B-0000-0000-0000-000000000001",
+        "textPT": "Quero o de 12",
+        "translationEN": "I'll take the R$12",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007"
+      },
+      {
+        "id": "B200006B-0000-0000-0000-000000000002",
+        "textPT": "Quero o de 15",
+        "translationEN": "I'll take the R$15",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007"
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  }
+]

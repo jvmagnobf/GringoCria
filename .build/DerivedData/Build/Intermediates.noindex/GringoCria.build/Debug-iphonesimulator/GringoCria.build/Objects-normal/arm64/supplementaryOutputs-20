@@ -1,0 +1,23 @@
+{
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps"
+  },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/GringoCriaApp.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GringoCriaApp.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GringoCriaApp.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GringoCriaApp.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GringoCriaApp.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/GringoCriaApp.swiftdeps"
+  },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AuthenticatedTabView.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/AuthenticatedTabView.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/AuthenticatedTabView.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/AuthenticatedTabView.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/AuthenticatedTabView.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedData/Build/Intermediates.noindex/GringoCria.build/Debug-iphonesimulator/GringoCria.build/Objects-normal/arm64/AuthenticatedTabView.swiftdeps"
+  }
+}

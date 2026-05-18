@@ -12,15 +12,24 @@ import SwiftUI
 @available(iOS 26, *)
 struct AppRouter: View {
     @Environment(AppState.self) private var appState
+    @State private var showingSplash = true
 
     var body: some View {
-        switch appState.authState {
-        case .unauthenticated:
-            AuthView()
-        case .firstAccess:
-            ProfileSetupView()
-        case .authenticated:
-            AuthenticatedTabView()
+        if showingSplash {
+            SplashView {
+                withAnimation(.easeInOut(duration: 0.4)) {
+                    showingSplash = false
+                }
+            }
+        } else {
+            switch appState.authState {
+            case .unauthenticated:
+                AuthView()
+            case .firstAccess:
+                ProfileSetupView()
+            case .authenticated:
+                AuthenticatedTabView()
+            }
         }
     }
 }

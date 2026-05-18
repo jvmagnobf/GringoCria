@@ -37,6 +37,12 @@ struct AIChatView: View {
                 messageList
                 inputBar
             }
+            .background {
+                Image("FundoChat")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+            }
             .navigationTitle(persona.nameEN)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -78,6 +84,8 @@ struct AIChatView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
             }
+            .scrollDismissesKeyboard(.interactively)
+            .onTapGesture { isInputFocused = false }
             .onChange(of: viewModel.messages.count) {
                 scrollToBottom(proxy: proxy)
             }
@@ -124,7 +132,7 @@ struct AIChatView: View {
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
-            .background(Color(.systemBackground))
+            .background(.ultraThinMaterial)
         }
     }
 

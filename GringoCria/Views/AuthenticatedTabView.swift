@@ -17,7 +17,14 @@ struct AuthenticatedTabView: View {
                 HomeView()
             }
             .tabItem {
-                Label("Home", systemImage: "house.fill")
+                Label("Scenarios", systemImage: "house.fill")
+            }
+
+            NavigationStack {
+                PremiumView()
+            }
+            .tabItem {
+                Label("Premium", systemImage: "wand.and.sparkles")
             }
 
             NavigationStack {

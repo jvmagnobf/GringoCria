@@ -21,6 +21,11 @@ struct ScenarioView: View {
 
     var body: some View {
         ZStack {
+            Image("FundoChat")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+
             conversationContent
 
             if viewModel.isCompleted {
@@ -85,6 +90,7 @@ struct ScenarioView: View {
 
             if !viewModel.isCompleted {
                 choiceButtons
+                    .safeAreaPadding(.bottom)
             }
         }
     }
@@ -103,8 +109,9 @@ struct ScenarioView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
-            .padding(16)
-            .background(Color(.systemBackground))
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 16)
         }
     }
 
