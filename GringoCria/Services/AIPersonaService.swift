@@ -17,13 +17,15 @@ import FoundationModels
 final class AIPersonaService {
     private var personaSession: LanguageModelSession?
     private var evaluatorSession: LanguageModelSession?
+    private var translatorSession: LanguageModelSession?
 
     // MARK: - Public
 
-    /// Cria as duas sessões: personagem e avaliador.
+    /// Cria as três sessões: personagem, avaliador e tradutor.
     func setup(persona: Persona) {
         personaSession = makePersonaSession(persona: persona)
         evaluatorSession = makeEvaluatorSession()
+        translatorSession = makeTranslatorSession()
     }
 
     /// Envia mensagem do usuário para o personagem e retorna a resposta em PT.
@@ -72,10 +74,20 @@ final class AIPersonaService {
         }
     }
 
+    /// Traduz texto do português para o inglês.
+    func translateText(_ text: String) async throws -> String {
+        guard let session = translatorSession else {
+            throw AIPersonaError.sessionNotInitialized
+        }
+        let response = try await session.respond(to: text)
+        return response.content
+    }
+
     /// Encerra a conversa e libera as sessões.
     func reset() {
         personaSession = nil
         evaluatorSession = nil
+        translatorSession = nil
     }
 
     // MARK: - Private
@@ -91,6 +103,13 @@ final class AIPersonaService {
         Analyze grammar, naturalness, and Carioca authenticity.
         Always respond with structured feedback as requested.
         Be encouraging but honest. Focus on practical improvements.
+        """
+        return LanguageModelSession(instructions: instructions)
+    }
+
+    private func makeTranslatorSession() -> LanguageModelSession {
+        let instructions = """
+        You are a Portuguese to English translator. When given Brazilian Portuguese text, respond only with its natural English translation. Do not add explanations, notes, or any extra text — only the translation.
         """
         return LanguageModelSession(instructions: instructions)
     }

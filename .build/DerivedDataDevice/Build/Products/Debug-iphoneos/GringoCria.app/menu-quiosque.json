@@ -1,0 +1,211 @@
+[
+  {
+    "id": "AB000001-0000-0000-0000-AB0000000001",
+    "speaker": "vendor",
+    "textPT": "Fala parceiro, vai querer pedir alguma coisa?",
+    "translationEN": "Hey buddy, want to order something?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000002-0000-0000-0000-AB0000000002",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AC000002-0000-0000-0000-AC0000000001",
+        "textPT": "Deixa eu olhar o cardápio.",
+        "translationEN": "Let me look at the menu.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "AC000002-0000-0000-0000-AC0000000002",
+        "textPT": "Posso ver o cardápio?",
+        "translationEN": "Can I see the menu?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000003-0000-0000-0000-AB0000000003",
+    "speaker": "vendor",
+    "textPT": "Claro chefe, tá aqui.",
+    "translationEN": "Sure chief, here you go.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000004-0000-0000-0000-AB0000000004",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AC000004-0000-0000-0000-AC0000000001",
+        "textPT": "*Olha o cardápio e escolhe o que quer*",
+        "translationEN": "*Looks at the menu and picks something*",
+        "isCorrect": null,
+        "nextStepId": "AB000005-0000-0000-0000-AB0000000005"
+      },
+      {
+        "id": "AC000004-0000-0000-0000-AC0000000002",
+        "textPT": "O que é esse prato aqui?",
+        "translationEN": "What's this dish here?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB00004B-0000-0000-0000-AB000000004B",
+    "speaker": "vendor",
+    "textPT": "É nosso especial de frutos do mar grelhados, parceiro. Tá bom demais!",
+    "translationEN": "It's our grilled seafood special, buddy. It's amazing!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000005-0000-0000-0000-AB0000000005",
+    "speaker": "vendor",
+    "textPT": "Tranquilo mano, ficou 35 reais. Quer mais alguma coisa?",
+    "translationEN": "No problem buddy, that's 35 reais. Want anything else?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000006-0000-0000-0000-AB0000000006",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AC000006-0000-0000-0000-AC0000000001",
+        "textPT": "Depois eu vejo.",
+        "translationEN": "I'll check later.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "AC000006-0000-0000-0000-AC0000000002",
+        "textPT": "Por enquanto é isso.",
+        "translationEN": "That's all for now.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000007-0000-0000-0000-AB0000000007",
+    "speaker": "vendor",
+    "textPT": "Fechou, já vou lançar teu pedido.",
+    "translationEN": "Got it, I'll put in your order right away.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000008-0000-0000-0000-AB0000000008",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AC000008-0000-0000-0000-AC0000000001",
+        "textPT": "Demora muito?",
+        "translationEN": "Will it take long?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000009-0000-0000-0000-AB0000000009",
+    "speaker": "vendor",
+    "textPT": "Uns 10 minutinhos, parceiro.",
+    "translationEN": "About 10 minutes, buddy.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000010-0000-0000-0000-AB0000000010",
+    "speaker": "customer",
+    "textPT": "Tranquilo então.",
+    "translationEN": "No problem then.",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000011-0000-0000-0000-AB0000000011",
+    "speaker": "vendor",
+    "textPT": "Valeu, parceiro!",
+    "translationEN": "Thanks, buddy!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AB000012-0000-0000-0000-AB0000000012",
+    "speaker": "customer",
+    "textPT": "Obrigado!",
+    "translationEN": "Thank you!",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

@@ -1,0 +1,215 @@
+[
+  {
+    "id": "E1000001-0000-0000-0000-E10000000001",
+    "speaker": "vendor",
+    "textPT": "Ó o salgado árabe! Ó o salgado árabe!",
+    "translationEN": "Arabic snack! Arabic snack!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000002-0000-0000-0000-E10000000002",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "E2000002-0000-0000-0000-E20000000001",
+        "textPT": "Me vê umas esfihas aí.",
+        "translationEN": "Give me some esfihas.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000002-0000-0000-0000-E20000000002",
+        "textPT": "Quais sabores tem?",
+        "translationEN": "What flavors do you have?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000003-0000-0000-0000-E10000000003",
+    "speaker": "vendor",
+    "textPT": "Carne, queijo, frango e calabresa.",
+    "translationEN": "Beef, cheese, chicken and calabresa sausage.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000004-0000-0000-0000-E10000000004",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "E2000004-0000-0000-0000-E20000000001",
+        "textPT": "Me vê a de carne.",
+        "translationEN": "Give me the beef one.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000004-0000-0000-0000-E20000000002",
+        "textPT": "Me vê a de queijo.",
+        "translationEN": "Give me the cheese one.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000004-0000-0000-0000-E20000000003",
+        "textPT": "Me vê a de frango.",
+        "translationEN": "Give me the chicken one.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000004-0000-0000-0000-E20000000004",
+        "textPT": "Me vê a de calabresa.",
+        "translationEN": "Give me the calabresa one.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000005-0000-0000-0000-E10000000005",
+    "speaker": "vendor",
+    "textPT": "Vai comer aqui ou pra viagem?",
+    "translationEN": "Eating here or to go?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000006-0000-0000-0000-E10000000006",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "E2000006-0000-0000-0000-E20000000001",
+        "textPT": "Aqui mesmo.",
+        "translationEN": "Right here.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000006-0000-0000-0000-E20000000002",
+        "textPT": "Pra viagem.",
+        "translationEN": "To go.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000007-0000-0000-0000-E10000000007",
+    "speaker": "vendor",
+    "textPT": "Deu 10 reais. Aceito Pix, Dinheiro e Cartão.",
+    "translationEN": "That's 10 reais. I take Pix, Cash and Card.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000008-0000-0000-0000-E10000000008",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "E2000008-0000-0000-0000-E20000000001",
+        "textPT": "Pix",
+        "translationEN": "Pix",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000008-0000-0000-0000-E20000000002",
+        "textPT": "Cartão",
+        "translationEN": "Card",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "E2000008-0000-0000-0000-E20000000003",
+        "textPT": "Dinheiro",
+        "translationEN": "Cash",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000009-0000-0000-0000-E10000000009",
+    "speaker": "customer",
+    "textPT": "*Paga e pega a esfiha*",
+    "translationEN": "*Pays and takes the esfiha*",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000010-0000-0000-0000-E10000000010",
+    "speaker": "vendor",
+    "textPT": "Valeu parceiro! Já já fica pronto.",
+    "translationEN": "Thanks buddy! It'll be ready soon.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "E1000011-0000-0000-0000-E10000000011",
+    "speaker": "customer",
+    "textPT": "Valeu!",
+    "translationEN": "Thanks!",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

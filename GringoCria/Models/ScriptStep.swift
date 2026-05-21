@@ -85,11 +85,12 @@ struct ChoiceOption: Identifiable, Codable, Hashable {
     let translationEN: String
     let isCorrect: Bool?
     let nextStepId: UUID?
+    let skipReveal: Bool
 
     // MARK: - Decodable
 
     enum CodingKeys: String, CodingKey {
-        case id, textPT, translationEN, isCorrect, nextStepId
+        case id, textPT, translationEN, isCorrect, nextStepId, skipReveal
     }
 
     init(from decoder: Decoder) throws {
@@ -99,5 +100,6 @@ struct ChoiceOption: Identifiable, Codable, Hashable {
         translationEN = try container.decode(String.self, forKey: .translationEN)
         isCorrect     = try container.decodeIfPresent(Bool.self, forKey: .isCorrect)
         nextStepId    = try container.decodeIfPresent(UUID.self, forKey: .nextStepId)
+        skipReveal    = (try? container.decode(Bool.self, forKey: .skipReveal)) ?? false
     }
 }

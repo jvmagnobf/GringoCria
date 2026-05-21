@@ -1,0 +1,64 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Scenario/ScenarioView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Toggle translation",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Agora você já sabe o que esperar!",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "Back to Home",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "Conversa encerrada 🎉",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 197
+        }
+      },
+      {
+        "comment": "",
+        "key": "Encerrar",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 202
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stop pronunciation",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 310
+        }
+      },
+      {
+        "comment": "",
+        "key": "Play pronunciation",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 310
+        }
+      }
+    ]
+  },
+  "version": 1
+}

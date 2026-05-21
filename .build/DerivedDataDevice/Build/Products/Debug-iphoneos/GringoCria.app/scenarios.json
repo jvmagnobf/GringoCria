@@ -13,11 +13,162 @@
         "isLocked": false
       },
       {
+        "id": "C3D4E5F6-A7B8-9012-CDEF-123456789012",
+        "titlePT": "Biscoito Globo",
+        "titleEN": "Globo Biscuit",
+        "scriptName": "biscoito-globo",
+        "isLocked": false
+      },
+      {
+        "id": "D4E5F6A7-B8C9-0123-DEF0-234567890123",
+        "titlePT": "Caipirinha",
+        "titleEN": "Caipirinha",
+        "scriptName": "caipirinha",
+        "isLocked": false
+      },
+      {
+        "id": "E5F6A7B8-C9D0-1234-EF01-345678901234",
+        "titlePT": "Esfiha",
+        "titleEN": "Esfiha",
+        "scriptName": "esfiha",
+        "isLocked": false
+      },
+      {
+        "id": "F6A7B8C9-D0E1-2345-F012-456789012345",
+        "titlePT": "Barraca de Praia",
+        "titleEN": "Beach Chair Rental",
+        "scriptName": "barraca-praia",
+        "isLocked": false
+      },
+      {
         "id": "A2000001-0000-0000-0000-000000000001",
         "titlePT": "Matte com IA",
         "titleEN": "AI Mate Chat",
         "scriptName": "",
         "isLocked": true
+      },
+      {
+        "id": "A2000002-0000-0000-0000-000000000002",
+        "titlePT": "Biscoito Globo com IA",
+        "titleEN": "AI Globo Biscuit Chat",
+        "scriptName": "",
+        "isLocked": true
+      },
+      {
+        "id": "A2000003-0000-0000-0000-000000000003",
+        "titlePT": "Caipirinha com IA",
+        "titleEN": "AI Caipirinha Chat",
+        "scriptName": "",
+        "isLocked": true
+      },
+      {
+        "id": "A2000004-0000-0000-0000-000000000004",
+        "titlePT": "Esfiha com IA",
+        "titleEN": "AI Esfiha Chat",
+        "scriptName": "",
+        "isLocked": true
+      },
+      {
+        "id": "A2000005-0000-0000-0000-000000000005",
+        "titlePT": "Barraca com IA",
+        "titleEN": "AI Beach Chair Chat",
+        "scriptName": "",
+        "isLocked": true,
+        "introPages": null,
+        "introPagesEN": null
+      },
+      {
+        "id": "AB000001-0000-0000-0000-000000000001",
+        "titlePT": "Pedir no menu",
+        "titleEN": "Ordering from the menu",
+        "scriptName": "menu-quiosque",
+        "isLocked": false,
+        "introPages": [
+          "Esse cenário exemplifica como fazer um pedido no quiosque de praia. O quiosque sempre tem um menu mostrando as opções e os preços — tome cuidado se te cobrarem diferente do que está no menu.",
+          "Para fazer seu pedido, você pode chamar um garçom ou ir até o balcão do quiosque. Se quiser, pergunte sobre algum item específico antes de decidir.",
+          "Após escolher, você indica onde está sentado ou espera ali mesmo. Nem todos os quiosques entregam na areia, então pergunte antes!"
+        ],
+        "introPagesEN": [
+          "This scenario shows you how to order food at a beach kiosk. Kiosks always have a menu with options and prices — double-check if someone charges you a different amount.",
+          "To place your order, call over a waiter (garçom) or walk up to the kiosk counter. Feel free to ask about any item that catches your eye.",
+          "After ordering, tell the waiter where you're sitting or wait at the counter. Not all kiosks deliver to the sand — ask first!"
+        ]
+      },
+      {
+        "id": "AB000002-0000-0000-0000-000000000002",
+        "titlePT": "Ambulantes",
+        "titleEN": "Street Vendors",
+        "scriptName": "",
+        "isLocked": false,
+        "introPages": [
+          "O ambulante é alguém que anda pela praia vendendo os mais variados produtos. Ele pode anunciar o que vende passando por você, ou te abordar diretamente para tentar te vender algo.",
+          "Você pode perguntar quanto custa o produto. Tome cuidado pois é normal tentarem cobrar mais caro para estrangeiros — sinta-se à vontade para negociar.",
+          "Você pode perguntar também sobre especificações do produto. Esse cenário é só uma introdução — não temos como prever o produto que o ambulante vai vender!"
+        ],
+        "introPagesEN": [
+          "Street vendors (ambulantes) walk along the beach selling all kinds of products. They may announce what they're selling as they pass by, or come up and approach you directly.",
+          "You can ask how much something costs. Just be aware that it's common for vendors to charge more to foreigners — feel free to negotiate.",
+          "You can also ask questions about the product if you're curious. This is just an intro — we can't predict what each vendor will sell, so think of it as a general guide."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "B1A2C3D4-E5F6-7890-ABCD-EF1234567891",
+    "titlePT": "Segurança",
+    "titleEN": "Safety",
+    "icon": "exclamationmark.shield",
+    "subscenarios": [
+      {
+        "id": "AD000001-0000-0000-0000-000000000001",
+        "titlePT": "Fui roubado",
+        "titleEN": "I was robbed",
+        "scriptName": "policial",
+        "isLocked": false,
+        "introPages": [
+          "Esse cenário exemplifica como seria a conversa com um policial logo após ser roubado. Nosso objetivo é te preparar caso isso aconteça.",
+          "Você aborda o policial, conta o que aconteceu e como está se sentindo. Depois responde as perguntas que ele fizer.",
+          "Se ele não tomar nenhuma atitude que te satisfaça, peça a direção da delegacia do turista. Nós a recomendamos pois eles estão acostumados com estrangeiros e provavelmente falam inglês."
+        ],
+        "introPagesEN": [
+          "This scenario shows you how to talk to a police officer right after being robbed. We want to help you feel prepared if this ever happens to you.",
+          "You'll approach the officer, explain what happened and how you're feeling, then answer their questions.",
+          "If you're not satisfied with the response, ask for directions to the Delegacia do Turista (Tourist Police Station) — they're used to dealing with foreigners and likely have English speakers on staff."
+        ]
+      },
+      {
+        "id": "A9000000-0000-0000-0000-A90000000000",
+        "titlePT": "Salva-vidas",
+        "titleEN": "Lifeguard",
+        "scriptName": "salva-vidas",
+        "isLocked": false,
+        "introPages": [
+          "Esse cenário tem o intuito de exemplificar como normalmente funciona uma conversa com um salva-vidas nas praias do Rio de Janeiro. Os salva-vidas estão presentes em praticamente todas as praias mais movimentadas e são responsáveis pela segurança dos banhistas.",
+          "Você pode falar com eles para pedir ajuda, tirar dúvidas sobre o mar, perguntar se é seguro entrar na água, pedir informações sobre correnteza, profundidade, bandeiras de sinalização ou até pedir ajuda em emergências.",
+          "Normalmente eles ficam próximos às torres de observação ou caminhando pela areia observando o mar. Não tenha vergonha de pedir ajuda: eles estão acostumados com turistas e geralmente tentam ajudar da melhor forma possível. A conversa desse cenário é apenas um exemplo de como essa interação costuma acontecer."
+        ],
+        "introPagesEN": [
+          "This scenario is meant to show how a conversation with a lifeguard usually works on Rio de Janeiro beaches. Lifeguards are present on most busy beaches and are responsible for keeping swimmers safe.",
+          "You can talk to them to ask for help, ask questions about the ocean, check whether it is safe to go in the water, ask about currents, depth, warning flags, or even ask for help in an emergency.",
+          "They are usually near the observation towers or walking along the sand watching the water. Do not feel embarrassed about asking for help: they are used to tourists and usually try to help as best they can. This conversation is only an example of how that interaction normally happens."
+        ]
+      },
+      {
+        "id": "AF000001-0000-0000-0000-000000000001",
+        "titlePT": "Onde é a delegacia?",
+        "titleEN": "Where's the police station?",
+        "scriptName": "delegacia",
+        "isLocked": false,
+        "introPages": [
+          "Esse cenário mostra como pedir para uma pessoa qualquer direções para a delegacia do turista ou a mais próxima de você.",
+          "As vezes a pessoa pode perguntar por que você quer ir. Se não quiser responder, diga 'prefiro não falar mas preciso muito ir' ou 'não é nada demais'.",
+          "Nós recomendamos sempre a delegacia do turista pois eles estão acostumados com estrangeiros e provavelmente terá pessoas que saibam falar inglês."
+        ],
+        "introPagesEN": [
+          "This scenario shows you how to ask a random person for directions to the Delegacia do Turista (Tourist Police Station) or the nearest police station.",
+          "Sometimes people may ask why you need to go. If you'd rather not explain, say 'prefiro não falar, mas preciso muito ir' or 'não é nada demais' (it's nothing serious).",
+          "We always recommend the Delegacia do Turista — they're used to dealing with foreigners and are more likely to have English speakers on staff."
+        ]
       }
     ]
   }

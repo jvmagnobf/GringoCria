@@ -21,4 +21,7 @@ struct Subscenario: Identifiable, Codable, Hashable {
     let titleEN: String
     let scriptName: String
     let isLocked: Bool
+    let introPages: [String]?
+    let introPagesEN: [String]?
+    let vendorIcon: String?
 }

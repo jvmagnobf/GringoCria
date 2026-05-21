@@ -1,0 +1,168 @@
+[
+  {
+    "id": "AF000001-0000-0000-0000-AF0000000001",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BF000001-0000-0000-0000-BF0000000001",
+        "textPT": "Boa tarde! Desculpa incomodar, você sabe onde fica a delegacia do turista?",
+        "translationEN": "Good afternoon! Sorry to bother you, do you know where the Tourist Police Station is?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BF000001-0000-0000-0000-BF0000000002",
+        "textPT": "Boa tarde! Desculpa incomodar, você sabe onde fica a delegacia mais próxima daqui?",
+        "translationEN": "Good afternoon! Sorry to bother you, do you know where the nearest police station is?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000002-0000-0000-0000-AF0000000002",
+    "speaker": "vendor",
+    "textPT": "Sei sim, você precisa ir pra lá?",
+    "translationEN": "Yes I do, do you need to go there?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000003-0000-0000-0000-AF0000000003",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BF000003-0000-0000-0000-BF0000000001",
+        "textPT": "Preciso sim, é longe pra ir andando?",
+        "translationEN": "I do, is it far to walk?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BF000003-0000-0000-0000-BF0000000002",
+        "textPT": "Preciso sim, consigo chegar lá a pé?",
+        "translationEN": "I do, can I get there on foot?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000004-0000-0000-0000-AF0000000004",
+    "speaker": "vendor",
+    "textPT": "Não, daqui você vai tranquilo a pé, uns 10 minutinhos.",
+    "translationEN": "No, you can easily walk from here, about 10 minutes.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000005-0000-0000-0000-AF0000000005",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BF000005-0000-0000-0000-BF0000000001",
+        "textPT": "Como eu chego lá?",
+        "translationEN": "How do I get there?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000006-0000-0000-0000-AF0000000006",
+    "speaker": "vendor",
+    "textPT": "Vai reto por essa rua, dobra à esquerda na segunda rua e vai ver a placa da delegacia.",
+    "translationEN": "Go straight down this street, turn left at the second street and you'll see the police station sign.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000007-0000-0000-0000-AF0000000007",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BF000007-0000-0000-0000-BF0000000001",
+        "textPT": "Tem placa?",
+        "translationEN": "Is there a sign?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000008-0000-0000-0000-AF0000000008",
+    "speaker": "vendor",
+    "textPT": "Tem sim, não tem erro.",
+    "translationEN": "Yes, you can't miss it.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000009-0000-0000-0000-AF0000000009",
+    "speaker": "customer",
+    "textPT": "Valeu pela ajuda!",
+    "translationEN": "Thanks for the help!",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AF000010-0000-0000-0000-AF0000000010",
+    "speaker": "vendor",
+    "textPT": "Tamo junto!",
+    "translationEN": "Anytime!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

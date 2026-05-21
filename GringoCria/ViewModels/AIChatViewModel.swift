@@ -24,12 +24,14 @@ struct ChatMessage: Identifiable {
     let role: ChatRole
     let text: String
     var feedback: MessageFeedback?
+    var translationEN: String?
 
-    init(id: UUID = UUID(), role: ChatRole, text: String, feedback: MessageFeedback? = nil) {
+    init(id: UUID = UUID(), role: ChatRole, text: String, feedback: MessageFeedback? = nil, translationEN: String? = nil) {
         self.id = id
         self.role = role
         self.text = text
         self.feedback = feedback
+        self.translationEN = translationEN
     }
 }
 
@@ -61,11 +63,14 @@ final class AIChatViewModel {
     func start(persona: Persona) async {
         aiPersonaService.setup(persona: persona)
 
-        let opening = ChatMessage(
-            role: .vendor,
-            text: persona.openingLine
-        )
+        var opening = ChatMessage(role: .vendor, text: persona.openingLine)
         messages.append(opening)
+        let openingIndex = messages.count - 1
+
+        if let translation = try? await aiPersonaService.translateText(persona.openingLine) {
+            opening.translationEN = translation
+            messages[openingIndex] = opening
+        }
     }
 
     /// Envia mensagem do usuário, obtém resposta do personagem e avaliação em paralelo.
@@ -81,26 +86,26 @@ final class AIChatViewModel {
         isTyping = true
 
         do {
-            // Executa resposta do personagem e avaliação em paralelo
             async let replyTask = aiPersonaService.sendMessage(trimmed, persona: persona)
             async let feedbackTask = aiPersonaService.evaluateMessage(
                 trimmed,
-                vendorReply: "",   // avaliação começa junto com a resposta
+                vendorReply: "",
                 persona: persona
             )
 
             let reply = try await replyTask
+            async let translationTask = aiPersonaService.translateText(reply)
+
             let feedback = try await feedbackTask
+            let translation = try? await translationTask
 
             isTyping = false
 
-            // Anexa feedback à mensagem do usuário
             userMessage.feedback = feedback
             messages[userIndex] = userMessage
             pendingFeedback = feedback
 
-            // Adiciona resposta do personagem
-            let vendorMessage = ChatMessage(role: .vendor, text: reply)
+            let vendorMessage = ChatMessage(role: .vendor, text: reply, translationEN: translation)
             messages.append(vendorMessage)
 
         } catch {

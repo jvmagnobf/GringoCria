@@ -1,0 +1,255 @@
+[
+  {
+    "id": "A9000001-0000-0000-0000-A90000000001",
+    "speaker": "customer",
+    "textPT": "Com licença, salva-vidas.",
+    "translationEN": "Excuse me, lifeguard.",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000002-0000-0000-0000-A90000000002",
+    "speaker": "vendor",
+    "textPT": "Opa, fala parceiro.",
+    "translationEN": "Hey, what's up?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000003-0000-0000-0000-A90000000003",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B9000003-0000-0000-0000-B90000000001",
+        "textPT": "O mar tá seguro pra entrar hoje?",
+        "translationEN": "Is the ocean safe to go into today?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      },
+      {
+        "id": "B9000003-0000-0000-0000-B90000000002",
+        "textPT": "Hoje tá tranquilo de entrar no mar?",
+        "translationEN": "Is it calm enough to go into the water today?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000004-0000-0000-0000-A90000000004",
+    "speaker": "vendor",
+    "textPT": "Hoje o mar tá meio puxado. Tem correnteza em alguns pontos.",
+    "translationEN": "The ocean is a bit rough today. There are currents in some spots.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000005-0000-0000-0000-A90000000005",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B9000005-0000-0000-0000-B90000000001",
+        "textPT": "Onde é mais seguro entrar no mar?",
+        "translationEN": "Where is it safer to go into the water?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      },
+      {
+        "id": "B9000005-0000-0000-0000-B90000000002",
+        "textPT": "Qual parte da praia é melhor pra entrar?",
+        "translationEN": "Which part of the beach is better for getting in?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000006-0000-0000-0000-A90000000006",
+    "speaker": "vendor",
+    "textPT": "Fica mais perto do posto e evita ir muito fundo.",
+    "translationEN": "Stay closer to the lifeguard post and avoid going too far out.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000007-0000-0000-0000-A90000000007",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B9000007-0000-0000-0000-B90000000001",
+        "textPT": "O que significa a bandeira na areia?",
+        "translationEN": "What does that flag on the sand mean?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      },
+      {
+        "id": "B9000007-0000-0000-0000-B90000000002",
+        "textPT": "Essa bandeira vermelha quer dizer o quê?",
+        "translationEN": "What does that red flag mean?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000008-0000-0000-0000-A90000000008",
+    "speaker": "vendor",
+    "textPT": "A bandeira vermelha indica perigo. Melhor tomar cuidado.",
+    "translationEN": "The red flag means danger. You should be careful.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000009-0000-0000-0000-A90000000009",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B9000009-0000-0000-0000-B90000000001",
+        "textPT": "Não conheço muito as praias do Rio, tem alguma dica?",
+        "translationEN": "I don't really know Rio's beaches well. Do you have any tips?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      },
+      {
+        "id": "B9000009-0000-0000-0000-B90000000002",
+        "textPT": "Sou novo nas praias do Rio. O que você me recomenda?",
+        "translationEN": "I'm new to Rio's beaches. What do you recommend?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000010-0000-0000-0000-A90000000010",
+    "speaker": "vendor",
+    "textPT": "Sempre tenta ficar perto dos salva-vidas e evita áreas vazias.",
+    "translationEN": "Try to stay near the lifeguards and avoid empty areas.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000011-0000-0000-0000-A90000000011",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B9000011-0000-0000-0000-B90000000001",
+        "textPT": "Se eu precisar de ajuda no mar, o que eu faço?",
+        "translationEN": "If I need help in the water, what should I do?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      },
+      {
+        "id": "B9000011-0000-0000-0000-B90000000002",
+        "textPT": "Se der problema lá dentro, como eu chamo vocês?",
+        "translationEN": "If something goes wrong out there, how do I call you?",
+        "isCorrect": null,
+        "nextStepId": null,
+        "skipReveal": false
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000012-0000-0000-0000-A90000000012",
+    "speaker": "vendor",
+    "textPT": "Levanta o braço e tenta manter a calma que a gente vai até você.",
+    "translationEN": "Raise your arm and try to stay calm. We'll come to you.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000013-0000-0000-0000-A90000000013",
+    "speaker": "customer",
+    "textPT": "Tá bom, obrigado pela ajuda.",
+    "translationEN": "Okay, thanks for the help.",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A9000014-0000-0000-0000-A90000000014",
+    "speaker": "vendor",
+    "textPT": "Tamo junto. Qualquer coisa é só chamar.",
+    "translationEN": "Anytime. If you need anything, just call me.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

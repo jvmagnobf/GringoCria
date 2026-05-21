@@ -11,14 +11,14 @@ import SwiftUI
 
 @available(iOS 26, *)
 struct AuthenticatedTabView: View {
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+
     var body: some View {
         TabView {
-            NavigationStack {
-                HomeView()
-            }
-            .tabItem {
-                Label("Scenarios", systemImage: "house.fill")
-            }
+            HomeView()
+                .tabItem {
+                    Label("Scenarios", systemImage: "house.fill")
+                }
 
             NavigationStack {
                 PremiumView()
@@ -28,10 +28,25 @@ struct AuthenticatedTabView: View {
             }
 
             NavigationStack {
+                TipsView()
+            }
+            .tabItem {
+                Label("Rio Tips", systemImage: "lightbulb.fill")
+            }
+
+            NavigationStack {
                 ProfileView()
             }
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle.fill")
+            }
+        }
+        .fullScreenCover(isPresented: .init(
+            get: { !hasCompletedOnboarding },
+            set: { _ in }
+        )) {
+            OnboardingView {
+                hasCompletedOnboarding = true
             }
         }
     }

@@ -1,0 +1,279 @@
+[
+  {
+    "id": "B1000001-0000-0000-0000-B10000000001",
+    "speaker": "vendor",
+    "textPT": "Olha o Globo! Biscoito Globo!",
+    "translationEN": "Globo! Biscoito Globo cookies!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000002-0000-0000-0000-B10000000002",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000002-0000-0000-0000-B20000000001",
+        "textPT": "*Faz sinal pro vendedor*",
+        "translationEN": "*Waves to the vendor*",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000002-0000-0000-0000-B20000000002",
+        "textPT": "Ô do Globo!",
+        "translationEN": "Hey, Globo guy!",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000003-0000-0000-0000-B10000000003",
+    "speaker": "vendor",
+    "textPT": "Fala meu chefe!",
+    "translationEN": "What's up, chief!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000004-0000-0000-0000-B10000000004",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000004-0000-0000-0000-B20000000001",
+        "textPT": "Tá quanto o Globo?",
+        "translationEN": "How much is the Globo?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000004-0000-0000-0000-B20000000002",
+        "textPT": "Qual foi paizão, tá quanto?",
+        "translationEN": "Hey man, how much is it?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000005-0000-0000-0000-B10000000005",
+    "speaker": "vendor",
+    "textPT": "Cinco conto, irmão.",
+    "translationEN": "Five bucks, bro.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000006-0000-0000-0000-B10000000006",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000006-0000-0000-0000-B20000000001",
+        "textPT": "Tem doce?",
+        "translationEN": "Got sweet ones?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000006-0000-0000-0000-B20000000002",
+        "textPT": "Tem salgado?",
+        "translationEN": "Got salty ones?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000007-0000-0000-0000-B10000000007",
+    "speaker": "vendor",
+    "textPT": "Tem os dois, meu cria.",
+    "translationEN": "Got both, my friend.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000008-0000-0000-0000-B10000000008",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000008-0000-0000-0000-B20000000001",
+        "textPT": "Me vê um salgado então.",
+        "translationEN": "Give me a salty one then.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000008-0000-0000-0000-B20000000002",
+        "textPT": "Me dá um doce aí.",
+        "translationEN": "Give me a sweet one.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000009-0000-0000-0000-B10000000009",
+    "speaker": "vendor",
+    "textPT": "Vai querer mate junto não?",
+    "translationEN": "Want a mate drink with it?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000010-0000-0000-0000-B10000000010",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000010-0000-0000-0000-B20000000001",
+        "textPT": "Hoje não, valeu.",
+        "translationEN": "Not today, thanks.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000010-0000-0000-0000-B20000000002",
+        "textPT": "Pô, manda um mate também então.",
+        "translationEN": "Sure, send a mate too then.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000011-0000-0000-0000-B10000000011",
+    "speaker": "vendor",
+    "textPT": "Aceito Pix, cartão e dinheiro.",
+    "translationEN": "I take Pix, card and cash.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000012-0000-0000-0000-B10000000012",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B2000012-0000-0000-0000-B20000000001",
+        "textPT": "Pix",
+        "translationEN": "Pix",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000012-0000-0000-0000-B20000000002",
+        "textPT": "Cartão",
+        "translationEN": "Card",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "B2000012-0000-0000-0000-B20000000003",
+        "textPT": "Dinheiro",
+        "translationEN": "Cash",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000013-0000-0000-0000-B10000000013",
+    "speaker": "customer",
+    "textPT": "*Paga e pega o biscoito*",
+    "translationEN": "*Pays and takes the cookie*",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000014-0000-0000-0000-B10000000014",
+    "speaker": "vendor",
+    "textPT": "Valeu, parceiro!",
+    "translationEN": "Thanks, buddy!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "B1000015-0000-0000-0000-B10000000015",
+    "speaker": "customer",
+    "textPT": "Obrigado!",
+    "translationEN": "Thank you!",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

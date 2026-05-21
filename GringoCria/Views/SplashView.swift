@@ -14,7 +14,7 @@ struct SplashView: View {
 
     var body: some View {
         ZStack {
-            Image("TELA1GRINGOCRIA")
+            Image("telaWelcome")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()

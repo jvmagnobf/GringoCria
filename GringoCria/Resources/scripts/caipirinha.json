@@ -1,0 +1,240 @@
+[
+  {
+    "id": "CA000001-0000-0000-0000-CA0000000001",
+    "speaker": "vendor",
+    "textPT": "Boa tarde, parceiro! Vai querer alguma coisa?",
+    "translationEN": "Good afternoon, buddy! Want something?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000002-0000-0000-0000-CA0000000002",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "CB000002-0000-0000-0000-CB0000000001",
+        "textPT": "Me vê uma caipirinha aí.",
+        "translationEN": "Get me a caipirinha.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000003-0000-0000-0000-CA0000000003",
+    "speaker": "vendor",
+    "textPT": "Tem de Limão, Maracujá, Morango e Abacaxi.",
+    "translationEN": "Got Lemon, Passion Fruit, Strawberry and Pineapple.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000004-0000-0000-0000-CA0000000004",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "CB000004-0000-0000-0000-CB0000000001",
+        "textPT": "Me vê a de Limão.",
+        "translationEN": "Give me the Lemon one.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "CB000004-0000-0000-0000-CB0000000002",
+        "textPT": "Me vê a de Maracujá.",
+        "translationEN": "Give me the Passion Fruit one.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "CB000004-0000-0000-0000-CB0000000003",
+        "textPT": "Me vê a de Morango.",
+        "translationEN": "Give me the Strawberry one.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "CB000004-0000-0000-0000-CB0000000004",
+        "textPT": "Me vê a de Abacaxi.",
+        "translationEN": "Give me the Pineapple one.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000005-0000-0000-0000-CA0000000005",
+    "speaker": "vendor",
+    "textPT": "Claro paizão, quer com açúcar ou sem?",
+    "translationEN": "Sure buddy, with or without sugar?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000006-0000-0000-0000-CA0000000006",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "CB000006-0000-0000-0000-CB0000000001",
+        "textPT": "Faz sem muito açúcar.",
+        "translationEN": "Make it with little sugar.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "CB000006-0000-0000-0000-CB0000000002",
+        "textPT": "Pode botar açúcar aí.",
+        "translationEN": "You can add some sugar.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000007-0000-0000-0000-CA0000000007",
+    "speaker": "vendor",
+    "textPT": "Fechou!",
+    "translationEN": "Deal!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000008-0000-0000-0000-CA0000000008",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "CB000008-0000-0000-0000-CB0000000001",
+        "textPT": "Quanto tá?",
+        "translationEN": "How much is it?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000009-0000-0000-0000-CA0000000009",
+    "speaker": "vendor",
+    "textPT": "Vinte reais. Aceito Pix, Cartão e Dinheiro.",
+    "translationEN": "Twenty reais. I take Pix, Card and Cash.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000010-0000-0000-0000-CA0000000010",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "CB000010-0000-0000-0000-CB0000000001",
+        "textPT": "Pix",
+        "translationEN": "Pix",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "CB000010-0000-0000-0000-CB0000000002",
+        "textPT": "Cartão",
+        "translationEN": "Card",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "CB000010-0000-0000-0000-CB0000000003",
+        "textPT": "Dinheiro",
+        "translationEN": "Cash",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000011-0000-0000-0000-CA0000000011",
+    "speaker": "customer",
+    "textPT": "*Paga a bebida*",
+    "translationEN": "*Pays for the drink*",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000012-0000-0000-0000-CA0000000012",
+    "speaker": "vendor",
+    "textPT": "Valeu parceiro! Já vou trazer tua caipi.",
+    "translationEN": "Thanks buddy! I'll bring your caipirinha right away.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "CA000013-0000-0000-0000-CA0000000013",
+    "speaker": "customer",
+    "textPT": "Valeu!",
+    "translationEN": "Thanks!",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

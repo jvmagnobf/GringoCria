@@ -17,24 +17,32 @@ struct AuthView: View {
     @State private var viewModel: AuthViewModel?
 
     var body: some View {
-        VStack(spacing: 24) {
-            Spacer()
+        ZStack {
+            Image("menu_background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
 
-            VStack(spacing: 8) {
-                Text("GringoCria")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+            VStack(spacing: 24) {
+                Spacer()
 
-                Text("Practice Portuguese for real life")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                VStack(spacing: 8) {
+                    Text("GringoCria")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+
+                    Text("Practice Portuguese for real life")
+                        .font(.subheadline)
+                        .foregroundStyle(.white.opacity(0.85))
+                }
+
+                Spacer()
+
+                authActionsContent
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 48)
             }
-
-            Spacer()
-
-            authActionsContent
-                .padding(.horizontal, 32)
-                .padding(.bottom, 48)
         }
         .onAppear {
             if viewModel == nil {
@@ -66,7 +74,7 @@ struct AuthView: View {
                     viewModel.continueAsGuest()
                 }
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.white.opacity(0.9))
             }
         }
     }

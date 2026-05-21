@@ -1,0 +1,24 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Scenario/IntroOverlayView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Tap to continue",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap to start",
+        "location": {
+          "startingColumn": 74,
+          "startingLine": 40
+        }
+      }
+    ]
+  },
+  "version": 1
+}

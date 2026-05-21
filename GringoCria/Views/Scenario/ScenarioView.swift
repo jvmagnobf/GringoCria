@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 // TODO: validar com usuários se tradução deve aparecer por padrão
 
@@ -14,22 +15,45 @@ struct ScenarioView: View {
 
     @State private var viewModel = ScenarioViewModel()
     @State private var showTranslation: Bool = false
+    @State private var introCompleted: Bool
+    @State private var userProfileImage: UIImage?
     @Environment(SpeechService.self) private var speechService
     @Environment(ProgressService.self) private var progressService
     @Environment(AppState.self) private var appState
     @Environment(\.dismiss) private var dismiss
+    private let profileService = ProfileService()
+
+    init(subscenario: Subscenario) {
+        self.subscenario = subscenario
+        // Se houver intro em inglês, ela é a fonte preferida da UI. Caso contrário,
+        // usamos o fallback em português.
+        let hasIntro = !(Self.preferredIntroPages(for: subscenario)?.isEmpty ?? true)
+        _introCompleted = State(initialValue: !hasIntro)
+    }
 
     var body: some View {
         ZStack {
-            Image("FundoChat")
+            Image("FundoChatRio")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
 
-            conversationContent
+            if introCompleted {
+                if isIntroOnly {
+                    introCompleteView
+                } else {
+                    conversationContent
+                }
+            }
 
-            if viewModel.isCompleted {
-                completionOverlay
+            if !introCompleted,
+               let pages = Self.preferredIntroPages(for: subscenario),
+               !pages.isEmpty {
+                IntroOverlayView(pages: pages) {
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        introCompleted = true
+                    }
+                }
             }
         }
         .navigationTitle(subscenario.titleEN)
@@ -49,12 +73,44 @@ struct ScenarioView: View {
                 progressService.markCompleted(id: subscenario.id)
             }
         }
-        .task {
+        .task(id: introCompleted) {
+            // Inicia conversa apenas após o intro ser dispensado e somente se houver script
+            guard introCompleted, !subscenario.scriptName.isEmpty else { return }
             await viewModel.start(scriptName: subscenario.scriptName)
+        }
+        .task {
+            userProfileImage = await profileService.loadProfilePhoto()
         }
         .onDisappear {
             speechService.stop()
         }
+    }
+
+    // MARK: - Intro Only
+
+    private var isIntroOnly: Bool {
+        subscenario.scriptName.isEmpty && !(Self.preferredIntroPages(for: subscenario)?.isEmpty ?? true)
+    }
+
+    private var introCompleteView: some View {
+        VStack(spacing: 24) {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 60))
+                .foregroundStyle(.white)
+
+            Text("Agora você já sabe o que esperar!")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
+
+            Button("Back to Home") {
+                dismiss()
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .padding(32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     // MARK: - Conversation Content
@@ -67,13 +123,15 @@ struct ScenarioView: View {
                         ForEach(viewModel.revealedSteps) { step in
                             MessageBubble(
                                 step: step,
-                                showTranslation: showTranslation
+                                showTranslation: showTranslation,
+                                subscenario: subscenario,
+                                userProfileImage: userProfileImage
                             )
                             .id(step.id)
                         }
 
                         if viewModel.isTyping {
-                            TypingIndicator()
+                            TypingIndicator(subscenario: subscenario)
                                 .id("typing")
                         }
                     }
@@ -88,7 +146,10 @@ struct ScenarioView: View {
                 }
             }
 
-            if !viewModel.isCompleted {
+            if viewModel.isCompleted {
+                endChatButton
+                    .safeAreaPadding(.bottom)
+            } else {
                 choiceButtons
                     .safeAreaPadding(.bottom)
             }
@@ -102,10 +163,24 @@ struct ScenarioView: View {
         if let choices = viewModel.currentChoices {
             VStack(spacing: 8) {
                 ForEach(choices) { choice in
-                    Button(choice.textPT) {
+                    let label = showTranslation && !choice.translationEN.isEmpty
+                        ? choice.translationEN
+                        : choice.textPT
+                    Button {
                         viewModel.selectChoice(choice)
+                    } label: {
+                        Text(label)
+                            .font(.body)
+                            .foregroundStyle(Color.primary)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 14)
+                            .background(ChatStyling.userBubbleColor)
+                            .clipShape(RoundedRectangle(cornerRadius: 22))
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.plain)
+                    .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
                     .frame(maxWidth: .infinity)
                 }
             }
@@ -115,37 +190,36 @@ struct ScenarioView: View {
         }
     }
 
-    // MARK: - Completion Overlay
+    // MARK: - End Chat Button
 
-    private var completionOverlay: some View {
-        ZStack {
-            Color.black.opacity(0.55)
-                .ignoresSafeArea()
+    private var endChatButton: some View {
+        VStack(spacing: 0) {
+            Text("Conversa encerrada 🎉")
+                .font(.footnote)
+                .foregroundStyle(.white.opacity(0.8))
+                .padding(.top, 8)
 
-            VStack(spacing: 24) {
-                Text("Well done!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-
-                Text("You completed this scenario.")
-                    .font(.headline)
-                    .foregroundStyle(.white.opacity(0.9))
-
-                Button("Back to Home") {
-                    // dismiss() faz pop na NavigationStack sem alterar authState,
-                    // preservando a pilha de navegação corretamente.
-                    // Alterar authState aqui destruiria toda a NavigationStack
-                    // e perderia o estado de outros subscenários em progresso.
-                    dismiss()
-                }
-                .buttonStyle(.borderedProminent)
+            Button("Encerrar") {
+                // dismiss() faz pop na NavigationStack sem alterar authState,
+                // preservando a pilha de navegação corretamente.
+                dismiss()
             }
-            .padding(32)
+            .buttonStyle(.borderedProminent)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
         }
     }
 
     // MARK: - Helpers
+
+    private static func preferredIntroPages(for subscenario: Subscenario) -> [String]? {
+        if let introPagesEN = subscenario.introPagesEN, !introPagesEN.isEmpty {
+            return introPagesEN
+        }
+
+        return subscenario.introPages
+    }
 
     private func scrollToBottom(proxy: ScrollViewProxy) {
         withAnimation(.easeOut(duration: 0.25)) {
@@ -163,6 +237,8 @@ struct ScenarioView: View {
 private struct MessageBubble: View {
     let step: ScriptStep
     let showTranslation: Bool
+    let subscenario: Subscenario
+    let userProfileImage: UIImage?
 
     // Lê do ambiente para que as mudanças em currentSpeakingStepId disparem
     // atualizações de UI — passar como `let` não registra a dependência de
@@ -171,42 +247,52 @@ private struct MessageBubble: View {
 
     private var isVendor: Bool { step.speaker == .vendor }
     private var isSpeakingThis: Bool { speechService.currentSpeakingStepId == step.id }
+    private var vendorIconName: String? { ChatStyling.vendorIconName(for: subscenario) }
 
     var body: some View {
         HStack(alignment: .bottom, spacing: 6) {
             if isVendor {
+                ChatVendorAvatarView(iconName: vendorIconName)
+                bubbleRow
+                Spacer(minLength: 24)
+            } else {
+                Spacer(minLength: 24)
+                bubbleRow
+                ChatUserAvatarView(image: userProfileImage)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: isVendor ? .leading : .trailing)
+    }
+
+    private var bubbleRow: some View {
+        HStack(alignment: .bottom, spacing: 6) {
+            if isVendor {
                 bubble
                 speakerButton
-                Spacer(minLength: 48)
             } else {
-                Spacer(minLength: 48)
                 speakerButton
                 bubble
             }
         }
-        .frame(maxWidth: .infinity, alignment: isVendor ? .leading : .trailing)
     }
 
     private var bubble: some View {
         VStack(alignment: isVendor ? .leading : .trailing, spacing: 4) {
             Text(step.textPT)
                 .font(.body)
-                .foregroundStyle(isVendor ? Color.primary : .white)
+                .foregroundStyle(Color("mensagem_fonte"))
 
             if showTranslation && !step.translationEN.isEmpty {
                 Text(step.translationEN)
                     .font(.caption)
-                    .foregroundStyle(
-                        isVendor
-                            ? Color(.secondaryLabel)
-                            : Color.white.opacity(0.75)
-                    )
+                    .foregroundStyle(Color("mensagem_fonte").opacity(0.65))
             }
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
-        .background(isVendor ? Color(.systemGray5) : Color.blue)
+        .background(isVendor ? ChatStyling.vendorBubbleColor : ChatStyling.userBubbleColor)
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
     }
 
     private var speakerButton: some View {
@@ -228,27 +314,39 @@ private struct MessageBubble: View {
 // MARK: - TypingIndicator
 
 private struct TypingIndicator: View {
+    let subscenario: Subscenario
     @State private var animating = false
 
+    private var vendorIconName: String? {
+        ChatStyling.vendorIconName(for: subscenario)
+    }
+
     var body: some View {
-        HStack(spacing: 4) {
-            ForEach(0..<3, id: \.self) { index in
-                Circle()
-                    .fill(Color(.systemGray3))
-                    .frame(width: 8, height: 8)
-                    .offset(y: animating ? -4 : 0)
-                    .animation(
-                        .easeInOut(duration: 0.4)
-                            .repeatForever()
-                            .delay(Double(index) * 0.13),
-                        value: animating
-                    )
+        HStack(alignment: .bottom, spacing: 6) {
+            ChatVendorAvatarView(iconName: vendorIconName)
+
+            HStack(spacing: 4) {
+                ForEach(0..<3, id: \.self) { index in
+                    Circle()
+                        .fill(Color(.systemGray3))
+                        .frame(width: 8, height: 8)
+                        .offset(y: animating ? -4 : 0)
+                        .animation(
+                            .easeInOut(duration: 0.4)
+                                .repeatForever()
+                                .delay(Double(index) * 0.13),
+                            value: animating
+                        )
+                }
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
+            .background(ChatStyling.vendorBubbleColor)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
+
+            Spacer(minLength: 24)
         }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 10)
-        .background(Color(.systemGray5))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
         .frame(maxWidth: .infinity, alignment: .leading)
         .onAppear { animating = true }
     }
@@ -262,7 +360,10 @@ private struct TypingIndicator: View {
                 titlePT: "Matte",
                 titleEN: "Mate drink",
                 scriptName: "matte",
-                isLocked: false
+                isLocked: false,
+                introPages: nil,
+                introPagesEN: nil,
+                vendorIcon: nil
             )
         )
     }

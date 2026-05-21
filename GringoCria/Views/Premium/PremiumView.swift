@@ -12,7 +12,6 @@ import SwiftUI
 @available(iOS 26, *)
 struct PremiumView: View {
     @State private var viewModel = HomeViewModel()
-    @State private var selectedPremiumSubscenario: Subscenario?
 
     var body: some View {
         Group {
@@ -34,15 +33,20 @@ struct PremiumView: View {
             } else {
                 ScenarioListView(
                     scenarios: viewModel.scenarios,
-                    mode: .premium
-                ) { subscenario in
-                    selectedPremiumSubscenario = subscenario
-                }
+                    mode: .premium,
+                    onPremiumTap: { _ in }
+                )
             }
+        }
+        .background {
+            Image("menu_background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
         }
         .navigationTitle("Premium")
         .navigationBarTitleDisplayMode(.large)
-        .sheet(item: $selectedPremiumSubscenario) { subscenario in
+        .navigationDestination(for: Subscenario.self) { subscenario in
             AIChatEntryView(subscenario: subscenario)
         }
         .task {

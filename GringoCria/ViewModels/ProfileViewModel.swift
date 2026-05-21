@@ -19,6 +19,7 @@ final class ProfileViewModel {
     private(set) var hasChanges = false
     private(set) var isSaving: Bool = false
     private(set) var statusMessage: String?
+    private(set) var totalScenarios: Int = 0
 
     private let profileService: ProfileService
     private var savedNickname: String
@@ -87,6 +88,18 @@ final class ProfileViewModel {
         hasProfilePhotoChanges = false
         hasChanges = false
         statusMessage = "Profile updated"
+    }
+
+    func loadStats() async {
+        guard let url = Bundle.main.url(forResource: "scenarios", withExtension: "json"),
+              let data = try? await Task.detached(priority: .utility, operation: { try Data(contentsOf: url) }).value,
+              let scenarios = try? JSONDecoder().decode([Scenario].self, from: data)
+        else { return }
+
+        totalScenarios = scenarios
+            .flatMap { $0.subscenarios }
+            .filter { !$0.isLocked }
+            .count
     }
 
     func cancelChanges() {

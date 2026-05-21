@@ -1,0 +1,88 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/PremiumGateView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "AI Carioca Chat",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Chat with real Carioca characters powered by Apple Intelligence",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "Requires iPhone 15 Pro or newer with Apple Intelligence enabled",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 98
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enable Apple Intelligence in Settings > Apple Intelligence & Siri",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "Apple Intelligence model is downloading. Please try again later.",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Requires iPhone 15 Pro or newer with Apple Intelligence enabled",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "Restore Purchase",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "Maybe Later",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 175
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unlock Premium",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 154
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unlock for %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 151
+        }
+      }
+    ]
+  },
+  "version": 1
+}

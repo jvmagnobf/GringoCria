@@ -16,22 +16,30 @@ struct ProfileSetupView: View {
     // MARK: - Body
 
     var body: some View {
-        VStack(spacing: 32) {
-            Text("Set up your profile")
-                .font(.title2)
-                .fontWeight(.semibold)
+        ZStack {
+            Image("menu_background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
 
-            profilePhotoSection
+            VStack(spacing: 32) {
+                Text("Set up your profile")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
 
-            nicknameSection
+                profilePhotoSection
 
-            Spacer()
+                nicknameSection
 
-            doneButton
-                .padding(.bottom, 32)
+                Spacer()
+
+                doneButton
+                    .padding(.bottom, 32)
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 32)
         }
-        .padding(.horizontal, 24)
-        .padding(.top, 32)
         .onAppear {
             viewModel.onSetupCompleted = {
                 appState.restoreSession()
@@ -59,8 +67,12 @@ struct ProfileSetupView: View {
     private var nicknameSection: some View {
         VStack(alignment: .leading, spacing: 6) {
             TextField("How do you want to be called?", text: $viewModel.nickname)
-                .textFieldStyle(.roundedBorder)
+                .textFieldStyle(.plain)
                 .autocorrectionDisabled()
+                .padding(.horizontal, 14)
+                .padding(.vertical, 12)
+                .background(.white.opacity(0.92))
+                .clipShape(RoundedRectangle(cornerRadius: 14))
                 .onChange(of: viewModel.nickname) {
                     viewModel.validateNickname()
                 }

@@ -3,18 +3,179 @@
 <plist version="1.0">
 <dict>
 	<key>colors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameAmareloMensagem</string>
+			<key>relativePath</key>
+			<string>./amarelo_mensagem.colorset</string>
+			<key>swiftSymbol</key>
+			<string>amareloMensagem</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameBrancoMensagem</string>
+			<key>relativePath</key>
+			<string>./branco_mensagem.colorset</string>
+			<key>swiftSymbol</key>
+			<string>brancoMensagem</string>
+		</dict>
+	</array>
 	<key>images</key>
 	<array>
 		<dict>
 			<key>catalogPath</key>
 			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
 			<key>objcSymbol</key>
-			<string>ACImageNameEnterBackground</string>
+			<string>ACImageNameBarracaFundo</string>
 			<key>relativePath</key>
-			<string>./enter_background.imageset</string>
+			<string>./BarracaFundo.imageset</string>
 			<key>swiftSymbol</key>
-			<string>enterBackground</string>
+			<string>barracaFundo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCaipiFundo</string>
+			<key>relativePath</key>
+			<string>./CaipiFundo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>caipiFundo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameEsfihaFundo</string>
+			<key>relativePath</key>
+			<string>./EsfihaFundo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>esfihaFundo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameFundoChat</string>
+			<key>relativePath</key>
+			<string>./FundoChat.imageset</string>
+			<key>swiftSymbol</key>
+			<string>fundoChat</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconeCadeira</string>
+			<key>relativePath</key>
+			<string>./IconeCadeira.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeCadeira</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconeCaipi</string>
+			<key>relativePath</key>
+			<string>./IconeCaipi.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeCaipi</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconeEsifiha</string>
+			<key>relativePath</key>
+			<string>./IconeEsifiha.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeEsifiha</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconeMatte</string>
+			<key>relativePath</key>
+			<string>./IconeMatte.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeMatte</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconePolicia</string>
+			<key>relativePath</key>
+			<string>./IconePolicia.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconePolicia</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconeSalvaVidas</string>
+			<key>relativePath</key>
+			<string>./IconeSalvaVidas.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeSalvaVidas</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameMatteFundo</string>
+			<key>relativePath</key>
+			<string>./MatteFundo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>matteFundo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNamePolicialFundo2</string>
+			<key>relativePath</key>
+			<string>./PolicialFundo2.imageset</string>
+			<key>swiftSymbol</key>
+			<string>policialFundo2</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSalvavidasFundo</string>
+			<key>relativePath</key>
+			<string>./SalvavidasFundo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>salvavidasFundo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameMenuBackground</string>
+			<key>relativePath</key>
+			<string>./menu_background.imageset</string>
+			<key>swiftSymbol</key>
+			<string>menuBackground</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameTelaWelcome</string>
+			<key>relativePath</key>
+			<string>./telaWelcome.imageset</string>
+			<key>swiftSymbol</key>
+			<string>telaWelcome</string>
 		</dict>
 	</array>
 	<key>symbols</key>

@@ -1,0 +1,211 @@
+[
+  {
+    "id": "AD000001-0000-0000-0000-AD0000000001",
+    "speaker": "customer",
+    "textPT": "Com licença, policial.",
+    "translationEN": "Excuse me, officer.",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000002-0000-0000-0000-AD0000000002",
+    "speaker": "vendor",
+    "textPT": "Opa, o que aconteceu?",
+    "translationEN": "Hey, what happened?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000003-0000-0000-0000-AD0000000003",
+    "speaker": "customer",
+    "textPT": "Acabei de ser roubado aqui perto.",
+    "translationEN": "I was just robbed nearby.",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000004-0000-0000-0000-AD0000000004",
+    "speaker": "vendor",
+    "textPT": "Levaram o quê?",
+    "translationEN": "What did they take?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000005-0000-0000-0000-AD0000000005",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AE000005-0000-0000-0000-AE0000000001",
+        "textPT": "Minha mochila e o celular.",
+        "translationEN": "My backpack and my phone.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "AE000005-0000-0000-0000-AE0000000002",
+        "textPT": "Minha carteira com dinheiro e documentos.",
+        "translationEN": "My wallet with cash and documents.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000006-0000-0000-0000-AD0000000006",
+    "speaker": "vendor",
+    "textPT": "Você tá bem? Foi armado?",
+    "translationEN": "Are you okay? Was it armed?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000007-0000-0000-0000-AD0000000007",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AE000007-0000-0000-0000-AE0000000001",
+        "textPT": "Tô bem, mas fiquei com medo.",
+        "translationEN": "I'm okay, but I got scared.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "AE000007-0000-0000-0000-AE0000000002",
+        "textPT": "Fiquei bem, mas foi bem assustador.",
+        "translationEN": "I'm fine, but it was really frightening.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000008-0000-0000-0000-AD0000000008",
+    "speaker": "vendor",
+    "textPT": "Você lembra como ele era?",
+    "translationEN": "Do you remember what he looked like?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000009-0000-0000-0000-AD0000000009",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AE000009-0000-0000-0000-AE0000000001",
+        "textPT": "Era um homem, camiseta preta, bem magro.",
+        "translationEN": "It was a man, black t-shirt, very thin.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "AE000009-0000-0000-0000-AE0000000002",
+        "textPT": "Era jovem, de bermuda azul.",
+        "translationEN": "He was young, wearing blue shorts.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000010-0000-0000-0000-AD0000000010",
+    "speaker": "vendor",
+    "textPT": "Entendi. Você precisa registrar ocorrência.",
+    "translationEN": "Got it. You need to file a police report.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000011-0000-0000-0000-AD0000000011",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "AE000011-0000-0000-0000-AE0000000001",
+        "textPT": "Onde eu faço isso? Onde fica a delegacia?",
+        "translationEN": "Where do I do that? Where's the police station?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000012-0000-0000-0000-AD0000000012",
+    "speaker": "vendor",
+    "textPT": "Tem a delegacia do turista no Leblon. Vai pela Vieira Souto e dobra à direita no fim da rua.",
+    "translationEN": "There's the Tourist Police Station in Leblon. Go down Vieira Souto and turn right at the end of the street.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "AD000013-0000-0000-0000-AD0000000013",
+    "speaker": "customer",
+    "textPT": "Tá bom, obrigado pela ajuda.",
+    "translationEN": "Okay, thank you for your help.",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

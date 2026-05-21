@@ -1,0 +1,293 @@
+[
+  {
+    "id": "BA000001-0000-0000-0000-BA0000000001",
+    "speaker": "vendor",
+    "textPT": "Cadeira e guarda-sol, parceiro! Cola aqui!",
+    "translationEN": "Chairs and umbrella, buddy! Come over!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000002-0000-0000-0000-BA0000000002",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BC000002-0000-0000-0000-BC0000000001",
+        "textPT": "*Acena pro cara da barraca*",
+        "translationEN": "*Waves to the beach chair guy*",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BC000002-0000-0000-0000-BC0000000002",
+        "textPT": "Ô, do guarda-sol!",
+        "translationEN": "Hey, umbrella guy!",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000003-0000-0000-0000-BA0000000003",
+    "speaker": "vendor",
+    "textPT": "Oi! Pode chegar!",
+    "translationEN": "Hey! Come on over!",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000004-0000-0000-0000-BA0000000004",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BC000004-0000-0000-0000-BC0000000001",
+        "textPT": "Quanto fica cadeira e barraca?",
+        "translationEN": "How much for a chair and umbrella?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BC000004-0000-0000-0000-BC0000000002",
+        "textPT": "Só a cadeira, quanto tá?",
+        "translationEN": "Just the chair, how much?",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000005-0000-0000-0000-BA0000000005",
+    "speaker": "vendor",
+    "textPT": "Só cadeira é 15. A barraca é 30.",
+    "translationEN": "Just the chair is 15. The umbrella is 30.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000006-0000-0000-0000-BA0000000006",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BC000006-0000-0000-0000-BC0000000001",
+        "textPT": "Faz um desconto?",
+        "translationEN": "Can you give a discount?",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BC000006-0000-0000-0000-BC0000000002",
+        "textPT": "Vou querer só a barraca.",
+        "translationEN": "I'll just take the umbrella.",
+        "isCorrect": null,
+        "nextStepId": "BA000008-0000-0000-0000-BA0000000008"
+      },
+      {
+        "id": "BC000006-0000-0000-0000-BC0000000003",
+        "textPT": "Vou querer só a cadeira.",
+        "translationEN": "I'll just take the chair.",
+        "isCorrect": null,
+        "nextStepId": "BA000008-0000-0000-0000-BA0000000008"
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000007-0000-0000-0000-BA0000000007",
+    "speaker": "vendor",
+    "textPT": "No combo faço 40 pra você.",
+    "translationEN": "For the combo I'll do 40 for you.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA00007B-0000-0000-0000-BA000000007B",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BC00007B-0000-0000-0000-BC0000007B01",
+        "textPT": "Fechou então!",
+        "translationEN": "Deal then!",
+        "isCorrect": null,
+        "nextStepId": "BA000008-0000-0000-0000-BA0000000008"
+      },
+      {
+        "id": "BC00007B-0000-0000-0000-BC0000007B02",
+        "textPT": "Vou só com a cadeira mesmo.",
+        "translationEN": "I'll just go with the chair.",
+        "isCorrect": null,
+        "nextStepId": "BA000008-0000-0000-0000-BA0000000008"
+      },
+      {
+        "id": "BC00007B-0000-0000-0000-BC0000007B03",
+        "textPT": "Vou só com a barraca mesmo.",
+        "translationEN": "I'll just go with the umbrella.",
+        "isCorrect": null,
+        "nextStepId": "BA000008-0000-0000-0000-BA0000000008"
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000008-0000-0000-0000-BA0000000008",
+    "speaker": "vendor",
+    "textPT": "Quer ficar mais perto do mar ou mais atrás?",
+    "translationEN": "Want to be closer to the sea or further back?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000009-0000-0000-0000-BA0000000009",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BC000009-0000-0000-0000-BC0000000001",
+        "textPT": "Mais perto do mar.",
+        "translationEN": "Closer to the sea.",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BC000009-0000-0000-0000-BC0000000002",
+        "textPT": "Pode ser aqui mesmo.",
+        "translationEN": "Right here is fine.",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000010-0000-0000-0000-BA0000000010",
+    "speaker": "vendor",
+    "textPT": "Tranquilo! Já monto pra você. Aceito Pix, cartão e dinheiro.",
+    "translationEN": "Sure! I'll set it up for you. I take Pix, card and cash.",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000011-0000-0000-0000-BA0000000011",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "BC000011-0000-0000-0000-BC0000000001",
+        "textPT": "Pix",
+        "translationEN": "Pix",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BC000011-0000-0000-0000-BC0000000002",
+        "textPT": "Cartão",
+        "translationEN": "Card",
+        "isCorrect": null,
+        "nextStepId": null
+      },
+      {
+        "id": "BC000011-0000-0000-0000-BC0000000003",
+        "textPT": "Dinheiro",
+        "translationEN": "Cash",
+        "isCorrect": null,
+        "nextStepId": null
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000012-0000-0000-0000-BA0000000012",
+    "speaker": "customer",
+    "textPT": "*Paga e espera o cara instalar*",
+    "translationEN": "*Pays and waits for the guy to set up*",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000013-0000-0000-0000-BA0000000013",
+    "speaker": "vendor",
+    "textPT": "Qualquer coisa é só chamar, tá?",
+    "translationEN": "Anything you need, just call me, ok?",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "BA000014-0000-0000-0000-BA0000000014",
+    "speaker": "customer",
+    "textPT": "Valeu!",
+    "translationEN": "Thanks!",
+    "type": "auto",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": true,
+    "nextStepId": null
+  }
+]

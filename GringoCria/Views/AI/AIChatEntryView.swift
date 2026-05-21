@@ -52,5 +52,7 @@ struct AIChatEntryView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
+        .navigationTitle(subscenario.titleEN)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

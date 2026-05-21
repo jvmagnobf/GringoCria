@@ -23,14 +23,16 @@
         "textPT": "*Faz sinal para chamar o vendedor*",
         "translationEN": "*Waves to call the vendor*",
         "isCorrect": null,
-        "nextStepId": null
+        "nextStepId": null,
+        "skipReveal": false
       },
       {
         "id": "B2000001-0000-0000-0000-000000000002",
         "textPT": "Ou do Matte!!",
         "translationEN": "Hey, Mate!!",
         "isCorrect": null,
-        "nextStepId": null
+        "nextStepId": null,
+        "skipReveal": false
       }
     ],
     "vendorVariations": null,
@@ -62,21 +64,24 @@
         "textPT": "Coé ta quanto aí?",
         "translationEN": "Yo how much is it?",
         "isCorrect": null,
-        "nextStepId": null
+        "nextStepId": null,
+        "skipReveal": false
       },
       {
         "id": "B2000004-0000-0000-0000-000000000002",
         "textPT": "E aí paizão ta quanto o matte?",
         "translationEN": "Hey man how much is the mate?",
         "isCorrect": null,
-        "nextStepId": null
+        "nextStepId": null,
+        "skipReveal": false
       },
       {
         "id": "B2000004-0000-0000-0000-000000000003",
         "textPT": "Fala paizão vê um matte",
         "translationEN": "Hey man give me a mate",
         "isCorrect": null,
-        "nextStepId": null
+        "nextStepId": null,
+        "skipReveal": false
       }
     ],
     "vendorVariations": null,
@@ -108,28 +113,163 @@
         "textPT": "Tem maracujá e limão?",
         "translationEN": "Got passion fruit and lemon?",
         "isCorrect": null,
-        "nextStepId": "A100006A-0000-0000-0000-00000000006A"
+        "nextStepId": "A100006A-0000-0000-0000-00000000006A",
+        "skipReveal": false
       },
       {
         "id": "B2000006-0000-0000-0000-000000000002",
         "textPT": "Tem sem açúcar?",
         "translationEN": "Got sugar-free?",
         "isCorrect": null,
-        "nextStepId": "A100006A-0000-0000-0000-00000000006A"
+        "nextStepId": "A100006A-0000-0000-0000-00000000006A",
+        "skipReveal": false
       },
       {
         "id": "B2000006-0000-0000-0000-000000000003",
         "textPT": "Quero o de 12",
         "translationEN": "I'll take the R$12",
         "isCorrect": null,
-        "nextStepId": "A1000007-0000-0000-0000-000000000007"
+        "nextStepId": "A100006C-0000-0000-0000-00000000006C",
+        "skipReveal": true
       },
       {
         "id": "B2000006-0000-0000-0000-000000000004",
         "textPT": "Quero o de 15",
         "translationEN": "I'll take the R$15",
         "isCorrect": null,
-        "nextStepId": "A1000007-0000-0000-0000-000000000007"
+        "nextStepId": "A100006D-0000-0000-0000-00000000006D",
+        "skipReveal": true
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A100006A-0000-0000-0000-00000000006A",
+    "speaker": "vendor",
+    "textPT": "Sim",
+    "translationEN": "Yes",
+    "type": "message",
+    "choices": null,
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": "A100006B-0000-0000-0000-00000000006B"
+  },
+  {
+    "id": "A100006B-0000-0000-0000-00000000006B",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B200006B-0000-0000-0000-000000000001",
+        "textPT": "Quero o de 12",
+        "translationEN": "I'll take the R$12",
+        "isCorrect": null,
+        "nextStepId": "A100006C-0000-0000-0000-00000000006C",
+        "skipReveal": true
+      },
+      {
+        "id": "B200006B-0000-0000-0000-000000000002",
+        "textPT": "Quero o de 15",
+        "translationEN": "I'll take the R$15",
+        "isCorrect": null,
+        "nextStepId": "A100006D-0000-0000-0000-00000000006D",
+        "skipReveal": true
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A100006C-0000-0000-0000-00000000006C",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B200006C-0000-0000-0000-000000000001",
+        "textPT": "Quero o de 12 com maracujá",
+        "translationEN": "I'll take the R$12 with passion fruit",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      },
+      {
+        "id": "B200006C-0000-0000-0000-000000000002",
+        "textPT": "Quero o de 12 com limão",
+        "translationEN": "I'll take the R$12 with lemon",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      },
+      {
+        "id": "B200006C-0000-0000-0000-000000000003",
+        "textPT": "Quero o de 12 sem açúcar",
+        "translationEN": "I'll take the R$12 sugar-free",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      },
+      {
+        "id": "B200006C-0000-0000-0000-000000000004",
+        "textPT": "Quero o de 12 normal",
+        "translationEN": "I'll take the regular R$12",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      }
+    ],
+    "vendorVariations": null,
+    "vendorVariationsEN": null,
+    "isTerminal": false,
+    "nextStepId": null
+  },
+  {
+    "id": "A100006D-0000-0000-0000-00000000006D",
+    "speaker": "customer",
+    "textPT": "",
+    "translationEN": "",
+    "type": "choice",
+    "choices": [
+      {
+        "id": "B200006D-0000-0000-0000-000000000001",
+        "textPT": "Quero o de 15 com maracujá",
+        "translationEN": "I'll take the R$15 with passion fruit",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      },
+      {
+        "id": "B200006D-0000-0000-0000-000000000002",
+        "textPT": "Quero o de 15 com limão",
+        "translationEN": "I'll take the R$15 with lemon",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      },
+      {
+        "id": "B200006D-0000-0000-0000-000000000003",
+        "textPT": "Quero o de 15 sem açúcar",
+        "translationEN": "I'll take the R$15 sugar-free",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
+      },
+      {
+        "id": "B200006D-0000-0000-0000-000000000004",
+        "textPT": "Quero o de 15 normal",
+        "translationEN": "I'll take the regular R$15",
+        "isCorrect": null,
+        "nextStepId": "A1000007-0000-0000-0000-000000000007",
+        "skipReveal": false
       }
     ],
     "vendorVariations": null,
@@ -171,45 +311,6 @@
     "vendorVariations": null,
     "vendorVariationsEN": null,
     "isTerminal": true,
-    "nextStepId": null
-  },
-  {
-    "id": "A100006A-0000-0000-0000-00000000006A",
-    "speaker": "vendor",
-    "textPT": "Sim",
-    "translationEN": "Yes",
-    "type": "message",
-    "choices": null,
-    "vendorVariations": null,
-    "vendorVariationsEN": null,
-    "isTerminal": false,
-    "nextStepId": "A100006B-0000-0000-0000-00000000006B"
-  },
-  {
-    "id": "A100006B-0000-0000-0000-00000000006B",
-    "speaker": "customer",
-    "textPT": "",
-    "translationEN": "",
-    "type": "choice",
-    "choices": [
-      {
-        "id": "B200006B-0000-0000-0000-000000000001",
-        "textPT": "Quero o de 12",
-        "translationEN": "I'll take the R$12",
-        "isCorrect": null,
-        "nextStepId": "A1000007-0000-0000-0000-000000000007"
-      },
-      {
-        "id": "B200006B-0000-0000-0000-000000000002",
-        "textPT": "Quero o de 15",
-        "translationEN": "I'll take the R$15",
-        "isCorrect": null,
-        "nextStepId": "A1000007-0000-0000-0000-000000000007"
-      }
-    ],
-    "vendorVariations": null,
-    "vendorVariationsEN": null,
-    "isTerminal": false,
     "nextStepId": null
   }
 ]

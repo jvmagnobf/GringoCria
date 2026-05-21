@@ -1,0 +1,24 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/AIChatEntryView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Coming Soon",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "An AI character for this scenario is in the works. Check back later!",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 47
+        }
+      }
+    ]
+  },
+  "version": 1
+}

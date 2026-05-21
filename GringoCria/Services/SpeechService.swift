@@ -39,11 +39,26 @@ final class SpeechService: NSObject {
         }
 
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        utterance.voice = bestPortugueseBRVoice()
+        // Ligeiramente mais devagar que o default (0.5) para facilitar o aprendizado
+        utterance.rate = 0.47
 
         currentSpeakingStepId = stepId
         isSpeaking = true
         synthesizer.speak(utterance)
+    }
+
+    // MARK: - Private
+
+    /// Retorna a melhor voz pt-BR disponível no dispositivo:
+    /// Premium > Enhanced > Default. Vozes de qualidade superior
+    /// podem ser baixadas em Ajustes > Acessibilidade > Conteúdo Falado > Vozes.
+    private func bestPortugueseBRVoice() -> AVSpeechSynthesisVoice? {
+        let best = AVSpeechSynthesisVoice.speechVoices()
+            .filter { $0.language == "pt-BR" }
+            .sorted { $0.quality.rawValue > $1.quality.rawValue }
+            .first
+        return best ?? AVSpeechSynthesisVoice(language: "pt-BR")
     }
 
     func stop() {

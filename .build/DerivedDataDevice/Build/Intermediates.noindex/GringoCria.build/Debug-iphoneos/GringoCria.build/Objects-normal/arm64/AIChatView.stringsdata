@@ -1,0 +1,24 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/AIChatView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Toggle translation",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type in Portuguese...",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 125
+        }
+      }
+    ]
+  },
+  "version": 1
+}

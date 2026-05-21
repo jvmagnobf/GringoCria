@@ -55,19 +55,21 @@ final class ScenarioViewModel {
         // ForEach exige IDs únicos em toda a coleção — reutilizar step.id
         // causaria crash com "Fatal error: Duplicate ID" em debug ou
         // comportamento visual incorreto em release.
-        let choiceRevealed = ScriptStep(
-            id: UUID(),
-            speaker: step.speaker,
-            textPT: choice.textPT,
-            translationEN: choice.translationEN,
-            type: step.type,
-            choices: nil,
-            vendorVariations: nil,
-            vendorVariationsEN: nil,
-            isTerminal: false,
-            nextStepId: nil
-        )
-        revealedSteps.append(choiceRevealed)
+        if !choice.skipReveal {
+            let choiceRevealed = ScriptStep(
+                id: UUID(),
+                speaker: step.speaker,
+                textPT: choice.textPT,
+                translationEN: choice.translationEN,
+                type: step.type,
+                choices: nil,
+                vendorVariations: nil,
+                vendorVariationsEN: nil,
+                isTerminal: false,
+                nextStepId: nil
+            )
+            revealedSteps.append(choiceRevealed)
+        }
 
         if let nextId = choice.nextStepId, stepMap[nextId] != nil {
             currentStepId = nextId

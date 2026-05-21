@@ -127,11 +127,13 @@ private struct ScenarioSection: View {
         HStack(spacing: 8) {
             Image(systemName: scenario.icon)
                 .font(.title2)
+                .foregroundStyle(.white)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(scenario.titleEN)
                     .font(.title2)
                     .fontWeight(.bold)
+                    .foregroundStyle(.white)
 
                 Text(scenario.titlePT)
                     .font(.subheadline)
@@ -160,9 +162,9 @@ private struct ScenarioSection: View {
     private func shouldOpenPremiumSheet(_ subscenario: Subscenario) -> Bool {
         switch mode {
         case .scenarios:
-            subscenario.isLocked
+            true   // sempre usa callback; HomeView decide o que fazer
         case .premium:
-            true
+            false  // usa NavigationLink; PremiumView tem a navigationDestination
         }
     }
 }
@@ -183,9 +185,10 @@ private struct SubscenarioCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(subscenario.titleEN)
                     .font(.headline)
+                    .foregroundStyle(.white)
                 Text(subscenario.titlePT)
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.7))
             }
 
             Spacer()
@@ -193,8 +196,8 @@ private struct SubscenarioCard: View {
             statusIcon
         }
         .padding(16)
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .glassEffect(in: RoundedRectangle(cornerRadius: 12))
+        .contentShape(RoundedRectangle(cornerRadius: 12))
     }
 
     // MARK: - Private
@@ -230,14 +233,20 @@ private struct SubscenarioCard: View {
                                 titlePT: "Matte",
                                 titleEN: "Mate drink",
                                 scriptName: "matte",
-                                isLocked: false
+                                isLocked: false,
+                                introPages: nil,
+                                introPagesEN: nil,
+                                vendorIcon: nil
                             ),
                             Subscenario(
                                 id: UUID(),
                                 titlePT: "Matte com IA",
                                 titleEN: "AI Mate Chat",
                                 scriptName: "",
-                                isLocked: true
+                                isLocked: true,
+                                introPages: nil,
+                                introPagesEN: nil,
+                                vendorIcon: nil
                             )
                         ]
                     )
