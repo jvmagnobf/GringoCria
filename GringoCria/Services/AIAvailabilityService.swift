@@ -11,7 +11,6 @@ import FoundationModels
 
 // MARK: - AIAvailabilityState
 
-@available(iOS 26, *)
 enum AIAvailabilityState {
     case checking
     case available
@@ -23,7 +22,6 @@ enum AIAvailabilityState {
 
 // MARK: - AIAvailabilityService
 
-@available(iOS 26, *)
 @Observable
 @MainActor
 final class AIAvailabilityService {

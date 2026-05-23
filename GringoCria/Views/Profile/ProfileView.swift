@@ -10,24 +10,41 @@ import SwiftUI
 // MARK: - ProfileView
 
 struct ProfileView: View {
-    @State private var viewModel: ProfileViewModel
+    @State private var viewModel: ProfileViewModel?
     @Environment(ProgressService.self) private var progressService
     @State private var showingOnboarding = false
 
-    init() {
-        _viewModel = State(initialValue: ProfileViewModel())
-    }
-
-    init(viewModel: ProfileViewModel) {
-        _viewModel = State(initialValue: viewModel)
-    }
-
     var body: some View {
+        Group {
+            if let viewModel {
+                profileForm(viewModel: viewModel)
+            } else {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+        .task {
+            if viewModel == nil {
+                viewModel = ProfileViewModel(progressService: progressService)
+            }
+            await viewModel?.loadProfilePhoto()
+            await viewModel?.loadTotalScenarios()
+        }
+        .fullScreenCover(isPresented: $showingOnboarding) {
+            OnboardingView {
+                showingOnboarding = false
+            }
+        }
+    }
+
+    // MARK: - Profile Form
+
+    private func profileForm(viewModel: ProfileViewModel) -> some View {
         Form {
-            photoSection
-            nicknameSection
-            statsSection
-            actionButtonsSection
+            photoSection(viewModel: viewModel)
+            nicknameSection(viewModel: viewModel)
+            statsSection(viewModel: viewModel)
+            actionButtonsSection(viewModel: viewModel)
         }
         .scrollContentBackground(.hidden)
         .background {
@@ -38,20 +55,11 @@ struct ProfileView: View {
         }
         .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.large)
-        .task {
-            await viewModel.loadProfilePhoto()
-            await viewModel.loadStats()
-        }
-        .fullScreenCover(isPresented: $showingOnboarding) {
-            OnboardingView {
-                showingOnboarding = false
-            }
-        }
     }
 
     // MARK: - Sections
 
-    private var photoSection: some View {
+    private func photoSection(viewModel: ProfileViewModel) -> some View {
         Section {
             ProfilePhotoField(
                 image: viewModel.profileImage,
@@ -67,9 +75,9 @@ struct ProfileView: View {
         }
     }
 
-    private var nicknameSection: some View {
+    private func nicknameSection(viewModel: ProfileViewModel) -> some View {
         Section {
-            TextField("Nickname", text: $viewModel.nickname)
+            TextField("Nickname", text: Bindable(viewModel).nickname)
                 .textInputAutocapitalization(.words)
                 .autocorrectionDisabled()
                 .onChange(of: viewModel.nickname) {
@@ -87,20 +95,20 @@ struct ProfileView: View {
         }
     }
 
-    private var statsSection: some View {
+    private func statsSection(viewModel: ProfileViewModel) -> some View {
         Section {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
                     Text("Scenarios completed")
                     Spacer()
-                    Text("\(progressService.completedIDs.count) / \(viewModel.totalScenarios)")
+                    Text("\(viewModel.completedCount) / \(viewModel.totalScenarios)")
                         .fontWeight(.semibold)
                         .foregroundStyle(.secondary)
                 }
 
                 if viewModel.totalScenarios > 0 {
                     ProgressView(
-                        value: Double(progressService.completedIDs.count),
+                        value: Double(viewModel.completedCount),
                         total: Double(viewModel.totalScenarios)
                     )
                     .tint(.blue)
@@ -113,7 +121,7 @@ struct ProfileView: View {
         }
     }
 
-    private var actionButtonsSection: some View {
+    private func actionButtonsSection(viewModel: ProfileViewModel) -> some View {
         Section {
             VStack(spacing: 10) {
                 if let statusMessage = viewModel.statusMessage {
@@ -166,4 +174,5 @@ private struct NavyGlassButtonStyle: ButtonStyle {
     NavigationStack {
         ProfileView()
     }
+    .environment(ProgressService())
 }

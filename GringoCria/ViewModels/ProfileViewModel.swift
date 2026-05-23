@@ -22,19 +22,22 @@ final class ProfileViewModel {
     private(set) var totalScenarios: Int = 0
 
     private let profileService: ProfileService
+    private let progressService: ProgressService
     private var savedNickname: String
     private var savedProfileImage: UIImage?
     private var hasProfilePhotoChanges = false
     private var hasLoadedProfilePhoto = false
 
-    convenience init() {
-        self.init(profileService: ProfileService())
-    }
+    var completedCount: Int { progressService.completedIDs.count }
 
-    init(profileService: ProfileService) {
+    init(
+        profileService: ProfileService = ProfileService(),
+        progressService: ProgressService
+    ) {
         let loadedNickname = profileService.loadNickname()
 
         self.profileService = profileService
+        self.progressService = progressService
         self.savedNickname = loadedNickname
         self.nickname = loadedNickname
     }
@@ -52,12 +55,9 @@ final class ProfileViewModel {
     }
 
     func validateNickname() {
-        let limitedNickname = profileService.limitedNickname(nickname)
-        if limitedNickname != nickname {
-            nickname = limitedNickname
-        }
-
-        nicknameError = profileService.nicknameValidationError(for: nickname)
+        let result = profileService.validateAndLimit(nickname)
+        nickname = result.validated
+        nicknameError = result.error
         statusMessage = nil
         updateChangeState()
     }
@@ -90,12 +90,8 @@ final class ProfileViewModel {
         statusMessage = "Profile updated"
     }
 
-    func loadStats() async {
-        guard let url = Bundle.main.url(forResource: "scenarios", withExtension: "json"),
-              let data = try? await Task.detached(priority: .utility, operation: { try Data(contentsOf: url) }).value,
-              let scenarios = try? JSONDecoder().decode([Scenario].self, from: data)
-        else { return }
-
+    func loadTotalScenarios() async {
+        let scenarios = await ScenarioRepository.load()
         totalScenarios = scenarios
             .flatMap { $0.subscenarios }
             .filter { !$0.isLocked }

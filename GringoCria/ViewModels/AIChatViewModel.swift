@@ -7,37 +7,10 @@
 
 import Foundation
 import Observation
-
-// MARK: - ChatRole
-
-@available(iOS 26, *)
-enum ChatRole {
-    case user
-    case vendor
-}
-
-// MARK: - ChatMessage
-
-@available(iOS 26, *)
-struct ChatMessage: Identifiable {
-    let id: UUID
-    let role: ChatRole
-    let text: String
-    var feedback: MessageFeedback?
-    var translationEN: String?
-
-    init(id: UUID = UUID(), role: ChatRole, text: String, feedback: MessageFeedback? = nil, translationEN: String? = nil) {
-        self.id = id
-        self.role = role
-        self.text = text
-        self.feedback = feedback
-        self.translationEN = translationEN
-    }
-}
+import UIKit
 
 // MARK: - AIChatViewModel
 
-@available(iOS 26, *)
 @Observable
 @MainActor
 final class AIChatViewModel {
@@ -45,19 +18,32 @@ final class AIChatViewModel {
     private(set) var isTyping: Bool = false
     private(set) var pendingFeedback: MessageFeedback?
     private(set) var errorMessage: String?
+    private(set) var userProfileImage: UIImage?
 
     private let aiPersonaService: AIPersonaService
     private let aiAvailabilityService: AIAvailabilityService
+    private let profileService: ProfileService
 
     init(
         aiPersonaService: AIPersonaService,
-        aiAvailabilityService: AIAvailabilityService
+        aiAvailabilityService: AIAvailabilityService,
+        /// ProfileService é stateless (struct) — não há estado compartilhado que exija
+        /// injeção via @Environment, portanto o default local é aceitável aqui.
+        profileService: ProfileService = ProfileService()
     ) {
         self.aiPersonaService = aiPersonaService
         self.aiAvailabilityService = aiAvailabilityService
+        self.profileService = profileService
     }
 
     // MARK: - Public
+
+    // loadUserPhoto() existe também em ScenarioViewModel — a duplicação é intencional:
+    // profileService é privado em ambos os ViewModels e expô-lo só para eliminar
+    // uma linha de delegação geraria acoplamento desnecessário.
+    func loadUserPhoto() async {
+        userProfileImage = await profileService.loadProfilePhoto()
+    }
 
     /// Inicializa a conversa: cria as sessões e exibe a linha de abertura do personagem.
     func start(persona: Persona) async {

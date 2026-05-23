@@ -11,25 +11,35 @@ import SwiftUI
 
 /// Ponto de entrada para o chat AI: verifica persona, status premium e disponibilidade
 /// do Apple Intelligence antes de mostrar a view correta.
-@available(iOS 26, *)
 struct AIChatEntryView: View {
     let subscenario: Subscenario
 
     @Environment(AIPersonaService.self) private var aiPersonaService
     @Environment(AIAvailabilityService.self) private var aiAvailabilityService
+    @Environment(PremiumService.self) private var premiumService
 
-    private let repository = PersonaRepository()
+    @State private var viewModel = AIChatEntryViewModel()
 
     var body: some View {
-        if let persona = repository.persona(for: subscenario) {
-            AIChatView(
-                persona: persona,
-                aiPersonaService: aiPersonaService,
-                aiAvailabilityService: aiAvailabilityService
-            )
-        } else {
-            comingSoonView
+        Group {
+            if viewModel.isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if let persona = viewModel.persona {
+                if premiumService.isPremium {
+                    AIChatView(
+                        persona: persona,
+                        aiPersonaService: aiPersonaService,
+                        aiAvailabilityService: aiAvailabilityService
+                    )
+                } else {
+                    PremiumGateView()
+                }
+            } else {
+                comingSoonView
+            }
         }
+        .task { await viewModel.resolve(subscenario: subscenario) }
     }
 
     // MARK: - Coming Soon

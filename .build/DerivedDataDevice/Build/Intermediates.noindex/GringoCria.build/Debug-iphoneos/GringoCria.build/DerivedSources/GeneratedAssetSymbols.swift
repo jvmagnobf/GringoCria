@@ -30,6 +30,9 @@ extension DeveloperToolsSupport.ColorResource {
     /// The "branco_mensagem" asset catalog color resource.
     static let brancoMensagem = DeveloperToolsSupport.ColorResource(name: "branco_mensagem", bundle: resourceBundle)
 
+    /// The "mensagem_fonte" asset catalog color resource.
+    static let mensagemFonte = DeveloperToolsSupport.ColorResource(name: "mensagem_fonte", bundle: resourceBundle)
+
 }
 
 // MARK: - Image Symbols -
@@ -43,11 +46,41 @@ extension DeveloperToolsSupport.ImageResource {
     /// The "CaipiFundo" asset catalog image resource.
     static let caipiFundo = DeveloperToolsSupport.ImageResource(name: "CaipiFundo", bundle: resourceBundle)
 
+    /// The "CriaFundo" asset catalog image resource.
+    static let criaFundo = DeveloperToolsSupport.ImageResource(name: "CriaFundo", bundle: resourceBundle)
+
+    /// The "CristoPose" asset catalog image resource.
+    static let cristoPose = DeveloperToolsSupport.ImageResource(name: "CristoPose", bundle: resourceBundle)
+
+    /// The "CristoPose1" asset catalog image resource.
+    static let cristoPose1 = DeveloperToolsSupport.ImageResource(name: "CristoPose1", bundle: resourceBundle)
+
+    /// The "CristoPose2 (1)" asset catalog image resource.
+    static let cristoPose21 = DeveloperToolsSupport.ImageResource(name: "CristoPose2 (1)", bundle: resourceBundle)
+
+    /// The "CristoPose3" asset catalog image resource.
+    static let cristoPose3 = DeveloperToolsSupport.ImageResource(name: "CristoPose3", bundle: resourceBundle)
+
+    /// The "CristoPoseChat" asset catalog image resource.
+    static let cristoPoseChat = DeveloperToolsSupport.ImageResource(name: "CristoPoseChat", bundle: resourceBundle)
+
+    /// The "CristoPoseInfo" asset catalog image resource.
+    static let cristoPoseInfo = DeveloperToolsSupport.ImageResource(name: "CristoPoseInfo", bundle: resourceBundle)
+
+    /// The "CristoPoseMicrofone" asset catalog image resource.
+    static let cristoPoseMicrofone = DeveloperToolsSupport.ImageResource(name: "CristoPoseMicrofone", bundle: resourceBundle)
+
     /// The "EsfihaFundo" asset catalog image resource.
     static let esfihaFundo = DeveloperToolsSupport.ImageResource(name: "EsfihaFundo", bundle: resourceBundle)
 
     /// The "FundoChat" asset catalog image resource.
     static let fundoChat = DeveloperToolsSupport.ImageResource(name: "FundoChat", bundle: resourceBundle)
+
+    /// The "FundoChatRio" asset catalog image resource.
+    static let fundoChatRio = DeveloperToolsSupport.ImageResource(name: "FundoChatRio", bundle: resourceBundle)
+
+    /// The "GarçomFundo" asset catalog image resource.
+    static let garçomFundo = DeveloperToolsSupport.ImageResource(name: "GarçomFundo", bundle: resourceBundle)
 
     /// The "IconeCadeira" asset catalog image resource.
     static let iconeCadeira = DeveloperToolsSupport.ImageResource(name: "IconeCadeira", bundle: resourceBundle)
@@ -55,8 +88,14 @@ extension DeveloperToolsSupport.ImageResource {
     /// The "IconeCaipi" asset catalog image resource.
     static let iconeCaipi = DeveloperToolsSupport.ImageResource(name: "IconeCaipi", bundle: resourceBundle)
 
+    /// The "IconeCria" asset catalog image resource.
+    static let iconeCria = DeveloperToolsSupport.ImageResource(name: "IconeCria", bundle: resourceBundle)
+
     /// The "IconeEsifiha" asset catalog image resource.
     static let iconeEsifiha = DeveloperToolsSupport.ImageResource(name: "IconeEsifiha", bundle: resourceBundle)
+
+    /// The "IconeGarcom" asset catalog image resource.
+    static let iconeGarcom = DeveloperToolsSupport.ImageResource(name: "IconeGarcom", bundle: resourceBundle)
 
     /// The "IconeMatte" asset catalog image resource.
     static let iconeMatte = DeveloperToolsSupport.ImageResource(name: "IconeMatte", bundle: resourceBundle)
@@ -109,6 +148,15 @@ extension AppKit.NSColor {
 #endif
     }
 
+    /// The "mensagem_fonte" asset catalog color.
+    static var mensagemFonte: AppKit.NSColor {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .mensagemFonte)
+#else
+        .init()
+#endif
+    }
+
 }
 #endif
 
@@ -135,6 +183,15 @@ extension UIKit.UIColor {
 #endif
     }
 
+    /// The "mensagem_fonte" asset catalog color.
+    static var mensagemFonte: UIKit.UIColor {
+#if !os(watchOS)
+        .init(resource: .mensagemFonte)
+#else
+        .init()
+#endif
+    }
+
 }
 #endif
 
@@ -148,6 +205,9 @@ extension SwiftUI.Color {
     /// The "branco_mensagem" asset catalog color.
     static var brancoMensagem: SwiftUI.Color { .init(.brancoMensagem) }
 
+    /// The "mensagem_fonte" asset catalog color.
+    static var mensagemFonte: SwiftUI.Color { .init(.mensagemFonte) }
+
 }
 
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, watchOS 10.0, *)
@@ -158,6 +218,9 @@ extension SwiftUI.ShapeStyle where Self == SwiftUI.Color {
 
     /// The "branco_mensagem" asset catalog color.
     static var brancoMensagem: SwiftUI.Color { .init(.brancoMensagem) }
+
+    /// The "mensagem_fonte" asset catalog color.
+    static var mensagemFonte: SwiftUI.Color { .init(.mensagemFonte) }
 
 }
 #endif
@@ -187,6 +250,78 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "CriaFundo" asset catalog image.
+    static var criaFundo: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .criaFundo)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose" asset catalog image.
+    static var cristoPose: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPose)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose1" asset catalog image.
+    static var cristoPose1: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPose1)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose2 (1)" asset catalog image.
+    static var cristoPose21: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPose21)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose3" asset catalog image.
+    static var cristoPose3: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPose3)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPoseChat" asset catalog image.
+    static var cristoPoseChat: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPoseChat)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPoseInfo" asset catalog image.
+    static var cristoPoseInfo: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPoseInfo)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPoseMicrofone" asset catalog image.
+    static var cristoPoseMicrofone: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .cristoPoseMicrofone)
+#else
+        .init()
+#endif
+    }
+
     /// The "EsfihaFundo" asset catalog image.
     static var esfihaFundo: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
@@ -200,6 +335,24 @@ extension AppKit.NSImage {
     static var fundoChat: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .fundoChat)
+#else
+        .init()
+#endif
+    }
+
+    /// The "FundoChatRio" asset catalog image.
+    static var fundoChatRio: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .fundoChatRio)
+#else
+        .init()
+#endif
+    }
+
+    /// The "GarçomFundo" asset catalog image.
+    static var garçomFundo: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .garçomFundo)
 #else
         .init()
 #endif
@@ -223,10 +376,28 @@ extension AppKit.NSImage {
 #endif
     }
 
+    /// The "IconeCria" asset catalog image.
+    static var iconeCria: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .iconeCria)
+#else
+        .init()
+#endif
+    }
+
     /// The "IconeEsifiha" asset catalog image.
     static var iconeEsifiha: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
         .init(resource: .iconeEsifiha)
+#else
+        .init()
+#endif
+    }
+
+    /// The "IconeGarcom" asset catalog image.
+    static var iconeGarcom: AppKit.NSImage {
+#if !targetEnvironment(macCatalyst)
+        .init(resource: .iconeGarcom)
 #else
         .init()
 #endif
@@ -330,6 +501,78 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "CriaFundo" asset catalog image.
+    static var criaFundo: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .criaFundo)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose" asset catalog image.
+    static var cristoPose: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPose)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose1" asset catalog image.
+    static var cristoPose1: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPose1)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose2 (1)" asset catalog image.
+    static var cristoPose21: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPose21)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPose3" asset catalog image.
+    static var cristoPose3: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPose3)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPoseChat" asset catalog image.
+    static var cristoPoseChat: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPoseChat)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPoseInfo" asset catalog image.
+    static var cristoPoseInfo: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPoseInfo)
+#else
+        .init()
+#endif
+    }
+
+    /// The "CristoPoseMicrofone" asset catalog image.
+    static var cristoPoseMicrofone: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .cristoPoseMicrofone)
+#else
+        .init()
+#endif
+    }
+
     /// The "EsfihaFundo" asset catalog image.
     static var esfihaFundo: UIKit.UIImage {
 #if !os(watchOS)
@@ -343,6 +586,24 @@ extension UIKit.UIImage {
     static var fundoChat: UIKit.UIImage {
 #if !os(watchOS)
         .init(resource: .fundoChat)
+#else
+        .init()
+#endif
+    }
+
+    /// The "FundoChatRio" asset catalog image.
+    static var fundoChatRio: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .fundoChatRio)
+#else
+        .init()
+#endif
+    }
+
+    /// The "GarçomFundo" asset catalog image.
+    static var garçomFundo: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .garçomFundo)
 #else
         .init()
 #endif
@@ -366,10 +627,28 @@ extension UIKit.UIImage {
 #endif
     }
 
+    /// The "IconeCria" asset catalog image.
+    static var iconeCria: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .iconeCria)
+#else
+        .init()
+#endif
+    }
+
     /// The "IconeEsifiha" asset catalog image.
     static var iconeEsifiha: UIKit.UIImage {
 #if !os(watchOS)
         .init(resource: .iconeEsifiha)
+#else
+        .init()
+#endif
+    }
+
+    /// The "IconeGarcom" asset catalog image.
+    static var iconeGarcom: UIKit.UIImage {
+#if !os(watchOS)
+        .init(resource: .iconeGarcom)
 #else
         .init()
 #endif

@@ -40,10 +40,8 @@ struct ProfileSetupView: View {
             .padding(.horizontal, 24)
             .padding(.top, 32)
         }
-        .onAppear {
-            viewModel.onSetupCompleted = {
-                appState.restoreSession()
-            }
+        .onChange(of: viewModel.setupCompleted) { _, completed in
+            if completed { appState.restoreSession() }
         }
         .task {
             await viewModel.loadProfilePhoto()
@@ -66,13 +64,19 @@ struct ProfileSetupView: View {
 
     private var nicknameSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            TextField("How do you want to be called?", text: $viewModel.nickname)
-                .textFieldStyle(.plain)
-                .autocorrectionDisabled()
-                .padding(.horizontal, 14)
-                .padding(.vertical, 12)
-                .background(.white.opacity(0.92))
-                .clipShape(RoundedRectangle(cornerRadius: 14))
+            TextField(
+                "",
+                text: $viewModel.nickname,
+                prompt: Text("How do you want to be called?")
+                    .foregroundStyle(Color("mensagem_fonte").opacity(0.6))
+            )
+            .foregroundStyle(Color("mensagem_fonte"))
+            .textFieldStyle(.plain)
+            .autocorrectionDisabled()
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .background(.white.opacity(0.92))
+            .clipShape(RoundedRectangle(cornerRadius: 14))
                 .onChange(of: viewModel.nickname) {
                     viewModel.validateNickname()
                 }

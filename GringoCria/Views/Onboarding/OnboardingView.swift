@@ -1,4 +1,4 @@
- //
+//
 //  OnboardingView.swift
 //  GringoCria
 //
@@ -14,29 +14,23 @@ struct OnboardingView: View {
 
     @State private var currentPage = 0
 
-    private struct Page {
-        let title: String
-        let body: String
-        let cristoImage: String
-    }
-
-    private let pages: [Page] = [
-        Page(
+    private let pages: [OnboardingPage] = [
+        OnboardingPage(
             title: "Welcome to GringoCria",
             body: "Learn the Portuguese cariocas actually speak — not textbook phrases, but the real words you'll need at the beach, on the street, and when things get interesting.",
             cristoImage: "CristoPose"
         ),
-        Page(
+        OnboardingPage(
             title: "Real Conversations",
             body: "Pick a scenario, choose what to say, and see how it plays out. Each conversation branches based on your choices — just like real life. Want to go off-script? The AI Premium chat lets you talk freely, no fixed answers.",
             cristoImage: "CristoPoseChat"
         ),
-        Page(
+        OnboardingPage(
             title: "Know the City",
             body: "The Rio Tips tab has what locals know and tourists find out the hard way — beach prices, how Pix works, what to watch out for, and the numbers to call if things go wrong.",
             cristoImage: "CristoPoseInfo"
         ),
-        Page(
+        OnboardingPage(
             title: "You're Ready",
             body: "The vendors won't slow down for you. But at least now you'll know what to say back. Good luck out there.",
             cristoImage: "CristoPose2 (1)"
@@ -88,6 +82,10 @@ struct OnboardingView: View {
             }
         }
         .animation(.easeInOut(duration: 0.35), value: currentPage)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(pages[currentPage].title + ". " + pages[currentPage].body)
+        .accessibilityHint(currentPage < pages.count - 1 ? "Double tap to advance" : "Double tap to get started")
+        .accessibilityAddTraits(.isButton)
     }
 
     // MARK: - Subviews
@@ -124,8 +122,14 @@ struct OnboardingView: View {
             }
         }
     }
+}
 
+// MARK: - Supporting Types
 
+private struct OnboardingPage {
+    let title: String
+    let body: String
+    let cristoImage: String
 }
 
 #Preview {

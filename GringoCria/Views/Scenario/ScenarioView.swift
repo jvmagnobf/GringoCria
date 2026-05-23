@@ -6,28 +6,25 @@
 //
 
 import SwiftUI
-import UIKit
 
 // TODO: validar com usuários se tradução deve aparecer por padrão
 
 struct ScenarioView: View {
     let subscenario: Subscenario
 
-    @State private var viewModel = ScenarioViewModel()
+    @State private var viewModel: ScenarioViewModel?
     @State private var showTranslation: Bool = false
     @State private var introCompleted: Bool
-    @State private var userProfileImage: UIImage?
     @Environment(SpeechService.self) private var speechService
-    @Environment(ProgressService.self) private var progressService
     @Environment(AppState.self) private var appState
+    @Environment(ProgressService.self) private var progressService
     @Environment(\.dismiss) private var dismiss
-    private let profileService = ProfileService()
 
     init(subscenario: Subscenario) {
         self.subscenario = subscenario
         // Se houver intro em inglês, ela é a fonte preferida da UI. Caso contrário,
         // usamos o fallback em português.
-        let hasIntro = !(Self.preferredIntroPages(for: subscenario)?.isEmpty ?? true)
+        let hasIntro = !(subscenario.preferredIntroPages?.isEmpty ?? true)
         _introCompleted = State(initialValue: !hasIntro)
     }
 
@@ -47,7 +44,7 @@ struct ScenarioView: View {
             }
 
             if !introCompleted,
-               let pages = Self.preferredIntroPages(for: subscenario),
+               let pages = subscenario.preferredIntroPages,
                !pages.isEmpty {
                 IntroOverlayView(pages: pages) {
                     withAnimation(.easeInOut(duration: 0.4)) {
@@ -68,18 +65,18 @@ struct ScenarioView: View {
                 .accessibilityLabel("Toggle translation")
             }
         }
-        .onAppear {
-            viewModel.onCompleted = {
-                progressService.markCompleted(id: subscenario.id)
+        .task {
+            if viewModel == nil {
+                viewModel = ScenarioViewModel(progressService: progressService)
             }
         }
         .task(id: introCompleted) {
             // Inicia conversa apenas após o intro ser dispensado e somente se houver script
             guard introCompleted, !subscenario.scriptName.isEmpty else { return }
-            await viewModel.start(scriptName: subscenario.scriptName)
+            await viewModel?.start(scriptName: subscenario.scriptName, subscenarioId: subscenario.id)
         }
         .task {
-            userProfileImage = await profileService.loadProfilePhoto()
+            await viewModel?.loadUserPhoto()
         }
         .onDisappear {
             speechService.stop()
@@ -89,7 +86,7 @@ struct ScenarioView: View {
     // MARK: - Intro Only
 
     private var isIntroOnly: Bool {
-        subscenario.scriptName.isEmpty && !(Self.preferredIntroPages(for: subscenario)?.isEmpty ?? true)
+        subscenario.scriptName.isEmpty && !(subscenario.preferredIntroPages?.isEmpty ?? true)
     }
 
     private var introCompleteView: some View {
@@ -115,43 +112,55 @@ struct ScenarioView: View {
 
     // MARK: - Conversation Content
 
+    @ViewBuilder
     private var conversationContent: some View {
-        VStack(spacing: 0) {
-            ScrollViewReader { proxy in
-                ScrollView {
-                    LazyVStack(spacing: 12) {
-                        ForEach(viewModel.revealedSteps) { step in
-                            MessageBubble(
-                                step: step,
-                                showTranslation: showTranslation,
-                                subscenario: subscenario,
-                                userProfileImage: userProfileImage
-                            )
-                            .id(step.id)
-                        }
+        // viewModel é inicializado no primeiro .task — não é nil quando conversationContent é exibido
+        if let viewModel {
+            VStack(spacing: 0) {
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            if let headerImage = ChatStyling.headerImageName(for: subscenario) {
+                                ConversationHeaderImage(
+                                    imageName: headerImage,
+                                    label: subscenario.titleEN
+                                )
+                                .padding(.bottom, 4)
+                            }
 
-                        if viewModel.isTyping {
-                            TypingIndicator(subscenario: subscenario)
-                                .id("typing")
+                            ForEach(viewModel.revealedSteps) { step in
+                                MessageBubble(
+                                    step: step,
+                                    showTranslation: showTranslation,
+                                    subscenario: subscenario,
+                                    userProfileImage: viewModel.userProfileImage
+                                )
+                                .id(step.id)
+                            }
+
+                            if viewModel.isTyping {
+                                TypingIndicatorView(vendorIconName: ChatStyling.vendorIconName(for: subscenario))
+                                    .id("typing")
+                            }
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
+                    .onChange(of: viewModel.revealedSteps.count) {
+                        scrollToBottom(proxy: proxy, viewModel: viewModel)
+                    }
+                    .onChange(of: viewModel.isTyping) {
+                        scrollToBottom(proxy: proxy, viewModel: viewModel)
+                    }
                 }
-                .onChange(of: viewModel.revealedSteps.count) {
-                    scrollToBottom(proxy: proxy)
-                }
-                .onChange(of: viewModel.isTyping) {
-                    scrollToBottom(proxy: proxy)
-                }
-            }
 
-            if viewModel.isCompleted {
-                endChatButton
-                    .safeAreaPadding(.bottom)
-            } else {
-                choiceButtons
-                    .safeAreaPadding(.bottom)
+                if viewModel.isCompleted {
+                    endChatButton
+                        .safeAreaPadding(.bottom)
+                } else {
+                    choiceButtons(viewModel: viewModel)
+                        .safeAreaPadding(.bottom)
+                }
             }
         }
     }
@@ -159,7 +168,7 @@ struct ScenarioView: View {
     // MARK: - Choice Buttons
 
     @ViewBuilder
-    private var choiceButtons: some View {
+    private func choiceButtons(viewModel: ScenarioViewModel) -> some View {
         if let choices = viewModel.currentChoices {
             VStack(spacing: 8) {
                 ForEach(choices) { choice in
@@ -171,7 +180,7 @@ struct ScenarioView: View {
                     } label: {
                         Text(label)
                             .font(.body)
-                            .foregroundStyle(Color.primary)
+                            .foregroundStyle(Color("mensagem_fonte"))
                             .multilineTextAlignment(.leading)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal, 16)
@@ -194,12 +203,12 @@ struct ScenarioView: View {
 
     private var endChatButton: some View {
         VStack(spacing: 0) {
-            Text("Conversa encerrada 🎉")
+            Text("Conversation ended")
                 .font(.footnote)
                 .foregroundStyle(.white.opacity(0.8))
                 .padding(.top, 8)
 
-            Button("Encerrar") {
+            Button("Finish") {
                 // dismiss() faz pop na NavigationStack sem alterar authState,
                 // preservando a pilha de navegação corretamente.
                 dismiss()
@@ -213,142 +222,8 @@ struct ScenarioView: View {
 
     // MARK: - Helpers
 
-    private static func preferredIntroPages(for subscenario: Subscenario) -> [String]? {
-        if let introPagesEN = subscenario.introPagesEN, !introPagesEN.isEmpty {
-            return introPagesEN
-        }
-
-        return subscenario.introPages
-    }
-
-    private func scrollToBottom(proxy: ScrollViewProxy) {
-        withAnimation(.easeOut(duration: 0.25)) {
-            if viewModel.isTyping {
-                proxy.scrollTo("typing", anchor: .bottom)
-            } else if let last = viewModel.revealedSteps.last {
-                proxy.scrollTo(last.id, anchor: .bottom)
-            }
-        }
-    }
-}
-
-// MARK: - MessageBubble
-
-private struct MessageBubble: View {
-    let step: ScriptStep
-    let showTranslation: Bool
-    let subscenario: Subscenario
-    let userProfileImage: UIImage?
-
-    // Lê do ambiente para que as mudanças em currentSpeakingStepId disparem
-    // atualizações de UI — passar como `let` não registra a dependência de
-    // observação em @Observable corretamente para sub-views.
-    @Environment(SpeechService.self) private var speechService
-
-    private var isVendor: Bool { step.speaker == .vendor }
-    private var isSpeakingThis: Bool { speechService.currentSpeakingStepId == step.id }
-    private var vendorIconName: String? { ChatStyling.vendorIconName(for: subscenario) }
-
-    var body: some View {
-        HStack(alignment: .bottom, spacing: 6) {
-            if isVendor {
-                ChatVendorAvatarView(iconName: vendorIconName)
-                bubbleRow
-                Spacer(minLength: 24)
-            } else {
-                Spacer(minLength: 24)
-                bubbleRow
-                ChatUserAvatarView(image: userProfileImage)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: isVendor ? .leading : .trailing)
-    }
-
-    private var bubbleRow: some View {
-        HStack(alignment: .bottom, spacing: 6) {
-            if isVendor {
-                bubble
-                speakerButton
-            } else {
-                speakerButton
-                bubble
-            }
-        }
-    }
-
-    private var bubble: some View {
-        VStack(alignment: isVendor ? .leading : .trailing, spacing: 4) {
-            Text(step.textPT)
-                .font(.body)
-                .foregroundStyle(Color("mensagem_fonte"))
-
-            if showTranslation && !step.translationEN.isEmpty {
-                Text(step.translationEN)
-                    .font(.caption)
-                    .foregroundStyle(Color("mensagem_fonte").opacity(0.65))
-            }
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 8)
-        .background(isVendor ? ChatStyling.vendorBubbleColor : ChatStyling.userBubbleColor)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
-    }
-
-    private var speakerButton: some View {
-        Button {
-            if isSpeakingThis {
-                speechService.stop()
-            } else {
-                speechService.speak(text: step.textPT, stepId: step.id)
-            }
-        } label: {
-            Image(systemName: isSpeakingThis ? "speaker.slash" : "speaker.wave.2")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-        .accessibilityLabel(isSpeakingThis ? "Stop pronunciation" : "Play pronunciation")
-    }
-}
-
-// MARK: - TypingIndicator
-
-private struct TypingIndicator: View {
-    let subscenario: Subscenario
-    @State private var animating = false
-
-    private var vendorIconName: String? {
-        ChatStyling.vendorIconName(for: subscenario)
-    }
-
-    var body: some View {
-        HStack(alignment: .bottom, spacing: 6) {
-            ChatVendorAvatarView(iconName: vendorIconName)
-
-            HStack(spacing: 4) {
-                ForEach(0..<3, id: \.self) { index in
-                    Circle()
-                        .fill(Color(.systemGray3))
-                        .frame(width: 8, height: 8)
-                        .offset(y: animating ? -4 : 0)
-                        .animation(
-                            .easeInOut(duration: 0.4)
-                                .repeatForever()
-                                .delay(Double(index) * 0.13),
-                            value: animating
-                        )
-                }
-            }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
-            .background(ChatStyling.vendorBubbleColor)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
-
-            Spacer(minLength: 24)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .onAppear { animating = true }
+    private func scrollToBottom(proxy: ScrollViewProxy, viewModel: ScenarioViewModel) {
+        proxy.scrollToLatest(isTyping: viewModel.isTyping, lastId: viewModel.revealedSteps.last?.id)
     }
 }
 
@@ -363,7 +238,8 @@ private struct TypingIndicator: View {
                 isLocked: false,
                 introPages: nil,
                 introPagesEN: nil,
-                vendorIcon: nil
+                vendorIcon: nil,
+                disclaimer: nil
             )
         )
     }

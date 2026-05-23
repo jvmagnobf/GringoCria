@@ -9,9 +9,8 @@ import SwiftUI
 
 // MARK: - HomeView
 
-@available(iOS 26, *)
 struct HomeView: View {
-    @State private var viewModel = HomeViewModel()
+    @Environment(HomeViewModel.self) private var viewModel
     @State private var navigationPath = NavigationPath()
     @State private var pendingSubscenario: Subscenario?
     @State private var showDisclaimer = false
@@ -21,12 +20,13 @@ struct HomeView: View {
             ZStack {
                 mainContent
 
-                if showDisclaimer {
-                    DisclaimerOverlay {
+                if showDisclaimer, let disclaimer = pendingSubscenario?.disclaimer {
+                    DisclaimerOverlay(text: disclaimer) {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             showDisclaimer = false
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                        Task {
+                            try? await Task.sleep(for: .milliseconds(350))
                             if let sub = pendingSubscenario {
                                 navigationPath.append(sub)
                             }
@@ -36,7 +36,11 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(for: Subscenario.self) { subscenario in
-                ScenarioView(subscenario: subscenario)
+                if subscenario.isAIPremium {
+                    AIChatEntryView(subscenario: subscenario)
+                } else {
+                    ScenarioView(subscenario: subscenario)
+                }
             }
         }
     }
@@ -64,13 +68,7 @@ struct HomeView: View {
                 ScenarioListView(
                     scenarios: viewModel.scenarios,
                     mode: .scenarios,
-                    onPremiumTap: { subscenario in
-                        guard !subscenario.isLocked else { return }
-                        pendingSubscenario = subscenario
-                        withAnimation(.easeInOut(duration: 0.4)) {
-                            showDisclaimer = true
-                        }
-                    }
+                    onPremiumTap: handleSubscenarioTap
                 )
             }
         }
@@ -82,19 +80,25 @@ struct HomeView: View {
         }
         .navigationTitle("GringoCria")
         .navigationBarTitleDisplayMode(.large)
-        .task {
-            await viewModel.load()
+    }
+
+    // MARK: - Actions
+
+    private func handleSubscenarioTap(_ subscenario: Subscenario) {
+        if subscenario.disclaimer != nil {
+            pendingSubscenario = subscenario
+            withAnimation(.easeInOut(duration: 0.4)) { showDisclaimer = true }
+        } else {
+            navigationPath.append(subscenario)
         }
     }
 }
 
 // MARK: - DisclaimerOverlay
 
-@available(iOS 26, *)
 private struct DisclaimerOverlay: View {
+    let text: String
     let onContinue: () -> Void
-
-    private let disclaimer = "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
 
     var body: some View {
         ZStack {
@@ -104,7 +108,7 @@ private struct DisclaimerOverlay: View {
             VStack(spacing: 0) {
                 Spacer()
 
-                Text(disclaimer)
+                Text(text)
                     .font(.body)
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
@@ -157,12 +161,11 @@ private struct DisclaimerOverlay: View {
 }
 
 #Preview {
-    if #available(iOS 26, *) {
-        HomeView()
-            .environment(AppState())
-            .environment(ProgressService())
-            .environment(AIAvailabilityService())
-            .environment(AIPersonaService())
-            .environment(PremiumService())
-    }
+    HomeView()
+        .environment(HomeViewModel())
+        .environment(AppState())
+        .environment(ProgressService())
+        .environment(AIAvailabilityService())
+        .environment(AIPersonaService())
+        .environment(PremiumService())
 }

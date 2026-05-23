@@ -48,48 +48,6 @@
 			<key>uniqueIdentifier</key>
 			<string>68D4E969-96FF-4D6B-AA50-F0566E5498AA</string>
 		</dict>
-		<key>BAB5EC43-F0F7-4A23-A607-AB98DE340CC4</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>BAB5EC43-F0F7-4A23-A607-AB98DE340CC4.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>GringoCria project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>GringoCria</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project GringoCria with scheme GringoCria</string>
-			<key>timeStartedRecording</key>
-			<real>801082112.600052</real>
-			<key>timeStoppedRecording</key>
-			<real>801082136.64093006</real>
-			<key>title</key>
-			<string>Building project GringoCria with scheme GringoCria</string>
-			<key>uniqueIdentifier</key>
-			<string>BAB5EC43-F0F7-4A23-A607-AB98DE340CC4</string>
-		</dict>
 	</dict>
 </dict>
 </plist>

@@ -24,6 +24,16 @@
 			<key>swiftSymbol</key>
 			<string>brancoMensagem</string>
 		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameMensagemFonte</string>
+			<key>relativePath</key>
+			<string>./mensagem_fonte.colorset</string>
+			<key>swiftSymbol</key>
+			<string>mensagemFonte</string>
+		</dict>
 	</array>
 	<key>images</key>
 	<array>
@@ -51,6 +61,86 @@
 			<key>catalogPath</key>
 			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameCriaFundo</string>
+			<key>relativePath</key>
+			<string>./CriaFundo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>criaFundo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPose</string>
+			<key>relativePath</key>
+			<string>./CristoPose.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPose</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPose1</string>
+			<key>relativePath</key>
+			<string>./CristoPose1.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPose1</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPose21</string>
+			<key>relativePath</key>
+			<string>./CristoPose2 (1).imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPose21</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPose3</string>
+			<key>relativePath</key>
+			<string>./CristoPose3.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPose3</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPoseChat</string>
+			<key>relativePath</key>
+			<string>./CristoPoseChat.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPoseChat</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPoseInfo</string>
+			<key>relativePath</key>
+			<string>./CristoPoseInfo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPoseInfo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCristoPoseMicrofone</string>
+			<key>relativePath</key>
+			<string>./CristoPoseMicrofone.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cristoPoseMicrofone</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameEsfihaFundo</string>
 			<key>relativePath</key>
 			<string>./EsfihaFundo.imageset</string>
@@ -66,6 +156,26 @@
 			<string>./FundoChat.imageset</string>
 			<key>swiftSymbol</key>
 			<string>fundoChat</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameFundoChatRio</string>
+			<key>relativePath</key>
+			<string>./FundoChatRio.imageset</string>
+			<key>swiftSymbol</key>
+			<string>fundoChatRio</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameGaromFundo</string>
+			<key>relativePath</key>
+			<string>./GarçomFundo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>garçomFundo</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>
@@ -91,11 +201,31 @@
 			<key>catalogPath</key>
 			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
 			<key>objcSymbol</key>
+			<string>ACImageNameIconeCria</string>
+			<key>relativePath</key>
+			<string>./IconeCria.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeCria</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
 			<string>ACImageNameIconeEsifiha</string>
 			<key>relativePath</key>
 			<string>./IconeEsifiha.imageset</string>
 			<key>swiftSymbol</key>
 			<string>iconeEsifiha</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameIconeGarcom</string>
+			<key>relativePath</key>
+			<string>./IconeGarcom.imageset</string>
+			<key>swiftSymbol</key>
+			<string>iconeGarcom</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>

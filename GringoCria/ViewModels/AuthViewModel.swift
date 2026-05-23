@@ -15,26 +15,24 @@ import AuthenticationServices
 final class AuthViewModel {
     var errorMessage: String?
 
-    private let appState: AppState
+    // AppState é injetado via bind(to:) em vez do init para permitir
+    // inicialização imediata do @State na View, evitando frame em branco.
+    private var appState: AppState?
     private let sessionService: SessionService
 
-    convenience init(appState: AppState) {
-        self.init(appState: appState, sessionService: SessionService())
-    }
-
-    init(
-        appState: AppState,
-        sessionService: SessionService
-    ) {
-        self.appState = appState
+    init(sessionService: SessionService = SessionService()) {
         self.sessionService = sessionService
     }
 
     // MARK: - Public
 
+    func bind(to appState: AppState) {
+        self.appState = appState
+    }
+
     func continueAsGuest() {
         sessionService.startGuestSession()
-        appState.restoreSession()
+        appState?.restoreSession()
     }
 
     func handleSignInResult(_ result: Result<ASAuthorization, Error>) {
@@ -69,6 +67,6 @@ final class AuthViewModel {
 
         // TODO: migração de progresso guest → conta
 
-        appState.restoreSession()
+        appState?.restoreSession()
     }
 }

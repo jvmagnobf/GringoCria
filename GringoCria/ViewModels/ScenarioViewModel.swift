@@ -9,6 +9,7 @@
 //  Com PBXFileSystemSynchronizedRootGroup (Xcode 16+) isso ocorre automaticamente.
 
 import Foundation
+import UIKit
 
 @Observable
 @MainActor
@@ -18,10 +19,21 @@ final class ScenarioViewModel {
     private(set) var currentIndex: Int           = 0
     private(set) var isTyping: Bool              = false
     private(set) var isCompleted: Bool           = false
-    var onCompleted: (() -> Void)?
+    private(set) var userProfileImage: UIImage?
 
     private var stepMap: [UUID: ScriptStep] = [:]
     private(set) var currentStepId: UUID?
+    private let profileService: ProfileService
+    private let progressService: ProgressService
+    private var subscenarioId: UUID?
+
+    init(
+        profileService: ProfileService = ProfileService(),
+        progressService: ProgressService
+    ) {
+        self.profileService = profileService
+        self.progressService = progressService
+    }
 
     // MARK: - Computed
 
@@ -32,6 +44,10 @@ final class ScenarioViewModel {
 
     // MARK: - Public
 
+    func loadUserPhoto() async {
+        userProfileImage = await profileService.loadProfilePhoto()
+    }
+
     var currentChoices: [ChoiceOption]? {
         guard !isTyping,
               let step = currentStep,
@@ -40,7 +56,8 @@ final class ScenarioViewModel {
         return step.choices
     }
 
-    func start(scriptName: String) async {
+    func start(scriptName: String, subscenarioId: UUID) async {
+        self.subscenarioId = subscenarioId
         await loadScript(named: scriptName)
         guard !steps.isEmpty else { return }
         await revealNextVendorMessage()
@@ -136,7 +153,9 @@ final class ScenarioViewModel {
             // Fallback pós-loop: array esgotado sem step terminal
             if currentIndex >= steps.count {
                 isCompleted = true
-                onCompleted?()
+                if let id = subscenarioId {
+                    progressService.markCompleted(id: id)
+                }
             }
         } catch is CancellationError {
             isTyping = false
@@ -200,21 +219,16 @@ final class ScenarioViewModel {
 
     // MARK: auto — exibe a ação do customer e verifica terminal
     private func processAutoStep(_ step: ScriptStep) async throws {
-        isTyping = true
-        try await Task.sleep(for: .seconds(1.2))
-        isTyping = false
-
-        revealedSteps.append(step)
-        advanceCurrentStep(from: step)
-
-        if step.isTerminal {
-            isCompleted = true
-            onCompleted?()
-        }
+        try await processStepWithTyping(step)
     }
 
     // MARK: message do vendor — exibe e verifica terminal
     private func processVendorMessage(_ step: ScriptStep) async throws {
+        try await processStepWithTyping(step)
+    }
+
+    // MARK: helper compartilhado — typing indicator + append + terminal check
+    private func processStepWithTyping(_ step: ScriptStep) async throws {
         isTyping = true
         try await Task.sleep(for: .seconds(1.2))
         isTyping = false
@@ -224,7 +238,7 @@ final class ScenarioViewModel {
 
         if step.isTerminal {
             isCompleted = true
-            onCompleted?()
+            if let id = subscenarioId { progressService.markCompleted(id: id) }
         }
     }
 }

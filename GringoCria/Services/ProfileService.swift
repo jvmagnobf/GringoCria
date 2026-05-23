@@ -55,7 +55,14 @@ struct ProfileService {
             allowedCharacters.contains($0)
         }
 
-        return isValid ? nil : "Only letters, numbers, spaces, _, -, ' and . allowed"
+        return isValid ? nil : "Only letters, numbers, spaces, _, -, ‘ and . allowed"
+    }
+
+    /// Valida e limita o nickname de uma vez, retornando o valor corrigido e o erro.
+    func validateAndLimit(_ nickname: String) -> (validated: String, error: String?) {
+        let limited = limitedNickname(nickname)
+        let error = nicknameValidationError(for: limited)
+        return (limited, error)
     }
 
     @discardableResult

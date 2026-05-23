@@ -14,16 +14,16 @@ import StoreKit
 @Observable
 @MainActor
 final class PremiumService {
-    let productId = "com.gringocria.premium.ai"
+    private static let productId = "com.gringocria.premium.ai"
 
     private(set) var isPremium: Bool = false
     private(set) var isLoading: Bool = false
     private(set) var product: Product?
 
     init() {
-        Task {
-            await checkEntitlements()
-            await loadProduct()
+        Task { [weak self] in
+            await self?.checkEntitlements()
+            await self?.loadProduct()
         }
     }
 
@@ -31,7 +31,7 @@ final class PremiumService {
 
     func loadProduct() async {
         do {
-            let products = try await Product.products(for: [productId])
+            let products = try await Product.products(for: [Self.productId])
             product = products.first
         } catch {
             print("[PremiumService] Erro ao carregar produto: \(error)")
@@ -88,7 +88,7 @@ final class PremiumService {
     func checkEntitlements() async {
         for await result in Transaction.currentEntitlements {
             if case .verified(let transaction) = result,
-               transaction.productID == productId {
+               transaction.productID == Self.productId {
                 isPremium = true
                 return
             }

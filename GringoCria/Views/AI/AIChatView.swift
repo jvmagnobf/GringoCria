@@ -6,23 +6,16 @@
 //
 
 import SwiftUI
-import UIKit
 
 // MARK: - AIChatView
 
-@available(iOS 26, *)
 struct AIChatView: View {
     let persona: Persona
-
-    @Environment(AIPersonaService.self) private var aiPersonaService
-    @Environment(AIAvailabilityService.self) private var aiAvailabilityService
 
     @State private var viewModel: AIChatViewModel
     @State private var inputText: String = ""
     @State private var showTranslation: Bool = false
-    @State private var userProfileImage: UIImage?
     @FocusState private var isInputFocused: Bool
-    private let profileService = ProfileService()
 
     init(persona: Persona, aiPersonaService: AIPersonaService, aiAvailabilityService: AIAvailabilityService) {
         self.persona = persona
@@ -59,9 +52,7 @@ struct AIChatView: View {
         }
         .task {
             await viewModel.start(persona: persona)
-        }
-        .task {
-            userProfileImage = await profileService.loadProfilePhoto()
+            await viewModel.loadUserPhoto()
         }
         .onDisappear {
             viewModel.reset()
@@ -79,7 +70,7 @@ struct AIChatView: View {
                             message: message,
                             showTranslation: showTranslation,
                             persona: persona,
-                            userProfileImage: userProfileImage
+                            userProfileImage: viewModel.userProfileImage
                         )
                             .id(message.id)
 
@@ -90,7 +81,7 @@ struct AIChatView: View {
                     }
 
                     if viewModel.isTyping {
-                        AIChatTypingIndicator(persona: persona)
+                        TypingIndicatorView(vendorIconName: ChatStyling.vendorIconName(for: persona))
                             .id("typing")
                     }
                 }
@@ -122,13 +113,13 @@ struct AIChatView: View {
             }
 
             HStack(spacing: 12) {
-                TextField("Type in Portuguese...", text: $inputText, axis: .vertical)
+                TextField("", text: $inputText, prompt: Text("Type in Portuguese...").foregroundStyle(Color("mensagem_fonte")), axis: .vertical)
                     .textFieldStyle(.plain)
                     .lineLimit(1...4)
                     .submitLabel(.send)
                     .onSubmit(sendMessage)
                     .focused($isInputFocused)
-                    .foregroundStyle(Color.primary)
+                    .foregroundStyle(Color("mensagem_fonte"))
                     .padding(.horizontal, 12)
                     .padding(.vertical, 10)
                     .background(ChatStyling.inputBackgroundColor)
@@ -169,99 +160,8 @@ struct AIChatView: View {
     }
 
     private func scrollToBottom(proxy: ScrollViewProxy) {
-        withAnimation(.easeOut(duration: 0.25)) {
-            if viewModel.isTyping {
-                proxy.scrollTo("typing", anchor: .bottom)
-            } else if let last = viewModel.messages.last {
-                proxy.scrollTo(last.id, anchor: .bottom)
-            }
-        }
+        proxy.scrollToLatest(isTyping: viewModel.isTyping, lastId: viewModel.messages.last?.id)
     }
 }
 
-// MARK: - ChatBubble
 
-@available(iOS 26, *)
-private struct ChatBubble: View {
-    let message: ChatMessage
-    let showTranslation: Bool
-    let persona: Persona
-    let userProfileImage: UIImage?
-
-    private var isUser: Bool { message.role == .user }
-    private var vendorIconName: String? { ChatStyling.vendorIconName(for: persona) }
-
-    var body: some View {
-        HStack(alignment: .bottom, spacing: 6) {
-            if isUser {
-                Spacer(minLength: 24)
-                bubble
-                ChatUserAvatarView(image: userProfileImage)
-            } else {
-                ChatVendorAvatarView(iconName: vendorIconName)
-                bubble
-                Spacer(minLength: 24)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: isUser ? .trailing : .leading)
-    }
-
-    private var bubble: some View {
-        VStack(alignment: isUser ? .trailing : .leading, spacing: 4) {
-            Text(message.text)
-                .font(.body)
-                .foregroundStyle(Color("mensagem_fonte"))
-
-            if showTranslation, let translation = message.translationEN, !translation.isEmpty {
-                Text(translation)
-                    .font(.caption)
-                    .foregroundStyle(Color("mensagem_fonte").opacity(0.65))
-            }
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 8)
-        .background(isUser ? ChatStyling.userBubbleColor : ChatStyling.vendorBubbleColor)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
-    }
-}
-
-// MARK: - AIChatTypingIndicator
-
-@available(iOS 26, *)
-private struct AIChatTypingIndicator: View {
-    let persona: Persona
-    @State private var animating = false
-
-    private var vendorIconName: String? { ChatStyling.vendorIconName(for: persona) }
-
-    var body: some View {
-        HStack(alignment: .bottom, spacing: 6) {
-            ChatVendorAvatarView(iconName: vendorIconName)
-
-            HStack(spacing: 4) {
-                ForEach(0..<3, id: \.self) { index in
-                    Circle()
-                        .fill(Color(.systemGray3))
-                        .frame(width: 8, height: 8)
-                        .offset(y: animating ? -4 : 0)
-                        .animation(
-                            .easeInOut(duration: 0.4)
-                                .repeatForever()
-                                .delay(Double(index) * 0.13),
-                            value: animating
-                        )
-                }
-            }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
-            .background(ChatStyling.vendorBubbleColor)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
-
-            Spacer(minLength: 24)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .onAppear { animating = true }
-    }
-}

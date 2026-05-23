@@ -53,5 +53,9 @@ struct IntroOverlayView: View {
             }
         }
         .animation(.easeInOut(duration: 0.3), value: currentPage)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(pages[currentPage])
+        .accessibilityHint(currentPage < pages.count - 1 ? "Double tap to continue" : "Double tap to start the conversation")
+        .accessibilityAddTraits(.isButton)
     }
 }

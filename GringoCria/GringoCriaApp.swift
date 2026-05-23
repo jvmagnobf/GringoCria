@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: - App Entry Point
 
 @main
-@available(iOS 26, *)
 struct GringoCriaApp: App {
     @State private var appState               = AppState()
     @State private var speechService           = SpeechService()
@@ -27,14 +26,8 @@ struct GringoCriaApp: App {
         UINavigationBar.appearance().standardAppearance = navAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
 
-        let tabAppearance = UITabBarAppearance()
-        tabAppearance.configureWithTransparentBackground()
-        tabAppearance.stackedLayoutAppearance.normal.iconColor = .white
-        tabAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
-        tabAppearance.stackedLayoutAppearance.selected.iconColor = .systemBlue
-        tabAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
-        UITabBar.appearance().standardAppearance = tabAppearance
-        UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+        // UITabBarAppearance removido para preservar o Liquid Glass nativo do iOS 26.
+        // Qualquer customização de tint deve ser feita via accentColor no asset catalog.
 
         UIWindow.appearance().backgroundColor = UIColor(red: 0.04, green: 0.08, blue: 0.22, alpha: 1)
         UIScrollView.appearance().delaysContentTouches = false
@@ -43,7 +36,6 @@ struct GringoCriaApp: App {
     var body: some Scene {
         WindowGroup {
             AppRouter()
-                .preferredColorScheme(.dark)
                 .environment(appState)
                 .environment(speechService)
                 .environment(progressService)

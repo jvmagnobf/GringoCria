@@ -9,9 +9,8 @@ import SwiftUI
 
 // MARK: - PremiumView
 
-@available(iOS 26, *)
 struct PremiumView: View {
-    @State private var viewModel = HomeViewModel()
+    @Environment(HomeViewModel.self) private var viewModel
 
     var body: some View {
         Group {
@@ -49,21 +48,17 @@ struct PremiumView: View {
         .navigationDestination(for: Subscenario.self) { subscenario in
             AIChatEntryView(subscenario: subscenario)
         }
-        .task {
-            await viewModel.load()
-        }
     }
 }
 
 #Preview {
-    if #available(iOS 26, *) {
-        NavigationStack {
-            PremiumView()
-        }
-        .environment(AppState())
-        .environment(ProgressService())
-        .environment(AIAvailabilityService())
-        .environment(AIPersonaService())
-        .environment(PremiumService())
+    NavigationStack {
+        PremiumView()
     }
+    .environment(HomeViewModel())
+    .environment(AppState())
+    .environment(ProgressService())
+    .environment(AIAvailabilityService())
+    .environment(AIPersonaService())
+    .environment(PremiumService())
 }

@@ -10,35 +10,40 @@
         "titlePT": "Matte",
         "titleEN": "Mate drink",
         "scriptName": "matte",
-        "isLocked": false
+        "isLocked": false,
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "C3D4E5F6-A7B8-9012-CDEF-123456789012",
         "titlePT": "Biscoito Globo",
         "titleEN": "Globo Biscuit",
         "scriptName": "biscoito-globo",
-        "isLocked": false
+        "isLocked": false,
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "D4E5F6A7-B8C9-0123-DEF0-234567890123",
         "titlePT": "Caipirinha",
         "titleEN": "Caipirinha",
         "scriptName": "caipirinha",
-        "isLocked": false
+        "isLocked": false,
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "E5F6A7B8-C9D0-1234-EF01-345678901234",
         "titlePT": "Esfiha",
         "titleEN": "Esfiha",
         "scriptName": "esfiha",
-        "isLocked": false
+        "isLocked": false,
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "F6A7B8C9-D0E1-2345-F012-456789012345",
         "titlePT": "Barraca de Praia",
         "titleEN": "Beach Chair Rental",
         "scriptName": "barraca-praia",
-        "isLocked": false
+        "isLocked": false,
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "A2000001-0000-0000-0000-000000000001",
@@ -84,6 +89,7 @@
         "scriptName": "menu-quiosque",
         "isLocked": false,
         "vendorIcon": "IconeGarcom",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert.",
         "introPages": [
           "Esse cenário exemplifica como fazer um pedido no quiosque de praia. O quiosque sempre tem um menu mostrando as opções e os preços — tome cuidado se te cobrarem diferente do que está no menu.",
           "Para fazer seu pedido, você pode chamar um garçom ou ir até o balcão do quiosque. Se quiser, pergunte sobre algum item específico antes de decidir.",

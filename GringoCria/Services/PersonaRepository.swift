@@ -9,25 +9,23 @@ import Foundation
 
 // MARK: - PersonaRepository
 
-/// Carrega personas.json do bundle e oferece lookup por subscenarioId.
-/// Struct sem estado — instancie onde precisar sem injeção de dependência.
+/// Carrega personas.json do bundle de forma assíncrona.
+/// Namespace sem estado — use `PersonaRepository.load()` onde precisar.
 struct PersonaRepository {
-    private let personas: [Persona]
-
-    init() {
-        guard let url = Bundle.main.url(forResource: "personas", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let decoded = try? JSONDecoder().decode([Persona].self, from: data)
-        else {
-            personas = []
-            return
-        }
-        personas = decoded
-    }
-
     // MARK: - Public
 
-    func persona(for subscenario: Subscenario) -> Persona? {
-        personas.first { $0.subscenarioId == subscenario.id }
+    static func load() async -> [Persona] {
+        guard let url = Bundle.main.url(forResource: "personas", withExtension: "json")
+        else { return [] }
+
+        do {
+            let data = try await Task.detached(priority: .utility) {
+                try Data(contentsOf: url)
+            }.value
+            return (try? JSONDecoder().decode([Persona].self, from: data)) ?? []
+        } catch {
+            print("[PersonaRepository] Erro ao carregar personas.json: \(error)")
+            return []
+        }
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 // MARK: - ScenarioListView
 
-@available(iOS 26, *)
 struct ScenarioListView: View {
     enum DisplayMode: Equatable {
         case scenarios
@@ -87,7 +86,7 @@ struct ScenarioListView: View {
     }
 
     private func isPremiumConversation(_ subscenario: Subscenario) -> Bool {
-        subscenario.isLocked && subscenario.scriptName.isEmpty
+        subscenario.isAIPremium
     }
 }
 
@@ -104,7 +103,6 @@ private struct ScenarioListSection: Identifiable {
 
 // MARK: - ScenarioSection
 
-@available(iOS 26, *)
 private struct ScenarioSection: View {
     let scenario: Scenario
     let subscenarios: [Subscenario]
@@ -171,7 +169,6 @@ private struct ScenarioSection: View {
 
 // MARK: - SubscenarioCard
 
-@available(iOS 26, *)
 private struct SubscenarioCard: View {
     let subscenario: Subscenario
     @Environment(ProgressService.self) private var progressService
@@ -205,9 +202,8 @@ private struct SubscenarioCard: View {
     @ViewBuilder
     private var statusIcon: some View {
         if subscenario.isLocked {
-            let isAIEnabled = subscenario.scriptName.isEmpty
-            Image(systemName: isAIEnabled ? "wand.and.sparkles" : "lock.fill")
-                .foregroundStyle(isAIEnabled ? .blue : .secondary)
+            Image(systemName: subscenario.isAIPremium ? "wand.and.sparkles" : "lock.fill")
+                .foregroundStyle(subscenario.isAIPremium ? .blue : .secondary)
                 .font(.title3)
         } else if isCompleted {
             Image(systemName: "checkmark.circle.fill")
@@ -218,43 +214,43 @@ private struct SubscenarioCard: View {
 }
 
 #Preview {
-    if #available(iOS 26, *) {
-        NavigationStack {
-            ScenarioListView(
-                scenarios: [
-                    Scenario(
-                        id: UUID(),
-                        titlePT: "Praia",
-                        titleEN: "Beach",
-                        icon: "beach.umbrella",
-                        subscenarios: [
-                            Subscenario(
-                                id: UUID(),
-                                titlePT: "Matte",
-                                titleEN: "Mate drink",
-                                scriptName: "matte",
-                                isLocked: false,
-                                introPages: nil,
-                                introPagesEN: nil,
-                                vendorIcon: nil
-                            ),
-                            Subscenario(
-                                id: UUID(),
-                                titlePT: "Matte com IA",
-                                titleEN: "AI Mate Chat",
-                                scriptName: "",
-                                isLocked: true,
-                                introPages: nil,
-                                introPagesEN: nil,
-                                vendorIcon: nil
-                            )
-                        ]
-                    )
-                ],
-                mode: .scenarios,
-                onPremiumTap: { _ in }
-            )
-        }
-        .environment(ProgressService())
+    NavigationStack {
+        ScenarioListView(
+            scenarios: [
+                Scenario(
+                    id: UUID(),
+                    titlePT: "Praia",
+                    titleEN: "Beach",
+                    icon: "beach.umbrella",
+                    subscenarios: [
+                        Subscenario(
+                            id: UUID(),
+                            titlePT: "Matte",
+                            titleEN: "Mate drink",
+                            scriptName: "matte",
+                            isLocked: false,
+                            introPages: nil,
+                            introPagesEN: nil,
+                            vendorIcon: nil,
+                            disclaimer: nil
+                        ),
+                        Subscenario(
+                            id: UUID(),
+                            titlePT: "Matte com IA",
+                            titleEN: "AI Mate Chat",
+                            scriptName: "",
+                            isLocked: true,
+                            introPages: nil,
+                            introPagesEN: nil,
+                            vendorIcon: nil,
+                            disclaimer: nil
+                        )
+                    ]
+                )
+            ],
+            mode: .scenarios,
+            onPremiumTap: { _ in }
+        )
     }
+    .environment(ProgressService())
 }

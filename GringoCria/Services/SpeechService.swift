@@ -22,8 +22,8 @@ import AVFoundation
 @MainActor
 final class SpeechService: NSObject {
     private let synthesizer = AVSpeechSynthesizer()
-    var isSpeaking: Bool             = false
-    var currentSpeakingStepId: UUID? = nil
+    private(set) var isSpeaking: Bool             = false
+    private(set) var currentSpeakingStepId: UUID? = nil
 
     override init() {
         super.init()

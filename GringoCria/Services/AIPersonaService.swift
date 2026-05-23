@@ -11,7 +11,6 @@ import FoundationModels
 
 // MARK: - AIPersonaService
 
-@available(iOS 26, *)
 @Observable
 @MainActor
 final class AIPersonaService {
@@ -117,7 +116,6 @@ final class AIPersonaService {
 
 // MARK: - AIPersonaError
 
-@available(iOS 26, *)
 enum AIPersonaError: LocalizedError {
     case sessionNotInitialized
 

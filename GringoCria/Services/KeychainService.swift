@@ -22,6 +22,7 @@ enum UserDefaultsKey {
     static let completedSubscenarioIDs = "completedSubscenarioIDs"
     static let authSource              = "authSource"
     static let hasCompletedProfileSetup = "hasCompletedProfileSetup"
+    static let hasCompletedOnboarding  = "hasCompletedOnboarding"
 }
 
 // MARK: - KeychainService

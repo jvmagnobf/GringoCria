@@ -14,7 +14,7 @@ import AuthenticationServices
 
 struct AuthView: View {
     @Environment(AppState.self) private var appState
-    @State private var viewModel: AuthViewModel?
+    @State private var viewModel = AuthViewModel()
 
     var body: some View {
         ZStack {
@@ -44,38 +44,32 @@ struct AuthView: View {
                     .padding(.bottom, 48)
             }
         }
-        .onAppear {
-            if viewModel == nil {
-                viewModel = AuthViewModel(appState: appState)
-            }
-        }
+        .onAppear { viewModel.bind(to: appState) }
     }
 
     // MARK: - Auth Actions
 
     @ViewBuilder
     private var authActionsContent: some View {
-        if let viewModel {
-            VStack(spacing: 16) {
-                SignInWithAppleButton(.signIn) { request in
-                    request.requestedScopes = [.fullName, .email]
-                } onCompletion: { result in
-                    // onCompletion é chamado em thread arbitrária — despachamos
-                    // para o MainActor antes de tocar em qualquer propriedade
-                    // do viewModel (@MainActor @Observable).
-                    Task { @MainActor in
-                        viewModel.handleSignInResult(result)
-                    }
+        VStack(spacing: 16) {
+            SignInWithAppleButton(.signIn) { request in
+                request.requestedScopes = [.fullName, .email]
+            } onCompletion: { result in
+                // onCompletion é chamado em thread arbitrária — despachamos
+                // para o MainActor antes de tocar em qualquer propriedade
+                // do viewModel (@MainActor @Observable).
+                Task { @MainActor in
+                    viewModel.handleSignInResult(result)
                 }
-                .signInWithAppleButtonStyle(.black)
-                .frame(height: 50)
-
-                Button("Continue without account") {
-                    viewModel.continueAsGuest()
-                }
-                .font(.subheadline)
-                .foregroundStyle(.white.opacity(0.9))
             }
+            .signInWithAppleButtonStyle(.black)
+            .frame(height: 50)
+
+            Button("Continue without account") {
+                viewModel.continueAsGuest()
+            }
+            .font(.subheadline)
+            .foregroundStyle(.white.opacity(0.9))
         }
     }
 }

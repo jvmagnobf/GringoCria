@@ -17,22 +17,15 @@ final class ProfileSetupViewModel {
     var nickname: String = ""
     private(set) var nicknameError: String?
 
-    var onSetupCompleted: (() -> Void)?
+    private(set) var setupCompleted: Bool = false
 
     private let profileService: ProfileService
     private let sessionService: SessionService
     private var hasLoadedProfilePhoto = false
 
-    convenience init() {
-        self.init(
-            profileService: ProfileService(),
-            sessionService: SessionService()
-        )
-    }
-
     init(
-        profileService: ProfileService,
-        sessionService: SessionService
+        profileService: ProfileService = ProfileService(),
+        sessionService: SessionService = SessionService()
     ) {
         self.profileService = profileService
         self.sessionService = sessionService
@@ -48,12 +41,9 @@ final class ProfileSetupViewModel {
     }
 
     func validateNickname() {
-        let limitedNickname = profileService.limitedNickname(nickname)
-        if limitedNickname != nickname {
-            nickname = limitedNickname
-        }
-
-        nicknameError = profileService.nicknameValidationError(for: nickname)
+        let result = profileService.validateAndLimit(nickname)
+        nickname = result.validated
+        nicknameError = result.error
     }
 
     func updateProfilePhoto(_ image: UIImage) async {
@@ -68,6 +58,6 @@ final class ProfileSetupViewModel {
 
         nickname = profileService.saveNickname(nickname)
         sessionService.markProfileSetupCompleted()
-        onSetupCompleted?()
+        setupCompleted = true
     }
 }

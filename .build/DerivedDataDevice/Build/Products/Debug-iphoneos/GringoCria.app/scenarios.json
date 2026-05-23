@@ -83,6 +83,7 @@
         "titleEN": "Ordering from the menu",
         "scriptName": "menu-quiosque",
         "isLocked": false,
+        "vendorIcon": "IconeGarcom",
         "introPages": [
           "Esse cenário exemplifica como fazer um pedido no quiosque de praia. O quiosque sempre tem um menu mostrando as opções e os preços — tome cuidado se te cobrarem diferente do que está no menu.",
           "Para fazer seu pedido, você pode chamar um garçom ou ir até o balcão do quiosque. Se quiser, pergunte sobre algum item específico antes de decidir.",
@@ -121,8 +122,8 @@
     "subscenarios": [
       {
         "id": "AD000001-0000-0000-0000-000000000001",
-        "titlePT": "Fui roubado",
-        "titleEN": "I was robbed",
+        "titlePT": "Falando com o policial",
+        "titleEN": "Talking with the police man",
         "scriptName": "policial",
         "isLocked": false,
         "introPages": [
@@ -159,6 +160,7 @@
         "titleEN": "Where's the police station?",
         "scriptName": "delegacia",
         "isLocked": false,
+        "vendorIcon": "IconeCria",
         "introPages": [
           "Esse cenário mostra como pedir para uma pessoa qualquer direções para a delegacia do turista ou a mais próxima de você.",
           "As vezes a pessoa pode perguntar por que você quer ir. Se não quiser responder, diga 'prefiro não falar mas preciso muito ir' ou 'não é nada demais'.",

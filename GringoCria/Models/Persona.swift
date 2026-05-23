@@ -17,4 +17,5 @@ struct Persona: Identifiable, Codable {
     let systemPrompt: String   // Instruções em português para o personagem
     let openingLine: String    // Primeira frase do vendedor (PT)
     let openingLineEN: String  // Tradução em inglês da primeira frase
+    let vendorIcon: String?    // Nome do asset de ícone do vendedor (ex: "IconeMatte")
 }

@@ -15,11 +15,38 @@ static NSString * const ACColorNameAmareloMensagem AC_SWIFT_PRIVATE = @"amarelo_
 /// The "branco_mensagem" asset catalog color resource.
 static NSString * const ACColorNameBrancoMensagem AC_SWIFT_PRIVATE = @"branco_mensagem";
 
+/// The "mensagem_fonte" asset catalog color resource.
+static NSString * const ACColorNameMensagemFonte AC_SWIFT_PRIVATE = @"mensagem_fonte";
+
 /// The "BarracaFundo" asset catalog image resource.
 static NSString * const ACImageNameBarracaFundo AC_SWIFT_PRIVATE = @"BarracaFundo";
 
 /// The "CaipiFundo" asset catalog image resource.
 static NSString * const ACImageNameCaipiFundo AC_SWIFT_PRIVATE = @"CaipiFundo";
+
+/// The "CriaFundo" asset catalog image resource.
+static NSString * const ACImageNameCriaFundo AC_SWIFT_PRIVATE = @"CriaFundo";
+
+/// The "CristoPose" asset catalog image resource.
+static NSString * const ACImageNameCristoPose AC_SWIFT_PRIVATE = @"CristoPose";
+
+/// The "CristoPose1" asset catalog image resource.
+static NSString * const ACImageNameCristoPose1 AC_SWIFT_PRIVATE = @"CristoPose1";
+
+/// The "CristoPose2 (1)" asset catalog image resource.
+static NSString * const ACImageNameCristoPose21 AC_SWIFT_PRIVATE = @"CristoPose2 (1)";
+
+/// The "CristoPose3" asset catalog image resource.
+static NSString * const ACImageNameCristoPose3 AC_SWIFT_PRIVATE = @"CristoPose3";
+
+/// The "CristoPoseChat" asset catalog image resource.
+static NSString * const ACImageNameCristoPoseChat AC_SWIFT_PRIVATE = @"CristoPoseChat";
+
+/// The "CristoPoseInfo" asset catalog image resource.
+static NSString * const ACImageNameCristoPoseInfo AC_SWIFT_PRIVATE = @"CristoPoseInfo";
+
+/// The "CristoPoseMicrofone" asset catalog image resource.
+static NSString * const ACImageNameCristoPoseMicrofone AC_SWIFT_PRIVATE = @"CristoPoseMicrofone";
 
 /// The "EsfihaFundo" asset catalog image resource.
 static NSString * const ACImageNameEsfihaFundo AC_SWIFT_PRIVATE = @"EsfihaFundo";
@@ -27,14 +54,26 @@ static NSString * const ACImageNameEsfihaFundo AC_SWIFT_PRIVATE = @"EsfihaFundo"
 /// The "FundoChat" asset catalog image resource.
 static NSString * const ACImageNameFundoChat AC_SWIFT_PRIVATE = @"FundoChat";
 
+/// The "FundoChatRio" asset catalog image resource.
+static NSString * const ACImageNameFundoChatRio AC_SWIFT_PRIVATE = @"FundoChatRio";
+
+/// The "GarçomFundo" asset catalog image resource.
+static NSString * const ACImageNameGaromFundo AC_SWIFT_PRIVATE = @"GarçomFundo";
+
 /// The "IconeCadeira" asset catalog image resource.
 static NSString * const ACImageNameIconeCadeira AC_SWIFT_PRIVATE = @"IconeCadeira";
 
 /// The "IconeCaipi" asset catalog image resource.
 static NSString * const ACImageNameIconeCaipi AC_SWIFT_PRIVATE = @"IconeCaipi";
 
+/// The "IconeCria" asset catalog image resource.
+static NSString * const ACImageNameIconeCria AC_SWIFT_PRIVATE = @"IconeCria";
+
 /// The "IconeEsifiha" asset catalog image resource.
 static NSString * const ACImageNameIconeEsifiha AC_SWIFT_PRIVATE = @"IconeEsifiha";
+
+/// The "IconeGarcom" asset catalog image resource.
+static NSString * const ACImageNameIconeGarcom AC_SWIFT_PRIVATE = @"IconeGarcom";
 
 /// The "IconeMatte" asset catalog image resource.
 static NSString * const ACImageNameIconeMatte AC_SWIFT_PRIVATE = @"IconeMatte";

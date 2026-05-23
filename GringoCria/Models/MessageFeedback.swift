@@ -9,7 +9,6 @@ import FoundationModels
 
 // MARK: - MessageFeedback
 
-@available(iOS 26, *)
 @Generable(description: "Portuguese language feedback for a learner's message")
 struct MessageFeedback {
     @Guide(description: "How natural the message sounds in Carioca context, 0-10")
