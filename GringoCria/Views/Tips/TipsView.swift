@@ -15,7 +15,7 @@ struct TipsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Everything you wish someone had told you before landing.")
+                Text("Things nobody tells you until it's too late.")
                     .font(.subheadline)
                     .foregroundStyle(.white.opacity(0.65))
                     .padding(.horizontal, 16)

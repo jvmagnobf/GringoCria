@@ -102,7 +102,7 @@ struct ScenarioView: View {
                 .font(.system(size: 60))
                 .foregroundStyle(.white)
 
-            Text("Agora você já sabe o que esperar!")
+            Text("Now you know what to expect!")
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundStyle(.white)

@@ -25,25 +25,27 @@ struct ProfilePhotoField: View {
     @State private var showPhotosPicker = false
 
     var body: some View {
-        VStack(spacing: 12) {
-            Button {
-                showSourceDialog = true
-            } label: {
-                ProfilePhotoPreview(
-                    image: image,
-                    size: size,
-                    placeholderSystemName: placeholderSystemName
-                )
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel(accessibilityLabel)
-
-            if let actionTitle {
-                Button(actionTitle) {
-                    showSourceDialog = true
-                }
+        Button {
+            showSourceDialog = true
+        } label: {
+            ProfilePhotoPreview(
+                image: image,
+                size: size,
+                placeholderSystemName: placeholderSystemName
+            )
+            .overlay(alignment: .bottomTrailing) {
+                Image(systemName: "camera.fill")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: 30, height: 30)
+                    .background(Color.blue)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(.white, lineWidth: 2))
+                    .offset(x: 2, y: 2)
             }
         }
+        .buttonStyle(.plain)
+        .accessibilityLabel(accessibilityLabel)
         .photosPicker(
             isPresented: $showPhotosPicker,
             selection: $photosPickerItem,

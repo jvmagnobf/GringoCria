@@ -13,6 +13,8 @@ struct AIChatView: View {
     let persona: Persona
 
     @State private var viewModel: AIChatViewModel
+    @Environment(SpeechRecognitionService.self) private var speechService
+
     @State private var inputText: String = ""
     @State private var showTranslation: Bool = false
     @FocusState private var isInputFocused: Bool
@@ -56,6 +58,13 @@ struct AIChatView: View {
         }
         .onDisappear {
             viewModel.reset()
+            if speechService.isRecording {
+                Task { await speechService.stopRecording() }
+            }
+        }
+        .onChange(of: speechService.lastTranscript) { _, transcript in
+            guard speechService.isRecording else { return }
+            inputText = transcript
         }
     }
 
@@ -113,31 +122,27 @@ struct AIChatView: View {
             }
 
             HStack(spacing: 12) {
-                TextField("", text: $inputText, prompt: Text("Type in Portuguese...").foregroundStyle(Color("mensagem_fonte")), axis: .vertical)
-                    .textFieldStyle(.plain)
-                    .lineLimit(1...4)
-                    .submitLabel(.send)
-                    .onSubmit(sendMessage)
-                    .focused($isInputFocused)
-                    .foregroundStyle(Color("mensagem_fonte"))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 10)
-                    .background(ChatStyling.inputBackgroundColor)
-                    .clipShape(Capsule())
-                    .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
+                TextField(
+                    "",
+                    text: $inputText,
+                    prompt: Text(speechService.isRecording ? "Listening..." : "Type in Portuguese...")
+                        .foregroundStyle(Color("mensagem_fonte")),
+                    axis: .vertical
+                )
+                .textFieldStyle(.plain)
+                .lineLimit(1...4)
+                .submitLabel(.send)
+                .onSubmit(sendMessage)
+                .focused($isInputFocused)
+                .foregroundStyle(Color("mensagem_fonte"))
+                .padding(.horizontal, 12)
+                .padding(.vertical, 10)
+                .background(ChatStyling.inputBackgroundColor)
+                .clipShape(Capsule())
+                .shadow(color: .black.opacity(0.10), radius: 4, y: 2)
+                .disabled(speechService.isRecording)
 
-                Button {
-                    sendMessage()
-                } label: {
-                    Image(systemName: "paperplane.fill")
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundStyle(canSend ? Color.blue.opacity(0.95) : Color(.systemGray2))
-                        .frame(width: 46, height: 46)
-                        .background(ChatStyling.sendButtonColor.opacity(canSend ? 1 : 0.75))
-                        .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
-                }
-                .disabled(!canSend)
+                voiceOrSendButton
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
@@ -148,7 +153,67 @@ struct AIChatView: View {
     // MARK: - Helpers
 
     private var canSend: Bool {
-        !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !viewModel.isTyping
+        !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !viewModel.isTyping
+            && !speechService.isRecording
+    }
+
+    @ViewBuilder
+    private var voiceOrSendButton: some View {
+        if speechService.isRecording {
+            // Stop recording
+            Button {
+                Task { await speechService.stopRecording() }
+            } label: {
+                Image(systemName: "stop.circle.fill")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundStyle(.red)
+                    .frame(width: 46, height: 46)
+                    .background(ChatStyling.sendButtonColor.opacity(0.85))
+                    .clipShape(Circle())
+                    .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
+            }
+        } else if canSend {
+            // Send typed message
+            Button {
+                sendMessage()
+            } label: {
+                Image(systemName: "paperplane.fill")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(Color.blue.opacity(0.95))
+                    .frame(width: 46, height: 46)
+                    .background(ChatStyling.sendButtonColor)
+                    .clipShape(Circle())
+                    .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
+            }
+        } else {
+            // Start voice recording
+            Button {
+                Task { await toggleRecording() }
+            } label: {
+                Image(systemName: "mic.fill")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(Color(.systemGray2))
+                    .frame(width: 46, height: 46)
+                    .background(ChatStyling.sendButtonColor.opacity(0.75))
+                    .clipShape(Circle())
+                    .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
+            }
+        }
+    }
+
+    private func toggleRecording() async {
+        if speechService.isRecording {
+            await speechService.stopRecording()
+        } else {
+            if !speechService.permissionGranted {
+                let granted = await speechService.requestPermissions()
+                guard granted else { return }
+            }
+            isInputFocused = false
+            inputText = ""
+            try? await speechService.startRecording()
+        }
     }
 
     private func sendMessage() {

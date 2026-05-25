@@ -44,6 +44,7 @@ struct GringoCriaApp: App {
                 .environment(aiAvailabilityService)
                 .environment(aiPersonaService)
                 .environment(premiumService)
+                .preferredColorScheme(ColorScheme.dark)
         }
     }
 }

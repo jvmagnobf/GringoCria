@@ -15,6 +15,8 @@ struct CardsPracticeView: View {
     let progressService: ProgressService
     let speechService:   SpeechRecognitionService
 
+    @Environment(SpeechService.self) private var ttsService
+
     @State private var viewModel: CardsPracticeViewModel?
 
     var body: some View {
@@ -94,16 +96,29 @@ struct CardsPracticeView: View {
                         .transition(.opacity.combined(with: .scale(scale: 0.95)))
                 }
 
-                Button {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        viewModel.toggleTranslation()
+                HStack(spacing: 24) {
+                    // Ouvir a frase em pt-BR
+                    Button {
+                        ttsService.speak(text: phrase.phrasePT, stepId: UUID())
+                    } label: {
+                        Image(systemName: ttsService.isSpeaking ? "speaker.wave.3.fill" : "speaker.wave.2")
+                            .font(.title2)
+                            .foregroundStyle(ttsService.isSpeaking ? .green : .white.opacity(0.7))
                     }
-                } label: {
-                    Image(systemName: viewModel.showTranslation ? "globe.badge.chevron.backward" : "globe")
-                        .font(.title2)
-                        .foregroundStyle(.white.opacity(0.7))
+                    .accessibilityLabel("Hear the phrase")
+
+                    // Alternar tradução
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            viewModel.toggleTranslation()
+                        }
+                    } label: {
+                        Image(systemName: viewModel.showTranslation ? "globe.badge.chevron.backward" : "globe")
+                            .font(.title2)
+                            .foregroundStyle(.white.opacity(0.7))
+                    }
+                    .accessibilityLabel(viewModel.showTranslation ? "Hide translation" : "Show translation")
                 }
-                .accessibilityLabel(viewModel.showTranslation ? "Hide translation" : "Show translation")
             }
             .padding(32)
             .frame(maxWidth: .infinity)
@@ -221,4 +236,5 @@ struct CardsPracticeView: View {
             speechService: SpeechRecognitionService()
         )
     }
+    .environment(SpeechService())
 }

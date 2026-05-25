@@ -63,15 +63,15 @@ struct ProfileView: View {
         Section {
             ProfilePhotoField(
                 image: viewModel.profileImage,
-                size: 112,
+                size: 140,
                 placeholderSystemName: "person.crop.circle.fill",
-                actionTitle: viewModel.profileImage == nil ? "Add Photo" : "Change Photo",
+                actionTitle: nil,
                 accessibilityLabel: "Change profile photo"
             ) { image in
                 viewModel.updateProfilePhoto(image)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
+            .padding(.vertical, 16)
         }
     }
 
@@ -160,11 +160,11 @@ private struct NavyGlassButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.subheadline)
+            .font(.body)
             .fontWeight(.semibold)
             .foregroundStyle(.primary)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 10)
+            .padding(.vertical, 14)
             .glassEffect(in: RoundedRectangle(cornerRadius: 12))
             .opacity(isEnabled ? (configuration.isPressed ? 0.7 : 1.0) : 0.4)
     }

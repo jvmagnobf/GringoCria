@@ -2,61 +2,61 @@
   {
     "id": "paying",
     "emoji": "💸",
-    "title": "Paying for Things",
-    "body": "Cash (reais), card, and Pix all work. Pix is Brazil's instant transfer system — faster than Venmo and used by everyone. Carry some cash for beach vendors and street food; not all of them take card."
+    "title": "Paying for things",
+    "body": "Cash (reais), card, and Pix all work. Pix is Brazil's instant transfer system — think Venmo but faster, and basically everyone uses it. Carry some cash for beach vendors and street food. Not all of them take card."
   },
   {
     "id": "prices",
     "emoji": "🏖️",
-    "title": "Beach Prices",
-    "body": "Chair or sunshade: R$10–20 each. Mate: R$5–10 (ask to taste before buying). Caipirinha: R$10–25 depending on where you are. If someone quotes you way above these, negotiate — it almost always works."
+    "title": "Beach prices",
+    "body": "Chair or sunshade: R$10–20 each. Mate: R$5–10 (ask to taste before buying). Caipirinha: R$10–25 depending on where you are. If someone quotes way above these, just negotiate. It almost always works."
   },
   {
     "id": "gringo",
     "emoji": "⚠️",
-    "title": "\"Pra Gringo É Mais Caro\"",
-    "body": "There's a saying in Rio: for foreigners, it costs more. Always ask the price before sitting down, touching anything, or ordering. Negotiating is completely normal — don't skip it."
+    "title": "\"Pra gringo é mais caro\"",
+    "body": "There's a saying in Rio: for foreigners, it costs more. Ask the price before you sit down, touch anything, or order. Negotiating is expected here, not rude. Don't skip it."
   },
   {
     "id": "stuff",
     "emoji": "👜",
-    "title": "Keep Your Stuff Close",
+    "title": "Keep your stuff close",
     "body": "Don't leave your bag, phone, or towel unattended on the beach or anywhere public. When you go in the water, ask someone nearby to watch your things. One second of distraction is enough."
   },
   {
     "id": "phone",
     "emoji": "📱",
-    "title": "Your Phone",
+    "title": "Your phone",
     "body": "Don't walk around with your phone in your hand. Don't check it while standing on the street or in a crowd. If you need to look something up, step inside a store or restaurant first."
   },
   {
     "id": "navigation",
     "emoji": "🗺️",
-    "title": "Getting Around",
-    "body": "Check your route before you leave, not while walking. Download offline maps — some areas have spotty signal. If a street feels off, trust it and turn back. Rio's contrasts can be sharp."
+    "title": "Getting around",
+    "body": "Check your route before leaving, not while walking. Download offline maps since some areas get spotty signal. If a street feels off, trust that feeling and turn back. Rio's contrasts can be sharp."
   },
   {
     "id": "card",
     "emoji": "💳",
-    "title": "Card Safety",
+    "title": "Card safety",
     "body": "Never let your card leave your hand. Use tap-to-pay when possible. Cover the keypad when entering your PIN. Card cloning happens — check your bank app daily. Only use ATMs inside bank branches."
   },
   {
     "id": "sun",
     "emoji": "☀️",
-    "title": "Sun & Heat",
-    "body": "Rio's UV index is extreme year-round. Reapply sunscreen every 2 hours and avoid the beach between 10am and 4pm if you burn easily. Stay hydrated — the heat, salt water, and alcohol combination hits harder than you expect."
+    "title": "Sun & heat",
+    "body": "Rio's UV index is extreme year-round. Reapply sunscreen every 2 hours and avoid the beach between 10am and 4pm if you burn easily. Stay hydrated. The heat, salt water, and alcohol combination hits harder than you'd think."
   },
   {
     "id": "emergency",
     "emoji": "🆘",
-    "title": "Emergency Numbers",
-    "body": "190 — Police (Polícia Militar)\n192 — Ambulance (SAMU)\n193 — Fire Department\n\nIf you need police as a tourist, ask specifically for the Delegacia do Turista — they speak English and are used to dealing with foreigners."
+    "title": "Emergency numbers",
+    "body": "190 — Police (Polícia Militar)\n192 — Ambulance (SAMU)\n193 — Fire Department\n\nIf you need police as a tourist, ask specifically for the Delegacia do Turista. They speak English and deal with foreigners regularly."
   },
   {
     "id": "blendin",
     "emoji": "🌀",
-    "title": "Blend In",
-    "body": "Leave expensive jewelry, watches, and designer bags at the hotel. Dress simply — locals do too. Don't trust vendors blindly: ask the price, negotiate, and verify before paying."
+    "title": "Blend in",
+    "body": "Leave the expensive jewelry, watches, and designer bags at the hotel. Dress simply — locals do too. Ask the price before you commit, negotiate, and pay only after you're sure."
   }
 ]
