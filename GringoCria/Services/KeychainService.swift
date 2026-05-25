@@ -20,6 +20,7 @@ enum KeychainKey {
 enum UserDefaultsKey {
     static let userNickname            = "userNickname"
     static let completedSubscenarioIDs = "completedSubscenarioIDs"
+    static let completedPhraseIDs      = "completedPhraseIDs"
     static let authSource              = "authSource"
     static let hasCompletedProfileSetup = "hasCompletedProfileSetup"
     static let hasCompletedOnboarding  = "hasCompletedOnboarding"

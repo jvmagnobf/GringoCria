@@ -25,6 +25,9 @@ struct Subscenario: Identifiable, Codable, Hashable {
     let introPagesEN: [String]?
     let vendorIcon: String?
     let disclaimer: String?
+    /// UUID do subscenário que deve ser concluído antes de este ser desbloqueado.
+    /// Nil = sem pré-requisito (sempre disponível).
+    let requiresCompletionOf: UUID?
 }
 
 // MARK: - Subscenario Extensions
@@ -41,5 +44,12 @@ extension Subscenario {
     /// garante que o único lugar a atualizar ao adicionar novos tipos de conteúdo locked seja o modelo.
     var isAIPremium: Bool {
         isLocked && scriptName.isEmpty
+    }
+
+    /// Retorna true se o subscenário está disponível para o usuário acessar.
+    /// Um subscenário sem pré-requisito está sempre desbloqueado pelo tutorial.
+    func isUnlocked(progressService: ProgressService) -> Bool {
+        guard let prerequisiteID = requiresCompletionOf else { return true }
+        return progressService.isCompleted(id: prerequisiteID)
     }
 }

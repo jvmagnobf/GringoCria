@@ -11,9 +11,11 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(HomeViewModel.self) private var viewModel
+    @Environment(ProgressService.self) private var progressService
     @State private var navigationPath = NavigationPath()
     @State private var pendingSubscenario: Subscenario?
     @State private var showDisclaimer = false
+    @State private var showLockedAlert = false
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -42,6 +44,11 @@ struct HomeView: View {
                     ScenarioView(subscenario: subscenario)
                 }
             }
+            .alert("Tutorial Required", isPresented: $showLockedAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Complete the Street Vendors (Ambulantes) tutorial first to unlock this scenario.")
+            }
         }
     }
 
@@ -67,8 +74,7 @@ struct HomeView: View {
             } else {
                 ScenarioListView(
                     scenarios: viewModel.scenarios,
-                    mode: .scenarios,
-                    onPremiumTap: handleSubscenarioTap
+                    onSubscenarioTap: handleSubscenarioTap
                 )
             }
         }
@@ -85,6 +91,12 @@ struct HomeView: View {
     // MARK: - Actions
 
     private func handleSubscenarioTap(_ subscenario: Subscenario) {
+        // Verifica bloqueio por tutorial antes de qualquer navegação
+        guard subscenario.isUnlocked(progressService: progressService) else {
+            showLockedAlert = true
+            return
+        }
+
         if subscenario.disclaimer != nil {
             pendingSubscenario = subscenario
             withAnimation(.easeInOut(duration: 0.4)) { showDisclaimer = true }

@@ -31,12 +31,15 @@ final class ProfileViewModel {
     var completedCount: Int { progressService.completedIDs.count }
 
     init(
-        profileService: ProfileService = ProfileService(),
+        profileService: ProfileService? = nil,
         progressService: ProgressService
     ) {
-        let loadedNickname = profileService.loadNickname()
+        // ProfileService é instanciado dentro do init @MainActor para evitar avaliação
+        // de default em contexto nonisolated (Swift 6.2 strict concurrency).
+        let service = profileService ?? ProfileService()
+        let loadedNickname = service.loadNickname()
 
-        self.profileService = profileService
+        self.profileService = service
         self.progressService = progressService
         self.savedNickname = loadedNickname
         self.nickname = loadedNickname

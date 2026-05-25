@@ -20,8 +20,10 @@ final class AuthViewModel {
     private var appState: AppState?
     private let sessionService: SessionService
 
-    init(sessionService: SessionService = SessionService()) {
-        self.sessionService = sessionService
+    init(sessionService: SessionService? = nil) {
+        // SessionService instanciado dentro do init @MainActor para evitar avaliação
+        // de default em contexto nonisolated (Swift 6.2 strict concurrency).
+        self.sessionService = sessionService ?? SessionService()
     }
 
     // MARK: - Public

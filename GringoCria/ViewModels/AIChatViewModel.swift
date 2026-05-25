@@ -29,11 +29,12 @@ final class AIChatViewModel {
         aiAvailabilityService: AIAvailabilityService,
         /// ProfileService é stateless (struct) — não há estado compartilhado que exija
         /// injeção via @Environment, portanto o default local é aceitável aqui.
-        profileService: ProfileService = ProfileService()
+        /// Default `nil` evita avaliação em contexto nonisolated (Swift 6.2).
+        profileService: ProfileService? = nil
     ) {
         self.aiPersonaService = aiPersonaService
         self.aiAvailabilityService = aiAvailabilityService
-        self.profileService = profileService
+        self.profileService = profileService ?? ProfileService()
     }
 
     // MARK: - Public

@@ -13,7 +13,7 @@ struct AuthenticatedTabView: View {
     @AppStorage(UserDefaultsKey.hasCompletedOnboarding) private var hasCompletedOnboarding = false
 
     // MARK: - ViewModel Ownership
-    // Esta view é a única dona do HomeViewModel. HomeView e PremiumView dependem
+    // Esta view é a única dona do HomeViewModel. HomeView depende
     // dele via @Environment(HomeViewModel.self). Se mover o HomeViewModel para outro
     // lugar sem atualizar o .environment(homeViewModel) abaixo, haverá crash em runtime.
     @State private var homeViewModel = HomeViewModel()
@@ -26,10 +26,10 @@ struct AuthenticatedTabView: View {
                 }
 
             NavigationStack {
-                PremiumView()
+                CardsView()
             }
             .tabItem {
-                Label("Premium", systemImage: "wand.and.sparkles")
+                Label("Cards", systemImage: "rectangle.on.rectangle.angled")
             }
 
             NavigationStack {

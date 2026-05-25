@@ -24,12 +24,15 @@ final class ProfileSetupViewModel {
     private var hasLoadedProfilePhoto = false
 
     init(
-        profileService: ProfileService = ProfileService(),
-        sessionService: SessionService = SessionService()
+        profileService: ProfileService? = nil,
+        sessionService: SessionService? = nil
     ) {
-        self.profileService = profileService
-        self.sessionService = sessionService
-        self.nickname = profileService.loadNickname()
+        // Services instanciados dentro do init @MainActor para evitar avaliação
+        // de default em contexto nonisolated (Swift 6.2 strict concurrency).
+        let resolvedProfileService = profileService ?? ProfileService()
+        self.profileService = resolvedProfileService
+        self.sessionService = sessionService ?? SessionService()
+        self.nickname = resolvedProfileService.loadNickname()
     }
 
     // MARK: - Public

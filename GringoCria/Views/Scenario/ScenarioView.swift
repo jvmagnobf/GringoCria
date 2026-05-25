@@ -75,6 +75,13 @@ struct ScenarioView: View {
             guard introCompleted, !subscenario.scriptName.isEmpty else { return }
             await viewModel?.start(scriptName: subscenario.scriptName, subscenarioId: subscenario.id)
         }
+        .onChange(of: introCompleted) { _, completed in
+            // Fix: cenários intro-only (ex: Ambulantes) não passam pelo fluxo de script,
+            // então a conclusão precisa ser registrada manualmente quando o intro termina.
+            if completed && isIntroOnly {
+                viewModel?.markIntroOnlyCompleted(id: subscenario.id)
+            }
+        }
         .task {
             await viewModel?.loadUserPhoto()
         }
@@ -239,7 +246,8 @@ struct ScenarioView: View {
                 introPages: nil,
                 introPagesEN: nil,
                 vendorIcon: nil,
-                disclaimer: nil
+                disclaimer: nil,
+                requiresCompletionOf: nil
             )
         )
     }

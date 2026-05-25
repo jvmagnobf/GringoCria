@@ -28,10 +28,12 @@ final class ScenarioViewModel {
     private var subscenarioId: UUID?
 
     init(
-        profileService: ProfileService = ProfileService(),
+        profileService: ProfileService? = nil,
         progressService: ProgressService
     ) {
-        self.profileService = profileService
+        // ProfileService é instanciado dentro do init @MainActor para evitar avaliação
+        // de default em contexto nonisolated (Swift 6.2 strict concurrency).
+        self.profileService = profileService ?? ProfileService()
         self.progressService = progressService
     }
 
@@ -54,6 +56,10 @@ final class ScenarioViewModel {
               step.type == .choice
         else { return nil }
         return step.choices
+    }
+
+    func markIntroOnlyCompleted(id: UUID) {
+        progressService.markCompleted(id: id)
     }
 
     func start(scriptName: String, subscenarioId: UUID) async {

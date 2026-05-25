@@ -11,12 +11,13 @@ import SwiftUI
 
 @main
 struct GringoCriaApp: App {
-    @State private var appState               = AppState()
-    @State private var speechService           = SpeechService()
-    @State private var progressService         = ProgressService()
-    @State private var aiAvailabilityService   = AIAvailabilityService()
-    @State private var aiPersonaService        = AIPersonaService()
-    @State private var premiumService          = PremiumService()
+    @State private var appState                 = AppState()
+    @State private var speechService             = SpeechService()
+    @State private var speechRecognitionService  = SpeechRecognitionService()
+    @State private var progressService           = ProgressService()
+    @State private var aiAvailabilityService     = AIAvailabilityService()
+    @State private var aiPersonaService          = AIPersonaService()
+    @State private var premiumService            = PremiumService()
 
     init() {
         let navAppearance = UINavigationBarAppearance()
@@ -38,6 +39,7 @@ struct GringoCriaApp: App {
             AppRouter()
                 .environment(appState)
                 .environment(speechService)
+                .environment(speechRecognitionService)
                 .environment(progressService)
                 .environment(aiAvailabilityService)
                 .environment(aiPersonaService)

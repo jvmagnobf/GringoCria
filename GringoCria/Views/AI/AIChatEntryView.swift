@@ -16,6 +16,8 @@ struct AIChatEntryView: View {
 
     @Environment(AIPersonaService.self) private var aiPersonaService
     @Environment(AIAvailabilityService.self) private var aiAvailabilityService
+    // PremiumService permanece injetado para reativar o paywall facilmente quando
+    // a compra premium for implementada. Por enquanto, o gate está desativado.
     @Environment(PremiumService.self) private var premiumService
 
     @State private var viewModel = AIChatEntryViewModel()
@@ -26,15 +28,13 @@ struct AIChatEntryView: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if let persona = viewModel.persona {
-                if premiumService.isPremium {
-                    AIChatView(
-                        persona: persona,
-                        aiPersonaService: aiPersonaService,
-                        aiAvailabilityService: aiAvailabilityService
-                    )
-                } else {
-                    PremiumGateView()
-                }
+                // Premium gate temporariamente desativado — sem fluxo de compra ainda.
+                // Para reativar: trocar por `if premiumService.isPremium { ... } else { PremiumGateView() }`
+                AIChatView(
+                    persona: persona,
+                    aiPersonaService: aiPersonaService,
+                    aiAvailabilityService: aiAvailabilityService
+                )
             } else {
                 comingSoonView
             }

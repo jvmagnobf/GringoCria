@@ -10,46 +10,20 @@ import SwiftUI
 // MARK: - ScenarioListView
 
 struct ScenarioListView: View {
-    enum DisplayMode: Equatable {
-        case scenarios
-        case premium
-    }
-
     let scenarios: [Scenario]
-    let mode: DisplayMode
-    let onPremiumTap: (Subscenario) -> Void
+    let onSubscenarioTap: (Subscenario) -> Void
 
-    private var visibleSections: [ScenarioListSection] {
-        scenarios.compactMap { scenario in
-            let subscenarios = filteredSubscenarios(for: scenario)
-            guard mode == .scenarios || !subscenarios.isEmpty else { return nil }
-
-            return ScenarioListSection(
-                scenario: scenario,
-                subscenarios: subscenarios
-            )
-        }
-    }
+    @State private var expandedSections: Set<UUID> = []
 
     var body: some View {
-        if visibleSections.isEmpty && mode == .premium {
-            premiumEmptyState
-        } else {
-            scenarioList
-        }
-    }
-
-    // MARK: - Private
-
-    private var scenarioList: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 24) {
-                ForEach(visibleSections) { section in
+            LazyVStack(alignment: .leading, spacing: 16) {
+                ForEach(scenarios) { scenario in
                     ScenarioSection(
-                        scenario: section.scenario,
-                        subscenarios: section.subscenarios,
-                        mode: mode,
-                        onPremiumTap: onPremiumTap
+                        scenario: scenario,
+                        isExpanded: expandedSections.contains(scenario.id),
+                        onToggle: { toggleSection(scenario.id) },
+                        onSubscenarioTap: onSubscenarioTap
                     )
                 }
             }
@@ -58,46 +32,14 @@ struct ScenarioListView: View {
         }
     }
 
-    private var premiumEmptyState: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "wand.and.sparkles")
-                .font(.system(size: 44))
-                .foregroundStyle(.secondary)
+    // MARK: - Private
 
-            Text("No premium conversations yet.")
-                .font(.headline)
-
-            Text("Premium AI chats will appear here when they are available.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
+    private func toggleSection(_ id: UUID) {
+        if expandedSections.contains(id) {
+            expandedSections.remove(id)
+        } else {
+            expandedSections.insert(id)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
-    private func filteredSubscenarios(for scenario: Scenario) -> [Subscenario] {
-        switch mode {
-        case .scenarios:
-            scenario.subscenarios.filter { !$0.isLocked }
-        case .premium:
-            scenario.subscenarios.filter(isPremiumConversation)
-        }
-    }
-
-    private func isPremiumConversation(_ subscenario: Subscenario) -> Bool {
-        subscenario.isAIPremium
-    }
-}
-
-// MARK: - ScenarioListSection
-
-private struct ScenarioListSection: Identifiable {
-    let scenario: Scenario
-    let subscenarios: [Subscenario]
-
-    var id: UUID {
-        scenario.id
     }
 }
 
@@ -105,16 +47,24 @@ private struct ScenarioListSection: Identifiable {
 
 private struct ScenarioSection: View {
     let scenario: Scenario
-    let subscenarios: [Subscenario]
-    let mode: ScenarioListView.DisplayMode
-    let onPremiumTap: (Subscenario) -> Void
+    let isExpanded: Bool
+    let onToggle: () -> Void
+    let onSubscenarioTap: (Subscenario) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 0) {
             sectionHeader
 
-            ForEach(subscenarios) { subscenario in
-                subscenarioLink(for: subscenario)
+            if isExpanded {
+                VStack(spacing: 8) {
+                    ForEach(scenario.subscenarios) { subscenario in
+                        SubscenarioCardContainer(
+                            subscenario: subscenario,
+                            onTap: onSubscenarioTap
+                        )
+                    }
+                }
+                .padding(.top, 12)
             }
         }
     }
@@ -122,48 +72,58 @@ private struct ScenarioSection: View {
     // MARK: - Private
 
     private var sectionHeader: some View {
-        HStack(spacing: 8) {
-            Image(systemName: scenario.icon)
-                .font(.title2)
-                .foregroundStyle(.white)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(scenario.titleEN)
+        Button(action: onToggle) {
+            HStack(spacing: 8) {
+                Image(systemName: scenario.icon)
                     .font(.title2)
-                    .fontWeight(.bold)
                     .foregroundStyle(.white)
 
-                Text(scenario.titlePT)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(scenario.titleEN)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+
+                    Text(scenario.titlePT)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+
+                Spacer()
+
+                Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.7))
+                    .animation(.easeInOut(duration: 0.2), value: isExpanded)
             }
+            .padding(.vertical, 8)
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
+    }
+}
+
+// MARK: - SubscenarioCardContainer
+
+/// Resolve `isUnlocked` consultando o ProgressService do ambiente e
+/// delega a ação de tap para o pai (HomeView), que decide se navega ou mostra alert.
+private struct SubscenarioCardContainer: View {
+    let subscenario: Subscenario
+    let onTap: (Subscenario) -> Void
+
+    @Environment(ProgressService.self) private var progressService
+
+    private var isUnlocked: Bool {
+        subscenario.isUnlocked(progressService: progressService)
     }
 
-    @ViewBuilder
-    private func subscenarioLink(for subscenario: Subscenario) -> some View {
-        if shouldOpenPremiumSheet(subscenario) {
-            Button {
-                onPremiumTap(subscenario)
-            } label: {
-                SubscenarioCard(subscenario: subscenario)
-            }
-            .buttonStyle(.plain)
-        } else {
-            NavigationLink(value: subscenario) {
-                SubscenarioCard(subscenario: subscenario)
-            }
-            .buttonStyle(.plain)
+    var body: some View {
+        Button {
+            onTap(subscenario)
+        } label: {
+            SubscenarioCard(subscenario: subscenario, isUnlocked: isUnlocked)
         }
-    }
-
-    private func shouldOpenPremiumSheet(_ subscenario: Subscenario) -> Bool {
-        switch mode {
-        case .scenarios:
-            true   // sempre usa callback; HomeView decide o que fazer
-        case .premium:
-            false  // usa NavigationLink; PremiumView tem a navigationDestination
-        }
+        .buttonStyle(.plain)
     }
 }
 
@@ -171,6 +131,8 @@ private struct ScenarioSection: View {
 
 private struct SubscenarioCard: View {
     let subscenario: Subscenario
+    let isUnlocked: Bool
+
     @Environment(ProgressService.self) private var progressService
 
     private var isCompleted: Bool {
@@ -195,15 +157,22 @@ private struct SubscenarioCard: View {
         .padding(16)
         .glassEffect(in: RoundedRectangle(cornerRadius: 12))
         .contentShape(RoundedRectangle(cornerRadius: 12))
+        .opacity(isUnlocked ? 1.0 : 0.5)
     }
 
     // MARK: - Private
 
     @ViewBuilder
     private var statusIcon: some View {
-        if subscenario.isLocked {
-            Image(systemName: subscenario.isAIPremium ? "wand.and.sparkles" : "lock.fill")
-                .foregroundStyle(subscenario.isAIPremium ? .blue : .secondary)
+        if !isUnlocked {
+            // Bloqueado por tutorial — cadeado cinza
+            Image(systemName: "lock.fill")
+                .foregroundStyle(.secondary)
+                .font(.title3)
+        } else if subscenario.isAIPremium {
+            // Chat AI premium desbloqueado — sparkles azul
+            Image(systemName: "wand.and.sparkles")
+                .foregroundStyle(.blue)
                 .font(.title3)
         } else if isCompleted {
             Image(systemName: "checkmark.circle.fill")
@@ -225,6 +194,18 @@ private struct SubscenarioCard: View {
                     subscenarios: [
                         Subscenario(
                             id: UUID(),
+                            titlePT: "Ambulantes",
+                            titleEN: "Street Vendors",
+                            scriptName: "",
+                            isLocked: false,
+                            introPages: nil,
+                            introPagesEN: nil,
+                            vendorIcon: nil,
+                            disclaimer: "Start here!",
+                            requiresCompletionOf: nil
+                        ),
+                        Subscenario(
+                            id: UUID(),
                             titlePT: "Matte",
                             titleEN: "Mate drink",
                             scriptName: "matte",
@@ -232,7 +213,8 @@ private struct SubscenarioCard: View {
                             introPages: nil,
                             introPagesEN: nil,
                             vendorIcon: nil,
-                            disclaimer: nil
+                            disclaimer: nil,
+                            requiresCompletionOf: UUID()
                         ),
                         Subscenario(
                             id: UUID(),
@@ -243,13 +225,13 @@ private struct SubscenarioCard: View {
                             introPages: nil,
                             introPagesEN: nil,
                             vendorIcon: nil,
-                            disclaimer: nil
+                            disclaimer: nil,
+                            requiresCompletionOf: UUID()
                         )
                     ]
                 )
             ],
-            mode: .scenarios,
-            onPremiumTap: { _ in }
+            onSubscenarioTap: { _ in }
         )
     }
     .environment(ProgressService())
