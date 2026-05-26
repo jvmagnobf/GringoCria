@@ -1,13 +1,37 @@
 {
-  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/FeedbackBubble.swift",
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/Components/FeedbackBubble.swift",
   "tables": {
     "Localizable": [
+      {
+        "comment": "",
+        "key": "Grammar feedback",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap to collapse",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap to expand details",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 29
+        }
+      },
       {
         "comment": "",
         "key": "Feels Carioca!",
         "location": {
           "startingColumn": 22,
-          "startingLine": 50
+          "startingLine": 53
         }
       },
       {
@@ -15,7 +39,7 @@
         "key": "Corrected:",
         "location": {
           "startingColumn": 26,
-          "startingLine": 74
+          "startingLine": 77
         }
       },
       {
@@ -23,7 +47,7 @@
         "key": "You could also say:",
         "location": {
           "startingColumn": 26,
-          "startingLine": 95
+          "startingLine": 98
         }
       },
       {
@@ -31,7 +55,7 @@
         "key": "•",
         "location": {
           "startingColumn": 34,
-          "startingLine": 102
+          "startingLine": 105
         }
       },
       {
@@ -39,7 +63,7 @@
         "key": "%lld",
         "location": {
           "startingColumn": 18,
-          "startingLine": 136
+          "startingLine": 138
         }
       }
     ]

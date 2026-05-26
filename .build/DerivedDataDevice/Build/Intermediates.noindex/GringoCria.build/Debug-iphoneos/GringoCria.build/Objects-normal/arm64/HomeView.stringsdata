@@ -4,10 +4,34 @@
     "Localizable": [
       {
         "comment": "",
+        "key": "Tutorial Required",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
         "key": "GringoCria",
         "location": {
           "startingColumn": 26,
-          "startingLine": 83
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Complete the Street Vendors (Ambulantes) tutorial first to unlock this scenario.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 50
         }
       },
       {
@@ -15,7 +39,7 @@
         "key": "Could not load scenarios. Please restart the app.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 53
+          "startingLine": 64
         }
       },
       {
@@ -23,7 +47,7 @@
         "key": "No scenarios available yet.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 59
+          "startingLine": 70
         }
       },
       {
@@ -31,7 +55,7 @@
         "key": "Tap here to continue",
         "location": {
           "startingColumn": 14,
-          "startingLine": 127
+          "startingLine": 143
         }
       }
     ]

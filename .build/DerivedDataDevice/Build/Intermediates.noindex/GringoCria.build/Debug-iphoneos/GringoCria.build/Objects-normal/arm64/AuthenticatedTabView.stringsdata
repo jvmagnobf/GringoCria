@@ -1,5 +1,5 @@
 {
-  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AuthenticatedTabView.swift",
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Navigation/AuthenticatedTabView.swift",
   "tables": {
     "Localizable": [
       {
@@ -7,15 +7,15 @@
         "key": "Scenarios",
         "location": {
           "startingColumn": 27,
-          "startingLine": 20
+          "startingLine": 25
         }
       },
       {
         "comment": "",
-        "key": "Premium",
+        "key": "Cards",
         "location": {
           "startingColumn": 23,
-          "startingLine": 27
+          "startingLine": 32
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Rio Tips",
         "location": {
           "startingColumn": 23,
-          "startingLine": 34
+          "startingLine": 39
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Profile",
         "location": {
           "startingColumn": 23,
-          "startingLine": 41
+          "startingLine": 46
         }
       }
     ]

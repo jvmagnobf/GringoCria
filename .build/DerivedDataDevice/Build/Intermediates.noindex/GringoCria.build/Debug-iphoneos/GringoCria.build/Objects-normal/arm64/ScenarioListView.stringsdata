@@ -1,24 +1,5 @@
 {
   "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Home/ScenarioListView.swift",
-  "tables": {
-    "Localizable": [
-      {
-        "comment": "",
-        "key": "No premium conversations yet.",
-        "location": {
-          "startingColumn": 18,
-          "startingLine": 68
-        }
-      },
-      {
-        "comment": "",
-        "key": "Premium AI chats will appear here when they are available.",
-        "location": {
-          "startingColumn": 18,
-          "startingLine": 71
-        }
-      }
-    ]
-  },
+  "tables": {},
   "version": 1
 }

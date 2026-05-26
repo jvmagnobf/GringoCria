@@ -6,6 +6,13 @@
     "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/CameraPickerView.o",
     "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/CameraPickerView.swiftdeps"
   },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Components/ChatAvatarViews.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatAvatarViews.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatAvatarViews.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatAvatarViews.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatAvatarViews.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatAvatarViews.swiftdeps"
+  },
   "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Components/ChatStyling.swift" : {
     "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatStyling.swiftconstvalues",
     "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ChatStyling.d",
@@ -20,18 +27,25 @@
     "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ProfilePhotoField.o",
     "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ProfilePhotoField.swiftdeps"
   },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Components/TypingIndicatorView.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/TypingIndicatorView.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/TypingIndicatorView.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/TypingIndicatorView.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/TypingIndicatorView.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/TypingIndicatorView.swiftdeps"
+  },
+  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Extensions/ScrollViewProxy+Chat.swift" : {
+    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ScrollViewProxy+Chat.swiftconstvalues",
+    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ScrollViewProxy+Chat.d",
+    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ScrollViewProxy+Chat.dia",
+    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ScrollViewProxy+Chat.o",
+    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/ScrollViewProxy+Chat.swiftdeps"
+  },
   "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Models/AppState.swift" : {
     "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/AppState.swiftconstvalues",
     "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/AppState.d",
     "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/AppState.dia",
     "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/AppState.o",
     "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/AppState.swiftdeps"
-  },
-  "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Models/MessageFeedback.swift" : {
-    "const-values" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/MessageFeedback.swiftconstvalues",
-    "dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/MessageFeedback.d",
-    "diagnostics" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/MessageFeedback.dia",
-    "object" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/MessageFeedback.o",
-    "swift-dependencies" : "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/.build/DerivedDataDevice/Build/Intermediates.noindex/GringoCria.build/Debug-iphoneos/GringoCria.build/Objects-normal/arm64/MessageFeedback.swiftdeps"
   }
 }

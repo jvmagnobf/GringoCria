@@ -79,8 +79,8 @@ extension DeveloperToolsSupport.ImageResource {
     /// The "FundoChatRio" asset catalog image resource.
     static let fundoChatRio = DeveloperToolsSupport.ImageResource(name: "FundoChatRio", bundle: resourceBundle)
 
-    /// The "GarçomFundo" asset catalog image resource.
-    static let garçomFundo = DeveloperToolsSupport.ImageResource(name: "GarçomFundo", bundle: resourceBundle)
+    /// The "GarcomFundo" asset catalog image resource.
+    static let garcomFundo = DeveloperToolsSupport.ImageResource(name: "GarcomFundo", bundle: resourceBundle)
 
     /// The "IconeCadeira" asset catalog image resource.
     static let iconeCadeira = DeveloperToolsSupport.ImageResource(name: "IconeCadeira", bundle: resourceBundle)
@@ -349,10 +349,10 @@ extension AppKit.NSImage {
 #endif
     }
 
-    /// The "GarçomFundo" asset catalog image.
-    static var garçomFundo: AppKit.NSImage {
+    /// The "GarcomFundo" asset catalog image.
+    static var garcomFundo: AppKit.NSImage {
 #if !targetEnvironment(macCatalyst)
-        .init(resource: .garçomFundo)
+        .init(resource: .garcomFundo)
 #else
         .init()
 #endif
@@ -600,10 +600,10 @@ extension UIKit.UIImage {
 #endif
     }
 
-    /// The "GarçomFundo" asset catalog image.
-    static var garçomFundo: UIKit.UIImage {
+    /// The "GarcomFundo" asset catalog image.
+    static var garcomFundo: UIKit.UIImage {
 #if !os(watchOS)
-        .init(resource: .garçomFundo)
+        .init(resource: .garcomFundo)
 #else
         .init()
 #endif

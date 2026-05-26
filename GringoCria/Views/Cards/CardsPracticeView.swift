@@ -202,15 +202,10 @@ struct CardsPracticeView: View {
     // MARK: - Background
 
     private var backgroundGradient: some View {
-        LinearGradient(
-            colors: [
-                Color(red: 0.04, green: 0.08, blue: 0.22),
-                Color(red: 0.08, green: 0.14, blue: 0.35)
-            ],
-            startPoint: .top,
-            endPoint: .bottom
-        )
-        .ignoresSafeArea()
+        Image("FundoChatRio")
+            .resizable()
+            .scaledToFill()
+            .ignoresSafeArea()
     }
 }
 

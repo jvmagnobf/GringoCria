@@ -171,11 +171,11 @@
 			<key>catalogPath</key>
 			<string>/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Assets.xcassets</string>
 			<key>objcSymbol</key>
-			<string>ACImageNameGaromFundo</string>
+			<string>ACImageNameGarcomFundo</string>
 			<key>relativePath</key>
-			<string>./GarçomFundo.imageset</string>
+			<string>./GarcomFundo.imageset</string>
 			<key>swiftSymbol</key>
-			<string>garçomFundo</string>
+			<string>garcomFundo</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>

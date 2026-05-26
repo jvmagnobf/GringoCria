@@ -7,7 +7,7 @@
         "key": "Choose photo source",
         "location": {
           "startingColumn": 29,
-          "startingLine": 62
+          "startingLine": 64
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Photo Library",
         "location": {
           "startingColumn": 20,
-          "startingLine": 63
+          "startingLine": 65
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Camera",
         "location": {
           "startingColumn": 24,
-          "startingLine": 66
+          "startingLine": 68
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Cancel",
         "location": {
           "startingColumn": 20,
-          "startingLine": 69
+          "startingLine": 71
         }
       }
     ]

@@ -7,15 +7,15 @@
         "key": "Toggle translation",
         "location": {
           "startingColumn": 37,
-          "startingLine": 68
+          "startingLine": 65
         }
       },
       {
         "comment": "",
-        "key": "Agora você já sabe o que esperar!",
+        "key": "Now you know what to expect!",
         "location": {
           "startingColumn": 18,
-          "startingLine": 101
+          "startingLine": 105
         }
       },
       {
@@ -23,39 +23,23 @@
         "key": "Back to Home",
         "location": {
           "startingColumn": 20,
-          "startingLine": 107
+          "startingLine": 111
         }
       },
       {
         "comment": "",
-        "key": "Conversa encerrada 🎉",
+        "key": "Conversation ended",
         "location": {
           "startingColumn": 18,
-          "startingLine": 205
+          "startingLine": 213
         }
       },
       {
         "comment": "",
-        "key": "Encerrar",
+        "key": "Finish",
         "location": {
           "startingColumn": 20,
-          "startingLine": 210
-        }
-      },
-      {
-        "comment": "",
-        "key": "Stop pronunciation",
-        "location": {
-          "startingColumn": 46,
-          "startingLine": 348
-        }
-      },
-      {
-        "comment": "",
-        "key": "Play pronunciation",
-        "location": {
-          "startingColumn": 69,
-          "startingLine": 348
+          "startingLine": 218
         }
       }
     ]

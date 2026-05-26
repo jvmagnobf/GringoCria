@@ -7,15 +7,15 @@
         "key": "Rio Tips",
         "location": {
           "startingColumn": 26,
-          "startingLine": 39
+          "startingLine": 48
         }
       },
       {
         "comment": "",
-        "key": "Everything you wish someone had told you before landing.",
+        "key": "Things nobody tells you until it's too late.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 17
+          "startingLine": 18
         }
       }
     ]

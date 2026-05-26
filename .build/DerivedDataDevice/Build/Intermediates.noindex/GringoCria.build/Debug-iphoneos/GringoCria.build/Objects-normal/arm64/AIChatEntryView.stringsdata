@@ -7,7 +7,7 @@
         "key": "Coming Soon",
         "location": {
           "startingColumn": 18,
-          "startingLine": 43
+          "startingLine": 53
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "An AI character for this scenario is in the works. Check back later!",
         "location": {
           "startingColumn": 18,
-          "startingLine": 47
+          "startingLine": 57
         }
       }
     ]

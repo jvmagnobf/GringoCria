@@ -6,76 +6,67 @@
     "icon": "beach.umbrella",
     "subscenarios": [
       {
+        "id": "AB000002-0000-0000-0000-000000000002",
+        "titlePT": "Ambulantes",
+        "titleEN": "Street Vendors",
+        "scriptName": "",
+        "isLocked": false,
+        "introPages": [
+          "O ambulante é alguém que anda pela praia vendendo os mais variados produtos. Ele pode anunciar o que vende passando por você, ou te abordar diretamente para tentar te vender algo.",
+          "Você pode perguntar quanto custa o produto. Tome cuidado pois é normal tentarem cobrar mais caro para estrangeiros — sinta-se à vontade para negociar.",
+          "Você pode perguntar também sobre especificações do produto. Esse cenário é só uma introdução — não temos como prever o produto que o ambulante vai vender!"
+        ],
+        "introPagesEN": [
+          "Start here! Street vendors (ambulantes) walk along the beach selling all kinds of products. They may announce what they're selling as they pass by, or come up and approach you directly.",
+          "You can ask how much something costs. Just be aware that it's common for vendors to charge more to foreigners — feel free to negotiate.",
+          "You can also ask questions about the product if you're curious. This is just an intro — we can't predict what each vendor will sell, so think of it as a general guide."
+        ],
+        "disclaimer": "Start here! This is your tutorial scenario. Complete it to unlock all other Beach and Safety scenarios."
+      },
+      {
         "id": "B2C3D4E5-F6A7-8901-BCDE-F12345678901",
         "titlePT": "Matte",
         "titleEN": "Mate drink",
         "scriptName": "matte",
-        "isLocked": false
+        "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "C3D4E5F6-A7B8-9012-CDEF-123456789012",
         "titlePT": "Biscoito Globo",
         "titleEN": "Globo Biscuit",
         "scriptName": "biscoito-globo",
-        "isLocked": false
+        "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "D4E5F6A7-B8C9-0123-DEF0-234567890123",
         "titlePT": "Caipirinha",
         "titleEN": "Caipirinha",
         "scriptName": "caipirinha",
-        "isLocked": false
+        "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "E5F6A7B8-C9D0-1234-EF01-345678901234",
         "titlePT": "Esfiha",
         "titleEN": "Esfiha",
         "scriptName": "esfiha",
-        "isLocked": false
+        "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "F6A7B8C9-D0E1-2345-F012-456789012345",
         "titlePT": "Barraca de Praia",
         "titleEN": "Beach Chair Rental",
         "scriptName": "barraca-praia",
-        "isLocked": false
-      },
-      {
-        "id": "A2000001-0000-0000-0000-000000000001",
-        "titlePT": "Matte com IA",
-        "titleEN": "AI Mate Chat",
-        "scriptName": "",
-        "isLocked": true
-      },
-      {
-        "id": "A2000002-0000-0000-0000-000000000002",
-        "titlePT": "Biscoito Globo com IA",
-        "titleEN": "AI Globo Biscuit Chat",
-        "scriptName": "",
-        "isLocked": true
-      },
-      {
-        "id": "A2000003-0000-0000-0000-000000000003",
-        "titlePT": "Caipirinha com IA",
-        "titleEN": "AI Caipirinha Chat",
-        "scriptName": "",
-        "isLocked": true
-      },
-      {
-        "id": "A2000004-0000-0000-0000-000000000004",
-        "titlePT": "Esfiha com IA",
-        "titleEN": "AI Esfiha Chat",
-        "scriptName": "",
-        "isLocked": true
-      },
-      {
-        "id": "A2000005-0000-0000-0000-000000000005",
-        "titlePT": "Barraca com IA",
-        "titleEN": "AI Beach Chair Chat",
-        "scriptName": "",
-        "isLocked": true,
-        "introPages": null,
-        "introPagesEN": null
+        "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
       },
       {
         "id": "AB000001-0000-0000-0000-000000000001",
@@ -83,7 +74,9 @@
         "titleEN": "Ordering from the menu",
         "scriptName": "menu-quiosque",
         "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
         "vendorIcon": "IconeGarcom",
+        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert.",
         "introPages": [
           "Esse cenário exemplifica como fazer um pedido no quiosque de praia. O quiosque sempre tem um menu mostrando as opções e os preços — tome cuidado se te cobrarem diferente do que está no menu.",
           "Para fazer seu pedido, você pode chamar um garçom ou ir até o balcão do quiosque. Se quiser, pergunte sobre algum item específico antes de decidir.",
@@ -96,21 +89,44 @@
         ]
       },
       {
-        "id": "AB000002-0000-0000-0000-000000000002",
-        "titlePT": "Ambulantes",
-        "titleEN": "Street Vendors",
+        "id": "A2000001-0000-0000-0000-000000000001",
+        "titlePT": "Matte com IA",
+        "titleEN": "AI Mate Chat",
         "scriptName": "",
-        "isLocked": false,
-        "introPages": [
-          "O ambulante é alguém que anda pela praia vendendo os mais variados produtos. Ele pode anunciar o que vende passando por você, ou te abordar diretamente para tentar te vender algo.",
-          "Você pode perguntar quanto custa o produto. Tome cuidado pois é normal tentarem cobrar mais caro para estrangeiros — sinta-se à vontade para negociar.",
-          "Você pode perguntar também sobre especificações do produto. Esse cenário é só uma introdução — não temos como prever o produto que o ambulante vai vender!"
-        ],
-        "introPagesEN": [
-          "Street vendors (ambulantes) walk along the beach selling all kinds of products. They may announce what they're selling as they pass by, or come up and approach you directly.",
-          "You can ask how much something costs. Just be aware that it's common for vendors to charge more to foreigners — feel free to negotiate.",
-          "You can also ask questions about the product if you're curious. This is just an intro — we can't predict what each vendor will sell, so think of it as a general guide."
-        ]
+        "isLocked": true,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002"
+      },
+      {
+        "id": "A2000002-0000-0000-0000-000000000002",
+        "titlePT": "Biscoito Globo com IA",
+        "titleEN": "AI Globo Biscuit Chat",
+        "scriptName": "",
+        "isLocked": true,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002"
+      },
+      {
+        "id": "A2000003-0000-0000-0000-000000000003",
+        "titlePT": "Caipirinha com IA",
+        "titleEN": "AI Caipirinha Chat",
+        "scriptName": "",
+        "isLocked": true,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002"
+      },
+      {
+        "id": "A2000004-0000-0000-0000-000000000004",
+        "titlePT": "Esfiha com IA",
+        "titleEN": "AI Esfiha Chat",
+        "scriptName": "",
+        "isLocked": true,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002"
+      },
+      {
+        "id": "A2000005-0000-0000-0000-000000000005",
+        "titlePT": "Barraca com IA",
+        "titleEN": "AI Beach Chair Chat",
+        "scriptName": "",
+        "isLocked": true,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002"
       }
     ]
   },
@@ -126,6 +142,7 @@
         "titleEN": "Talking with the police man",
         "scriptName": "policial",
         "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
         "introPages": [
           "Esse cenário exemplifica como seria a conversa com um policial logo após ser roubado. Nosso objetivo é te preparar caso isso aconteça.",
           "Você aborda o policial, conta o que aconteceu e como está se sentindo. Depois responde as perguntas que ele fizer.",
@@ -143,6 +160,7 @@
         "titleEN": "Lifeguard",
         "scriptName": "salva-vidas",
         "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
         "introPages": [
           "Esse cenário tem o intuito de exemplificar como normalmente funciona uma conversa com um salva-vidas nas praias do Rio de Janeiro. Os salva-vidas estão presentes em praticamente todas as praias mais movimentadas e são responsáveis pela segurança dos banhistas.",
           "Você pode falar com eles para pedir ajuda, tirar dúvidas sobre o mar, perguntar se é seguro entrar na água, pedir informações sobre correnteza, profundidade, bandeiras de sinalização ou até pedir ajuda em emergências.",
@@ -160,6 +178,7 @@
         "titleEN": "Where's the police station?",
         "scriptName": "delegacia",
         "isLocked": false,
+        "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
         "vendorIcon": "IconeCria",
         "introPages": [
           "Esse cenário mostra como pedir para uma pessoa qualquer direções para a delegacia do turista ou a mais próxima de você.",

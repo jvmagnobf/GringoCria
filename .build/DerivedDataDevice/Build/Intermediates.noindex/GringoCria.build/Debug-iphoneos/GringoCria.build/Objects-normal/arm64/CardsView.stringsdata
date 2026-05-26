@@ -1,0 +1,32 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Cards/CardsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Pronunciation Cards",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld / %lld phrases",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 119
+        }
+      }
+    ]
+  },
+  "version": 1
+}

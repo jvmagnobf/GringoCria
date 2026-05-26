@@ -1,0 +1,88 @@
+{
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Cards/CardsPracticeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Recording — release to check",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hold to record",
+        "location": {
+          "startingColumn": 82,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld / %lld (%lld%%)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hear the phrase",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hide translation",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 120
+        }
+      },
+      {
+        "comment": "",
+        "key": "Show translation",
+        "location": {
+          "startingColumn": 90,
+          "startingLine": 120
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hold the button and speak the phrase",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 136
+        }
+      },
+      {
+        "comment": "",
+        "key": "Correct! Well done.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "You said: \"%@\"",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 157
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try again",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 161
+        }
+      }
+    ]
+  },
+  "version": 1
+}

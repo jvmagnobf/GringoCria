@@ -7,15 +7,31 @@
         "key": "Toggle translation",
         "location": {
           "startingColumn": 37,
-          "startingLine": 57
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "Listening...",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 128
         }
       },
       {
         "comment": "",
         "key": "Type in Portuguese...",
         "location": {
-          "startingColumn": 27,
-          "startingLine": 125
+          "startingColumn": 79,
+          "startingLine": 128
         }
       }
     ]

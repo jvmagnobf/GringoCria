@@ -1,5 +1,5 @@
 {
-  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/AI/PremiumGateView.swift",
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Premium/PremiumGateView.swift",
   "tables": {
     "Localizable": [
       {
@@ -7,7 +7,7 @@
         "key": "AI Carioca Chat",
         "location": {
           "startingColumn": 22,
-          "startingLine": 30
+          "startingLine": 29
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Chat with real Carioca characters powered by Apple Intelligence",
         "location": {
           "startingColumn": 22,
-          "startingLine": 34
+          "startingLine": 33
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Requires iPhone 15 Pro or newer with Apple Intelligence enabled",
         "location": {
           "startingColumn": 17,
-          "startingLine": 98
+          "startingLine": 97
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Enable Apple Intelligence in Settings > Apple Intelligence & Siri",
         "location": {
           "startingColumn": 17,
-          "startingLine": 107
+          "startingLine": 106
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "Apple Intelligence model is downloading. Please try again later.",
         "location": {
           "startingColumn": 17,
-          "startingLine": 116
+          "startingLine": 115
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "Requires iPhone 15 Pro or newer with Apple Intelligence enabled",
         "location": {
           "startingColumn": 17,
-          "startingLine": 125
+          "startingLine": 124
         }
       },
       {
@@ -55,7 +55,7 @@
         "key": "Restore Purchase",
         "location": {
           "startingColumn": 16,
-          "startingLine": 166
+          "startingLine": 165
         }
       },
       {
@@ -63,7 +63,7 @@
         "key": "Maybe Later",
         "location": {
           "startingColumn": 16,
-          "startingLine": 175
+          "startingLine": 174
         }
       },
       {
@@ -71,7 +71,7 @@
         "key": "Unlock Premium",
         "location": {
           "startingColumn": 26,
-          "startingLine": 154
+          "startingLine": 153
         }
       },
       {
@@ -79,7 +79,7 @@
         "key": "Unlock for %@",
         "location": {
           "startingColumn": 26,
-          "startingLine": 151
+          "startingLine": 150
         }
       }
     ]

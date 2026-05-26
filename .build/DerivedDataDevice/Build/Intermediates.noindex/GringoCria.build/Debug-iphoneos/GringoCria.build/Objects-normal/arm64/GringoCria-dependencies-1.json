@@ -191,6 +191,11 @@
   },
   {
     "isFramework" : true,
+    "moduleName" : "Speech",
+    "modulePath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/swift\/iphoneos\/prebuilt-modules\/26.2\/Speech.swiftmodule\/arm64e-apple-ios.swiftmodule"
+  },
+  {
+    "isFramework" : true,
     "moduleName" : "StoreKit",
     "modulePath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/swift\/iphoneos\/prebuilt-modules\/26.2\/StoreKit.swiftmodule\/arm64e-apple-ios.swiftmodule"
   },
@@ -592,6 +597,13 @@
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Spatial"
+  },
+  {
+    "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/iPhoneOS.platform\/Developer\/SDKs\/iPhoneOS.sdk\/System\/Library\/Frameworks\/Speech.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/jvmagnob\/Documents\/Academy\/challenges\/Challenge 2\/GringoCria\/.build\/DerivedDataDevice\/ModuleCache.noindex\/Speech-6N7P5Z4HCCWVO514RJKB1FBZK.pcm",
+    "isBridgingHeaderDependency" : false,
+    "isFramework" : false,
+    "moduleName" : "Speech"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/iPhoneOS.platform\/Developer\/SDKs\/iPhoneOS.sdk\/System\/Library\/Frameworks\/StoreKit.framework\/Modules\/module.modulemap",

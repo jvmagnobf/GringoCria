@@ -1,10 +1,26 @@
 {
-  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/SplashView.swift",
+  "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Navigation/SplashView.swift",
   "tables": {
     "Localizable": [
       {
         "comment": "",
-        "key": "Click to continue",
+        "key": "GringoCria — welcome screen",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Double tap to enter",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap to continue",
         "location": {
           "startingColumn": 22,
           "startingLine": 25

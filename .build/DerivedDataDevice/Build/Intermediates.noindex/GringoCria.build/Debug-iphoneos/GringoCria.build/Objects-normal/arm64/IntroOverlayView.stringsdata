@@ -4,6 +4,22 @@
     "Localizable": [
       {
         "comment": "",
+        "key": "Double tap to continue",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Double tap to start the conversation",
+        "location": {
+          "startingColumn": 87,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
         "key": "Tap to continue",
         "location": {
           "startingColumn": 54,

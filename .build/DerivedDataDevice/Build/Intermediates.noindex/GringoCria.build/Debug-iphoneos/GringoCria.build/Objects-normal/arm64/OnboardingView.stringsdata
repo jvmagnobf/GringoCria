@@ -1,5 +1,24 @@
 {
   "source": "/Users/jvmagnob/Documents/Academy/challenges/Challenge 2/GringoCria/GringoCria/Views/Onboarding/OnboardingView.swift",
-  "tables": {},
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Double tap to advance",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Double tap to get started",
+        "location": {
+          "startingColumn": 86,
+          "startingLine": 87
+        }
+      }
+    ]
+  },
   "version": 1
 }

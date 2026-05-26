@@ -7,7 +7,7 @@
 #endif
 
 /// The resource bundle ID.
-static NSString * const ACBundleID AC_SWIFT_PRIVATE = @"br.com.GringoCria";
+static NSString * const ACBundleID AC_SWIFT_PRIVATE = @"br.com.GringooCria";
 
 /// The "amarelo_mensagem" asset catalog color resource.
 static NSString * const ACColorNameAmareloMensagem AC_SWIFT_PRIVATE = @"amarelo_mensagem";
@@ -57,8 +57,8 @@ static NSString * const ACImageNameFundoChat AC_SWIFT_PRIVATE = @"FundoChat";
 /// The "FundoChatRio" asset catalog image resource.
 static NSString * const ACImageNameFundoChatRio AC_SWIFT_PRIVATE = @"FundoChatRio";
 
-/// The "GarçomFundo" asset catalog image resource.
-static NSString * const ACImageNameGaromFundo AC_SWIFT_PRIVATE = @"GarçomFundo";
+/// The "GarcomFundo" asset catalog image resource.
+static NSString * const ACImageNameGarcomFundo AC_SWIFT_PRIVATE = @"GarcomFundo";
 
 /// The "IconeCadeira" asset catalog image resource.
 static NSString * const ACImageNameIconeCadeira AC_SWIFT_PRIVATE = @"IconeCadeira";
