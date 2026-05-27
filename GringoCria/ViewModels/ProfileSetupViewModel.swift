@@ -60,6 +60,14 @@ final class ProfileSetupViewModel {
         guard nicknameError == nil else { return }
 
         nickname = profileService.saveNickname(nickname)
+
+        // Sem Sign In with Apple, esta tela é o único ponto de entrada após
+        // a primeira instalação. Iniciamos uma sessão guest aqui caso não
+        // exista nenhuma — senão `resolveAuthState()` seguiria devolvendo
+        // .unauthenticated e o AppRouter ficaria preso nesta view.
+        if sessionService.currentSessionSource() == nil {
+            sessionService.startGuestSession()
+        }
         sessionService.markProfileSetupCompleted()
         setupCompleted = true
     }

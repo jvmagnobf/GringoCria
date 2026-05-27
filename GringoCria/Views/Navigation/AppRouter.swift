@@ -23,7 +23,7 @@ struct AppRouter: View {
         } else {
             switch appState.authState {
             case .unauthenticated:
-                AuthView()
+                ProfileSetupView()
             case .firstAccess:
                 ProfileSetupView()
             case .authenticated:
