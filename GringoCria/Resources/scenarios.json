@@ -30,7 +30,16 @@
         "scriptName": "matte",
         "isLocked": false,
         "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
-        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
+        "introPages": [
+          "Esse cenário mostra como normalmente funciona comprar mate com um vendedor ambulante na praia. O vendedor costuma passar pela areia anunciando em voz alta e você pode chamar com a mão ou falando com ele.",
+          "Os preços usados aqui são estimativas baseadas em valores comuns no Rio de Janeiro. Eles podem mudar dependendo da praia, da época do ano e do vendedor.",
+          "Sempre pergunte o preço antes de comprar. Se o valor parecer muito diferente do normal, fique atento e sinta-se livre para negociar ou recusar."
+        ],
+        "introPagesEN": [
+          "This scenario shows how buying mate from a beach vendor usually works. Vendors often walk along the sand announcing what they sell, and you can call them by waving or speaking to them.",
+          "The prices used here are estimates based on common values in Rio de Janeiro. They may change depending on the beach, the season, and the vendor.",
+          "Always ask the price before buying. If the amount feels very different from what is normal, stay alert and feel free to negotiate or say no."
+        ]
       },
       {
         "id": "C3D4E5F6-A7B8-9012-CDEF-123456789012",
@@ -39,7 +48,16 @@
         "scriptName": "biscoito-globo",
         "isLocked": false,
         "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
-        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
+        "introPages": [
+          "Esse cenário mostra como comprar Biscoito Globo na praia. É comum o vendedor passar oferecendo opções doces e salgadas, muitas vezes junto com mate.",
+          "Os preços usados aqui são estimativas baseadas em valores comuns no Rio de Janeiro. Eles podem variar de acordo com a praia, a região e a época do ano.",
+          "Pergunte o preço antes de escolher e confirme a forma de pagamento. Se o valor parecer muito fora do esperado, você pode negociar ou agradecer e não comprar."
+        ],
+        "introPagesEN": [
+          "This scenario shows how to buy Biscoito Globo on the beach. Vendors often offer sweet and salty options, sometimes together with mate.",
+          "The prices used here are estimates based on common values in Rio de Janeiro. They may vary depending on the beach, the area, and the season.",
+          "Ask the price before choosing and confirm the payment method. If the amount feels too far from what you expected, you can negotiate or simply say thanks and not buy."
+        ]
       },
       {
         "id": "D4E5F6A7-B8C9-0123-DEF0-234567890123",
@@ -48,7 +66,16 @@
         "scriptName": "caipirinha",
         "isLocked": false,
         "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
-        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
+        "introPages": [
+          "Esse cenário mostra como pedir uma caipirinha na praia. Normalmente o vendedor pergunta o sabor e se você quer com mais ou menos açúcar.",
+          "Os preços usados aqui são estimativas baseadas em valores comuns no Rio de Janeiro. Eles podem variar dependendo da praia, do quiosque, do vendedor e da época do ano.",
+          "Confirme o preço antes de fechar o pedido. Como é bebida alcoólica, também vale ficar atento à procedência e evitar comprar se algo parecer estranho."
+        ],
+        "introPagesEN": [
+          "This scenario shows how to order a caipirinha on the beach. Vendors usually ask which flavor you want and whether you want more or less sugar.",
+          "The prices used here are estimates based on common values in Rio de Janeiro. They may vary depending on the beach, the kiosk, the vendor, and the season.",
+          "Confirm the price before placing the order. Since this is an alcoholic drink, also pay attention to where it comes from and avoid buying if something feels off."
+        ]
       },
       {
         "id": "E5F6A7B8-C9D0-1234-EF01-345678901234",
@@ -57,7 +84,16 @@
         "scriptName": "esfiha",
         "isLocked": false,
         "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
-        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
+        "introPages": [
+          "Esse cenário mostra como comprar esfiha ou outros salgados vendidos na praia. O vendedor pode oferecer sabores diferentes e perguntar se você quer comer ali ou levar.",
+          "Os preços usados aqui são estimativas baseadas em valores comuns no Rio de Janeiro. Eles podem variar dependendo da praia, da região, da época do ano e do vendedor.",
+          "Pergunte o preço e os sabores antes de escolher. Se o valor parecer muito diferente do normal, fique atento e não tenha vergonha de recusar."
+        ],
+        "introPagesEN": [
+          "This scenario shows how to buy esfiha or other savory snacks sold on the beach. The vendor may offer different flavors and ask whether you want to eat there or take it to go.",
+          "The prices used here are estimates based on common values in Rio de Janeiro. They may vary depending on the beach, the area, the season, and the vendor.",
+          "Ask the price and the available flavors before choosing. If the amount feels very different from what is normal, stay alert and do not feel embarrassed to say no."
+        ]
       },
       {
         "id": "F6A7B8C9-D0E1-2345-F012-456789012345",
@@ -66,7 +102,16 @@
         "scriptName": "barraca-praia",
         "isLocked": false,
         "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
-        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert."
+        "introPages": [
+          "Esse cenário mostra como alugar cadeira e guarda-sol na praia. Normalmente alguém da barraca aborda você ou responde quando você pergunta o preço.",
+          "Os preços usados aqui são estimativas baseadas em valores comuns no Rio de Janeiro. Eles podem variar bastante dependendo da praia, da localização na areia, do dia e da temporada.",
+          "Pergunte o preço antes de sentar ou usar qualquer coisa. Em alguns lugares dá para negociar combo de cadeira e guarda-sol, então confirme tudo antes de aceitar."
+        ],
+        "introPagesEN": [
+          "This scenario shows how to rent a beach chair and umbrella. Usually someone from the beach stand approaches you, or answers when you ask the price.",
+          "The prices used here are estimates based on common values in Rio de Janeiro. They may vary a lot depending on the beach, the spot on the sand, the day, and the season.",
+          "Ask the price before sitting down or using anything. In some places you can negotiate a chair-and-umbrella combo, so confirm everything before accepting."
+        ]
       },
       {
         "id": "AB000001-0000-0000-0000-000000000001",
@@ -76,16 +121,15 @@
         "isLocked": false,
         "requiresCompletionOf": "AB000002-0000-0000-0000-000000000002",
         "vendorIcon": "IconeGarcom",
-        "disclaimer": "The prices shown in this scenario are estimates based on common values found in Rio de Janeiro. They may vary depending on the beach, region, season, and establishment. If any price seems very different from the norm, stay alert.",
         "introPages": [
           "Esse cenário exemplifica como fazer um pedido no quiosque de praia. O quiosque sempre tem um menu mostrando as opções e os preços — tome cuidado se te cobrarem diferente do que está no menu.",
-          "Para fazer seu pedido, você pode chamar um garçom ou ir até o balcão do quiosque. Se quiser, pergunte sobre algum item específico antes de decidir.",
-          "Após escolher, você indica onde está sentado ou espera ali mesmo. Nem todos os quiosques entregam na areia, então pergunte antes!"
+          "Os preços usados aqui são estimativas baseadas em valores comuns no Rio de Janeiro. Eles podem variar dependendo da praia, da região, da temporada e do quiosque.",
+          "Para fazer seu pedido, você pode chamar um garçom ou ir até o balcão do quiosque. Confira o preço no cardápio, pergunte sobre qualquer item específico e confirme se entregam na areia antes de fechar o pedido."
         ],
         "introPagesEN": [
           "This scenario shows you how to order food at a beach kiosk. Kiosks always have a menu with options and prices — double-check if someone charges you a different amount.",
-          "To place your order, call over a waiter (garçom) or walk up to the kiosk counter. Feel free to ask about any item that catches your eye.",
-          "After ordering, tell the waiter where you're sitting or wait at the counter. Not all kiosks deliver to the sand — ask first!"
+          "The prices used here are estimates based on common values in Rio de Janeiro. They may vary depending on the beach, the area, the season, and the kiosk.",
+          "To place your order, call over a waiter (garçom) or walk up to the kiosk counter. Check the menu price, ask about any item, and confirm whether they deliver to the sand before placing the order."
         ]
       },
       {

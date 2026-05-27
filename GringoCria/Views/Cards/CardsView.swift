@@ -18,18 +18,21 @@ struct CardsView: View {
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
-            ZStack {
-                backgroundGradient
-
+            Group {
                 if let viewModel {
                     if viewModel.isLoading {
                         ProgressView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     } else {
                         levelList(viewModel: viewModel)
                     }
                 } else {
                     ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+            }
+            .background {
+                backgroundGradient
             }
             .navigationTitle("Pronunciation Cards")
             .navigationBarTitleDisplayMode(.large)
