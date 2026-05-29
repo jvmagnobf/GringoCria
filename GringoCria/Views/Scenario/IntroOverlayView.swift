@@ -37,25 +37,52 @@ struct IntroOverlayView: View {
                     }
                 }
 
-                Text(currentPage < pages.count - 1 ? "Tap to continue" : "Tap to start")
+                Text(currentPage < pages.count - 1 ? "Tap or swipe to continue" : "Tap or swipe to start")
                     .font(.caption)
                     .foregroundStyle(.white.opacity(0.6))
                     .padding(.bottom, 48)
             }
         }
+        .contentShape(Rectangle())
         .onTapGesture {
-            if currentPage < pages.count - 1 {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    currentPage += 1
-                }
-            } else {
-                onComplete()
-            }
+            advance()
         }
+        .gesture(
+            DragGesture(minimumDistance: 20)
+                .onEnded { value in
+                    let horizontal = value.translation.width
+                    let threshold: CGFloat = 50
+
+                    if horizontal < -threshold {
+                        advance()
+                    } else if horizontal > threshold {
+                        goBack()
+                    }
+                }
+        )
         .animation(.easeInOut(duration: 0.3), value: currentPage)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(pages[currentPage])
-        .accessibilityHint(currentPage < pages.count - 1 ? "Double tap to continue" : "Double tap to start the conversation")
+        .accessibilityHint(currentPage < pages.count - 1 ? "Double tap or swipe left to continue" : "Double tap or swipe left to start the conversation")
         .accessibilityAddTraits(.isButton)
+    }
+
+    // MARK: - Navigation
+
+    private func advance() {
+        if currentPage < pages.count - 1 {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                currentPage += 1
+            }
+        } else {
+            onComplete()
+        }
+    }
+
+    private func goBack() {
+        guard currentPage > 0 else { return }
+        withAnimation(.easeInOut(duration: 0.3)) {
+            currentPage -= 1
+        }
     }
 }

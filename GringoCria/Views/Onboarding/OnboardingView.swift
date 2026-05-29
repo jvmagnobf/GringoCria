@@ -72,20 +72,47 @@ struct OnboardingView: View {
                     .padding(.bottom, 48)
             }
         }
+        .contentShape(Rectangle())
         .onTapGesture {
-            if currentPage < pages.count - 1 {
-                withAnimation(.easeInOut(duration: 0.35)) {
-                    currentPage += 1
-                }
-            } else {
-                onComplete()
-            }
+            advance()
         }
+        .gesture(
+            DragGesture(minimumDistance: 20)
+                .onEnded { value in
+                    let horizontal = value.translation.width
+                    let threshold: CGFloat = 50
+
+                    if horizontal < -threshold {
+                        advance()
+                    } else if horizontal > threshold {
+                        goBack()
+                    }
+                }
+        )
         .animation(.easeInOut(duration: 0.35), value: currentPage)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(pages[currentPage].title + ". " + pages[currentPage].body)
-        .accessibilityHint(currentPage < pages.count - 1 ? "Double tap to advance" : "Double tap to get started")
+        .accessibilityHint(currentPage < pages.count - 1 ? "Double tap or swipe left to advance" : "Double tap or swipe left to get started")
         .accessibilityAddTraits(.isButton)
+    }
+
+    // MARK: - Navigation
+
+    private func advance() {
+        if currentPage < pages.count - 1 {
+            withAnimation(.easeInOut(duration: 0.35)) {
+                currentPage += 1
+            }
+        } else {
+            onComplete()
+        }
+    }
+
+    private func goBack() {
+        guard currentPage > 0 else { return }
+        withAnimation(.easeInOut(duration: 0.35)) {
+            currentPage -= 1
+        }
     }
 
     // MARK: - Subviews
